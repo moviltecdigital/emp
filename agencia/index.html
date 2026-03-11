@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moviltec Digital &mdash; Profesionaliz&aacute; tu negocio online</title>
+  <meta name="description" content="Convertimos tu emprendimiento de Instagram y WhatsApp en un negocio digital profesional. Landing page, sistema de pedidos, automatizaciones y m&aacute;s." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0A0A0F;--surface:#111118;--card:#18181F;--border:#26262E;
+      --blue:#3B82F6;--blue2:#60A5FA;--violet:#7C3AED;--violet2:#A78BFA;
+      --green:#25D366;--green2:#1aad54;
+      --grad:linear-gradient(135deg,#3B82F6,#7C3AED);
+      --white:#FFFFFF;--gray:#94A3B8;--gray2:#64748B;
+      --r:16px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;background:rgba(10,10,15,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 28px;gap:16px}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo img{height:38px;width:auto;object-fit:contain}
+    .nav-logo-text{font-size:1.05rem;font-weight:800;letter-spacing:-0.5px;white-space:nowrap;line-height:1.1}
+    .nav-logo-text span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:block}
+    .nav-links{display:flex;gap:26px;list-style:none}
+    .nav-links a{text-decoration:none;color:var(--gray);font-size:0.85rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--white)}
+    .nav-cta{background:var(--grad);color:#fff;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:0.85rem;font-weight:700;white-space:nowrap;transition:opacity .2s,transform .2s}
+    .nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+    @media(max-width:720px){.nav-links{display:none}}
+
+    /* HERO */
+    .hero{padding:96px 24px 100px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 60% 0%,rgba(59,130,246,0.12) 0%,transparent 55%),radial-gradient(ellipse at 30% 80%,rgba(124,58,237,0.1) 0%,transparent 55%),var(--bg)}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);color:var(--blue2);font-size:0.78rem;font-weight:600;padding:7px 18px;border-radius:50px;margin-bottom:26px;text-transform:uppercase;letter-spacing:.5px}
+    .bdot{width:7px;height:7px;background:var(--blue2);border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero h1{font-size:clamp(2.4rem,7vw,4.2rem);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:22px;max-width:740px;margin-left:auto;margin-right:auto}
+    .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:clamp(1rem,2.5vw,1.15rem);color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 38px;line-height:1.8}
+    .hero-cta{display:inline-flex;align-items:center;gap:9px;background:var(--grad);color:#fff;text-decoration:none;padding:17px 36px;border-radius:50px;font-size:1.05rem;font-weight:700;box-shadow:0 8px 32px rgba(59,130,246,.35);transition:all .2s}
+    .hero-cta:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(59,130,246,.45)}
+    .hero-trust{display:flex;justify-content:center;gap:44px;margin-top:60px;flex-wrap:wrap}
+    .tr-num{font-size:1.85rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;letter-spacing:-1px}
+    .tr-lbl{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:3px;font-weight:500;text-align:center}
+
+    /* SECTIONS BASE */
+    .sec{padding:80px 24px}
+    .ctr{max-width:1100px;margin:0 auto}
+    .tc{text-align:center}
+    .stag{display:inline-block;background:rgba(59,130,246,.1);color:var(--blue2);font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+    .stag.red{background:rgba(239,68,68,.1);color:#f87171}
+    .stitle{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:900;letter-spacing:-1px;margin-bottom:12px;line-height:1.15}
+    .ssub{color:var(--gray);font-size:.97rem;max-width:560px;line-height:1.75;margin-bottom:48px}
+    .tc .ssub{margin-left:auto;margin-right:auto}
+
+    /* PROBLEMA */
+    .sec-prob{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .prob-card{background:var(--card);border:1px solid var(--border);border-left:3px solid #ef4444;border-radius:var(--r);padding:26px 22px}
+    .prob-icon{font-size:1.8rem;margin-bottom:11px}
+    .prob-card h3{font-size:.96rem;font-weight:700;margin-bottom:7px;color:#f87171}
+    .prob-card p{font-size:.82rem;color:var(--gray);line-height:1.65}
+
+    /* DEMOS */
+    .demos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+    .demo-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .2s,border-color .2s,box-shadow .2s}
+    .demo-card:hover{transform:translateY(-6px);border-color:rgba(59,130,246,.4);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+    .demo-prev{height:180px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;transition:transform .3s}
+    .demo-card:hover .demo-prev{transform:scale(1.03)}
+    .dp1{background:linear-gradient(135deg,#1A0A00,#7C2D12,#EA580C)}
+    .dp2{background:linear-gradient(135deg,#1A0A1E,#4C1D95,#7C3AED)}
+    .dp3{background:linear-gradient(135deg,#0D1B2A,#1e3a5f,#2563EB)}
+    .dp4{background:linear-gradient(135deg,#0A0A0A,#1f1f1f,#374151)}
+    .dp5{background:linear-gradient(135deg,#0C1F3F,#1e3a5f,#0ea5e9)}
+    .demo-tag{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);color:#fff;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:50px;border:1px solid rgba(255,255,255,.18)}
+    .demo-body{padding:20px 22px}
+    .demo-rubro{font-size:.7rem;color:var(--blue2);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+    .demo-body h3{font-size:1rem;font-weight:800;margin-bottom:7px;letter-spacing:-.3px}
+    .demo-body p{font-size:.82rem;color:var(--gray);line-height:1.6;margin-bottom:13px}
+    .demo-feats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+    .df{background:rgba(59,130,246,.1);color:var(--blue2);font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:50px;border:1px solid rgba(59,130,246,.2)}
+    .demo-foot{display:flex;align-items:center;justify-content:space-between}
+    .demo-ver{background:var(--grad);color:#fff;text-decoration:none;padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;gap:5px}
+    .demo-lbl{font-size:.72rem;color:var(--gray2)}
+
+    /* PAQUETES */
+    .sec-packs{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .packs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;align-items:start}
+    .pack{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px 26px;transition:border-color .2s}
+    .pack.pop{background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(124,58,237,.12));border-color:rgba(59,130,246,.4);position:relative}
+    .pop-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:.7rem;font-weight:700;padding:5px 16px;border-radius:50px;white-space:nowrap}
+    .pack-ico{font-size:2rem;margin-bottom:14px}
+    .pack-name{font-size:1.05rem;font-weight:800;margin-bottom:6px}
+    .pack-desc{font-size:.82rem;color:var(--gray);margin-bottom:18px;line-height:1.55}
+    .pack-price{margin-bottom:22px}
+    .pack-free{font-size:1.35rem;font-weight:800;color:#6ee7b7}
+    .pack-mant{font-size:.8rem;color:var(--gray);margin-top:4px}
+    .pack-mant strong{color:rgba(255,255,255,.8)}
+    .pack-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+    .pack-feats li{font-size:.83rem;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:8px}
+    .pack-feats li::before{content:'&#10003;';color:#6ee7b7;font-weight:700;flex-shrink:0;margin-top:1px}
+    .btn-pack{width:100%;background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.18);padding:13px;border-radius:50px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;text-decoration:none;display:flex;align-items:center;justify-content:center}
+    .btn-pack:hover{background:rgba(255,255,255,.13)}
+    .btn-pack.p{background:var(--grad);border-color:transparent}
+    .btn-pack.p:hover{opacity:.9}
+
+    /* COMO FUNCIONA */
+    .como-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+    .como-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 22px;text-align:center}
+    .como-n{width:48px;height:48px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.05rem;font-weight:800;margin:0 auto 12px;color:#fff}
+    .como-card h3{font-size:.94rem;font-weight:700;margin-bottom:7px}
+    .como-card p{font-size:.81rem;color:var(--gray);line-height:1.6}
+
+    /* HERRAMIENTAS */
+    .tools-wrap{display:flex;flex-wrap:wrap;gap:11px;justify-content:center}
+    .tool{background:var(--card);border:1px solid var(--border);color:var(--white);font-size:.82rem;font-weight:600;padding:10px 18px;border-radius:50px;display:flex;align-items:center;gap:7px;transition:all .2s}
+    .tool:hover{border-color:var(--blue);color:var(--blue2)}
+
+    /* CTA SECTION */
+    .sec-cta{background:var(--grad);text-align:center}
+    .sec-cta .stitle{color:#fff}
+    .sec-cta p{color:rgba(255,255,255,.88);font-size:1.05rem;max-width:520px;margin:0 auto 32px;line-height:1.75}
+    .btn-white{background:#fff;color:var(--blue);text-decoration:none;padding:16px 32px;border-radius:50px;font-weight:700;font-size:1rem;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+    .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+
+    /* FORMULARIO AUDITORÍA */
+    .sec-form{background:var(--bg)}
+    .form-wrap{max-width:600px;margin:0 auto}
+    .form-hd{text-align:center;margin-bottom:36px}
+    .form-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:44px 40px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .fg{margin-bottom:18px}
+    .fg label{display:block;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.75);margin-bottom:7px;letter-spacing:.2px}
+    .fg input,.fg select,.fg textarea{width:100%;padding:13px 16px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:'Inter',sans-serif;color:var(--white);transition:border-color .2s,box-shadow .2s;outline:none;-webkit-appearance:none}
+    .fg input::placeholder,.fg textarea::placeholder{color:var(--gray2)}
+    .fg select option{background:var(--surface);color:var(--white)}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,130,246,.15)}
+    .fg textarea{resize:vertical;min-height:96px;line-height:1.6}
+    .char-count{font-size:.72rem;color:var(--gray2);text-align:right;margin-top:4px}
+    .char-count.warn{color:#f87171}
+    .btn-audit{width:100%;background:var(--grad);color:#fff;border:none;padding:16px;border-radius:12px;font-size:1.02rem;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:9px;transition:opacity .2s,transform .2s;margin-top:8px;letter-spacing:-.2px}
+    .btn-audit:hover{opacity:.92;transform:translateY(-1px)}
+    .form-note{text-align:center;font-size:.76rem;color:var(--gray);margin-top:12px;line-height:1.6}
+
+    /* FOOTER */
+    footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:42px 24px}
+    .f-logo{font-size:1.2rem;font-weight:900;margin-bottom:8px;letter-spacing:-.5px}
+    .f-logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    footer p{font-size:.81rem;color:var(--gray);line-height:1.7;margin-bottom:16px}
+    .f-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+    .f-links a{color:var(--gray2);text-decoration:none;font-size:.81rem;transition:color .2s}
+    .f-links a:hover{color:var(--blue2)}
+    .f-copy{font-size:.72rem;color:var(--gray2);border-top:1px solid var(--border);padding-top:16px}
+
+    /* WA FLOAT */
+    .wa-f{position:fixed;bottom:28px;right:22px;z-index:999;background:var(--green);color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;animation:pw 2.5s infinite}
+    .wa-f:hover{transform:scale(1.1)}
+    @keyframes pw{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
+
+    @media(max-width:600px){.hero{padding:72px 18px 80px}.hero-trust{gap:24px}.form-row{grid-template-columns:1fr}.form-box{padding:28px 20px}nav{padding:12px 16px}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="../assets/logo-moviltec.png" alt="Moviltec Digital"/>
+    <div class="nav-logo-text">Moviltec<span>Digital</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#demos">Ver demos</a></li>
+    <li><a href="#paquetes">Paquetes</a></li>
+    <li><a href="#como">C&oacute;mo funciona</a></li>
+    <li><a href="#auditoria">Contacto</a></li>
+  </ul>
+  <a href="#auditoria" class="nav-cta">Solicitar auditor&iacute;a</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><div class="bdot"></div>Para emprendedores que venden por Instagram y WhatsApp</div>
+  <h1>Tu negocio merece<br><span class="grad">vender en internet.</span></h1>
+  <p class="hero-sub">Convertimos tu emprendimiento en un negocio digital profesional. P&aacute;gina web, sistema de pedidos, automatizaciones y m&aacute;s. Todo configurado para vos.</p>
+  <a href="#demos" class="hero-cta">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+    Ver ejemplos para mi negocio
+  </a>
+  <div class="hero-trust">
+    <div><div class="tr-num">48hs</div><div class="tr-lbl">Tu p&aacute;gina lista</div></div>
+    <div><div class="tr-num">$0</div><div class="tr-lbl">Costo inicial</div></div>
+    <div><div class="tr-num">5 rubros</div><div class="tr-lbl">Ya disponibles</div></div>
+    <div><div class="tr-num">100%</div><div class="tr-lbl">Mobile first</div></div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="sec sec-prob">
+  <div class="ctr tc">
+    <div class="stag red">El problema</div>
+    <h2 class="stitle">&iquest;Te identific&aacute;s con esto?</h2>
+    <p class="ssub">Millones de emprendedores en Argentina pierden clientes todos los d&iacute;as por no tener presencia digital.</p>
+    <div class="prob-grid">
+      <div class="prob-card">
+        <div class="prob-icon">&#128518;</div>
+        <h3>Solo llegás por Instagram</h3>
+        <p>Tu negocio depende del algoritmo. Si no post&eacute;as, no exist&iacute;s. Y tus clientes no tienen c&oacute;mo encontrarte solos.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">&#128172;</div>
+        <h3>Todo pasa por DM</h3>
+        <p>Respond&eacute;s las mismas preguntas todo el d&iacute;a: precios, horarios, disponibilidad. Tiempo perdido que no pod&eacute;s dedicar al trabajo.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">&#128542;</div>
+        <h3>No tenés forma de cobrar online</h3>
+        <p>Perd&eacute;s ventas porque el cliente no puede pagar en el momento. Sin sistema de cobro, se enfr&iacute;an y no vuelven.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">&#128197;</div>
+        <h3>Dependés del boca en boca</h3>
+        <p>Tus clientes nuevos vienen de recomendaciones, pero no ten&eacute;s forma de captar a los que te buscan en Google.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMOS -->
+<section class="sec" id="demos">
+  <div class="ctr tc">
+    <div class="stag">Ejemplos reales</div>
+    <h2 class="stitle">As&iacute; quedar&iacute;a <em>tu negocio</em></h2>
+    <p class="ssub">Hac&eacute; clic en el rubro que m&aacute;s se parece al tuyo y mir&aacute; c&oacute;mo se ver&iacute;a tu p&aacute;gina.</p>
+    <div class="demos-grid">
+
+      <a href="../demos/gastronomia/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp1">&#127869;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Gastronom&iacute;a &middot; Viandas</div>
+          <h3>Viandas &amp; Comida casera</h3>
+          <p>Men&uacute; semanal con carrito de pedidos, control de cantidades y env&iacute;o del pedido por WhatsApp.</p>
+          <div class="demo-feats"><span class="df">Men&uacute; digital</span><span class="df">Carrito de pedidos</span><span class="df">MercadoPago</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Restaurantes &middot; Catering &middot; Viandas</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/peluqueria/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp2">&#9986;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Peluquer&iacute;a &middot; Est&eacute;tica</div>
+          <h3>Peluquer&iacute;a &amp; Studio</h3>
+          <p>Galer&iacute;a de trabajos, lista de servicios con precios y reserva de turno online.</p>
+          <div class="demo-feats"><span class="df">Galer&iacute;a</span><span class="df">Reserva de turnos</span><span class="df">Precios visibles</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Peluquer&iacute;as &middot; Barber&iacute;as &middot; Est&eacute;tica</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/servicios-hogar/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp3">&#128295;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Servicios del Hogar</div>
+          <h3>Gas &middot; Electricidad &middot; Plomer&iacute;a</h3>
+          <p>Servicios disponibles, formulario de presupuesto y bot&oacute;n de urgencia 24hs.</p>
+          <div class="demo-feats"><span class="df">Presupuesto online</span><span class="df">Urgencias 24hs</span><span class="df">Zona cobertura</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Gas &middot; Electricidad &middot; Plomer&iacute;a</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/ropa/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp4">&#128248;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Venta de Ropa</div>
+          <h3>Tienda de Indumentaria</h3>
+          <p>Cat&aacute;logo de productos con talles, precios, ofertas y compra directa por WhatsApp.</p>
+          <div class="demo-feats"><span class="df">Cat&aacute;logo digital</span><span class="df">Talles y colores</span><span class="df">Env&iacute;os Argentina</span><span class="df">MercadoPago</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Ropa &middot; Accesorios &middot; Calzado</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/inmobiliaria/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp5">&#127968;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Inmobiliaria &middot; Alquileres</div>
+          <h3>Inmobiliaria</h3>
+          <p>Listado de propiedades, filtros, tasaci&oacute;n sin cargo y consultas por WhatsApp.</p>
+          <div class="demo-feats"><span class="df">Listado propiedades</span><span class="df">Tasaci&oacute;n gratis</span><span class="df">Filtros</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Ventas &middot; Alquileres &middot; Tasaciones</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PAQUETES -->
+<section class="sec sec-packs" id="paquetes">
+  <div class="ctr tc">
+    <div class="stag">Nuestros paquetes</div>
+    <h2 class="stitle">Simple y sin letra chica</h2>
+    <p class="ssub">Todos los paquetes incluyen un per&iacute;odo de prueba gratuito. Despu&eacute;s pag&aacute;s mantenimiento mensual &mdash; o no, sin problemas.</p>
+    <div class="packs-grid">
+
+      <div class="pack">
+        <div class="pack-ico">&#128640;</div>
+        <div class="pack-name">Presencia Digital</div>
+        <div class="pack-desc">Para emprendedores que necesitan tener presencia online hoy mismo.</div>
+        <div class="pack-price">
+          <div class="pack-free">60 d&iacute;as GRATIS</div>
+          <div class="pack-mant">Despu&eacute;s: <strong>~$15 USD/mes</strong></div>
+        </div>
+        <ul class="pack-feats">
+          <li>P&aacute;gina web completa para tu rubro</li>
+          <li>Bot&oacute;n de WhatsApp directo</li>
+          <li>Link de pago MercadoPago</li>
+          <li>Formulario de contacto</li>
+          <li>Dise&ntilde;o profesional mobile</li>
+          <li>Entrega en 48&ndash;72hs</li>
+        </ul>
+        <a href="https://wa.me/5492644114128?text=Hola!%20Me%20interesa%20el%20pack%20%F0%9F%9A%80%20*Presencia%20Digital*%20(60%20d%C3%ADas%20gratis%20%2B%20%2415%20USD%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack" target="_blank">Quiero este paquete</a>
+      </div>
+
+      <div class="pack pop">
+        <div class="pop-badge">El m&aacute;s elegido</div>
+        <div class="pack-ico">&#9889;</div>
+        <div class="pack-name">Ventas Autom&aacute;ticas</div>
+        <div class="pack-desc">Automatiz&aacute; las consultas y pedidos para ganar tiempo y no perder ventas.</div>
+        <div class="pack-price">
+          <div class="pack-free">60 d&iacute;as GRATIS</div>
+          <div class="pack-mant">Despu&eacute;s: <strong>~$30 USD/mes</strong></div>
+        </div>
+        <ul class="pack-feats">
+          <li>Todo del pack anterior</li>
+          <li>Bot de preguntas frecuentes</li>
+          <li>Formulario de pedidos online</li>
+          <li>Respuesta autom&aacute;tica WhatsApp</li>
+          <li>Panel en Google Sheets</li>
+          <li>Entrega en 5&ndash;7 d&iacute;as</li>
+        </ul>
+        <a href="https://wa.me/5492644114128?text=Hola!%20Me%20interesa%20el%20pack%20%E2%9A%A1%20*Ventas%20Autom%C3%A1ticas*%20(el%20m%C3%A1s%20elegido%20%E2%80%94%2060%20d%C3%ADas%20gratis%20%2B%20%2430%20USD%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack p" target="_blank">Quiero este paquete</a>
+      </div>
+
+      <div class="pack">
+        <div class="pack-ico">&#128142;</div>
+        <div class="pack-name">Negocio Digital Completo</div>
+        <div class="pack-desc">Para negocios con volumen real que quieren profesionalizarse al m&aacute;ximo.</div>
+        <div class="pack-price">
+          <div class="pack-free">60 d&iacute;as GRATIS</div>
+          <div class="pack-mant">Despu&eacute;s: <strong>~$50 USD/mes</strong></div>
+        </div>
+        <ul class="pack-feats">
+          <li>Todo del pack anterior</li>
+          <li>Sistema de pedidos con confirmaci&oacute;n autom&aacute;tica</li>
+          <li>Integraci&oacute;n Google Calendar</li>
+          <li>Notificaciones autom&aacute;ticas al cliente</li>
+          <li>Reportes semanales de ventas</li>
+          <li>Entrega en 10&ndash;14 d&iacute;as</li>
+        </ul>
+        <a href="https://wa.me/5492644114128?text=Hola!%20Me%20interesa%20el%20pack%20%F0%9F%92%8E%20*Negocio%20Digital%20Completo*%20(60%20d%C3%ADas%20gratis%20%2B%20%2450%20USD%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack" target="_blank">Quiero este paquete</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="sec" id="como">
+  <div class="ctr tc">
+    <div class="stag">El proceso</div>
+    <h2 class="stitle">&iquest;C&oacute;mo funciona?</h2>
+    <p class="ssub">De Instagram al negocio digital en 4 pasos simples.</p>
+    <div class="como-grid">
+      <div class="como-card"><div class="como-n">1</div><h3>Sol&iacute;cit&aacute;s tu auditor&iacute;a</h3><p>Complet&aacute;s el formulario. Analizamos tu negocio y tu presencia digital actual.</p></div>
+      <div class="como-card"><div class="como-n">2</div><h3>Recib&iacute;s la propuesta</h3><p>En 24hs te enviamos un diagn&oacute;stico y una propuesta personalizada para tu rubro.</p></div>
+      <div class="como-card"><div class="como-n">3</div><h3>Armamos todo</h3><p>Creamos tu p&aacute;gina, sistema de pedidos y automatizaciones. Vos solo aprobás.</p></div>
+      <div class="como-card"><div class="como-n">4</div><h3>Tu negocio en l&iacute;nea</h3><p>Empez&aacute;s a recibir consultas y pedidos. En 60 d&iacute;as ves el resultado y dec&iacute;dis si segu&iacute;s.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HERRAMIENTAS -->
+<section class="sec" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="ctr tc">
+    <div class="stag">Tecnolog&iacute;a</div>
+    <h2 class="stitle">Herramientas de primer nivel</h2>
+    <p class="ssub">Usamos las mejores herramientas del mercado, muchas gratuitas, para darte un servicio profesional y sustentable.</p>
+    <div class="tools-wrap">
+      <div class="tool">&#127760; Netlify (hosting gratis)</div>
+      <div class="tool">&#128154; WhatsApp Business</div>
+      <div class="tool">&#128179; MercadoPago</div>
+      <div class="tool">&#129302; Bot FAQ autom&aacute;tico</div>
+      <div class="tool">&#128203; Google Forms + Apps Script</div>
+      <div class="tool">&#128202; Google Sheets</div>
+      <div class="tool">&#128197; Google Calendar</div>
+      <div class="tool">&#127912; Dise&ntilde;o profesional</div>
+      <div class="tool">&#128241; 100% mobile</div>
+      <div class="tool">&#9889; Carga ultarr&aacute;pida</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec sec-cta">
+  <div class="ctr">
+    <h2 class="stitle" style="font-size:clamp(1.8rem,5vw,2.8rem);color:#fff">&iquest;List&oacute; para que tu negocio<br>venda m&aacute;s?</h2>
+    <p>Pedir la auditor&iacute;a es gratis y sin compromiso. En 24hs ten&eacute;s un diagn&oacute;stico real de lo que le falta a tu negocio.</p>
+    <a href="#auditoria" class="btn-white">Pedir mi auditor&iacute;a gratuita &rarr;</a>
+  </div>
+</section>
+
+<!-- FORMULARIO AUDITORÍA -->
+<section class="sec sec-form" id="auditoria">
+  <div class="ctr">
+    <div class="form-wrap">
+      <div class="form-hd">
+        <div class="stag">Auditor&iacute;a gratuita</div>
+        <h2 class="stitle">Solicit&aacute; tu diagn&oacute;stico digital</h2>
+        <p style="color:var(--gray);font-size:.95rem;line-height:1.75;max-width:480px;margin:0 auto">Complet&aacute; el formulario y en menos de 24hs te enviamos un an&aacute;lisis real de las oportunidades de tu negocio. Sin costo, sin compromiso.</p>
+      </div>
+      <div class="form-box">
+        <form onsubmit="enviarAuditoria(event)">
+
+          <div class="form-row">
+            <div class="fg"><label>Nombre *</label><input type="text" id="fnombre" placeholder="Tu nombre" required /></div>
+            <div class="fg"><label>Apellido *</label><input type="text" id="fapellido" placeholder="Tu apellido" required /></div>
+          </div>
+
+          <div class="fg">
+            <label>Nombre del negocio o actividad *</label>
+            <input type="text" id="fnegocio" placeholder="Ej: Viandas Valeria, Soy electricista aut&oacute;nomo..." required />
+          </div>
+
+          <div class="fg">
+            <label>Tipo de actividad *</label>
+            <select id="ftipo" required>
+              <option value="">Seleccion&aacute;...</option>
+              <option>Negocio con nombre propio</option>
+              <option>Aut&oacute;nomo / Servicio personal</option>
+              <option>Emprendimiento familiar</option>
+              <option>PYME o empresa</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="fg"><label>Celular / WhatsApp *</label><input type="tel" id="fcelular" placeholder="Ej: 2644114128" required /></div>
+            <div class="fg"><label>Mail *</label><input type="email" id="fmail" placeholder="tumail@gmail.com" required /></div>
+          </div>
+
+          <div class="fg">
+            <label>Instagram del negocio *</label>
+            <input type="text" id="finstagram" placeholder="@tunegocio" required />
+          </div>
+
+          <div class="fg">
+            <label>Cont&aacute;nos sobre tu negocio <span style="color:var(--gray2);font-weight:400">(opcional &mdash; m&aacute;x. 100 palabras)</span></label>
+            <textarea id="fmensaje" placeholder="&iquest;A qu&eacute; te dedic&aacute;s? &iquest;D&oacute;nde publicitas? &iquest;Qu&eacute; necesit&aacute;s mejorar? &iquest;Cu&aacute;les son tus dudas..." oninput="countWords(this)"></textarea>
+            <div class="char-count" id="wordCount">0 / 100 palabras</div>
+          </div>
+
+          <button type="submit" class="btn-audit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Solicitar auditor&iacute;a gratuita
+          </button>
+          <p class="form-note">&#128274; Tus datos son confidenciales &middot; Te respondemos en menos de 24hs &middot; Sin costo ni compromiso</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px">
+    <img src="../assets/logo-moviltec.png" alt="Moviltec Digital" style="height:44px;width:auto"/>
+    <div class="f-logo" style="margin:0">Moviltec <span>Digital</span></div>
+  </div>
+  <p>Profesionalizamos tu negocio de Instagram a internet &middot; Argentina &middot; Servicio 100% online</p>
+  <div class="f-links">
+    <a href="#demos">Ver demos</a>
+    <a href="#paquetes">Paquetes</a>
+    <a href="#auditoria">Auditor&iacute;a gratis</a>
+    <a href="https://wa.me/5492644114128" target="_blank">WhatsApp</a>
+  </div>
+  <div class="f-copy">&copy; 2025 Moviltec Digital &middot; Todos los derechos reservados</div>
+</footer>
+
+<a href="https://wa.me/5492644114128?text=Hola!%20Vi%20Moviltec%20Digital%20y%20quiero%20consultar" class="wa-f" target="_blank">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+function countWords(el){
+  var words=el.value.trim().split(/\s+/).filter(function(w){return w.length>0;});
+  var cnt=words.length;
+  var wc=document.getElementById('wordCount');
+  wc.textContent=cnt+' / 100 palabras';
+  if(cnt>100){wc.classList.add('warn');}else{wc.classList.remove('warn');}
+  if(cnt>100){
+    var trimmed=words.slice(0,100).join(' ');
+    el.value=trimmed;
+    wc.textContent='100 / 100 palabras';
+  }
+}
+
+function enviarAuditoria(e){
+  e.preventDefault();
+  var nombre=document.getElementById('fnombre').value.trim();
+  var apellido=document.getElementById('fapellido').value.trim();
+  var negocio=document.getElementById('fnegocio').value.trim();
+  var tipo=document.getElementById('ftipo').value;
+  var celular=document.getElementById('fcelular').value.trim();
+  var mail=document.getElementById('fmail').value.trim();
+  var instagram=document.getElementById('finstagram').value.trim();
+  var mensaje=document.getElementById('fmensaje').value.trim();
+  var msg='\uD83D\uDCCA *Solicitud de Auditor\u00eda Digital \u2014 Moviltec Digital*\n\n';
+  msg+='\uD83D\uDC64 *Nombre:* '+nombre+' '+apellido+'\n';
+  msg+='\uD83C\uDFEA *Negocio:* '+negocio+'\n';
+  msg+='\uD83D\uDCCB *Tipo:* '+tipo+'\n';
+  msg+='\uD83D\uDCF1 *Celular:* '+celular+'\n';
+  msg+='\u2709\uFE0F *Mail:* '+mail+'\n';
+  msg+='\uD83D\uDCF8 *Instagram:* '+instagram+'\n';
+  if(mensaje){msg+='\n\uD83D\uDCAC *Mensaje:* '+mensaje+'\n';}
+  msg+='\n\u00A1Quedo esperando el diagn\u00F3stico!';
+  window.open('https://wa.me/5492644114128?text='+encodeURIComponent(msg),'_blank');
+}
+</script>
+</body>
+</html>
