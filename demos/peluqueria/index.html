@@ -68,16 +68,6 @@ nav{position:sticky;top:0;z-index:200;background:rgba(8,8,16,0.95);backdrop-filt
 .tc-loc{font-size:.73rem;color:var(--gray);margin-top:2px}
 /* TURNO */
 .sec-turno{background:var(--surface);border-top:1px solid var(--border)}
-.turno-box{max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:40px 36px}
-.fg{margin-bottom:16px}
-.fg label{display:block;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.75);margin-bottom:6px}
-.fg input,.fg select{width:100%;padding:13px 16px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:'Inter',sans-serif;color:#fff;outline:none;transition:border-color .2s}
-.fg input::placeholder{color:var(--gray2)}
-.fg select option{background:var(--surface)}
-.fg input:focus,.fg select:focus{border-color:var(--gold)}
-.btn-turno{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;border:none;padding:15px;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:9px;transition:opacity .2s,transform .2s;margin-top:8px}
-.btn-turno:hover{opacity:.92;transform:translateY(-1px)}
-.form-note{text-align:center;font-size:.75rem;color:var(--gray);margin-top:10px}
 footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:38px 24px}
 .f-logo{font-size:1.15rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
 .f-logo span{color:var(--gold)}
@@ -223,24 +213,6 @@ footer p{font-size:.81rem;color:var(--gray);line-height:1.7;margin-bottom:14px}
   <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 
-<script>
-function reservarTurno(e){
-  e.preventDefault();
-  var n=document.getElementById('tnombre').value.trim();
-  var c=document.getElementById('tcelular').value.trim();
-  var s=document.getElementById('tservicio').value;
-  var d=document.getElementById('tdia').value;
-  var t=document.getElementById('tturno').value;
-  var msg='\u2702\uFE0F *Reserva de turno \u2014 Studio Noir*\n\n';
-  msg+='\uD83D\uDC64 *Nombre:* '+n+'\n';
-  msg+='\uD83D\uDCF1 *Tel:* '+c+'\n';
-  msg+='\u2728 *Servicio:* '+s+'\n';
-  if(d)msg+='\uD83D\uDCC5 *D\u00EDa preferido:* '+d+'\n';
-  if(t)msg+='\u23F0 *Horario:* '+t+'\n';
-  msg+='\n\u00A1Quedo esperando confirmaci\u00F3n de disponibilidad!';
-  window.open('https://wa.me/5492644114128?text='+encodeURIComponent(msg),'_blank');
-}
-</script>
 <script src="../../assets/booking.js"></script>
 <script>
 new MoviltecBooking({
