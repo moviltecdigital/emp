@@ -98,7 +98,7 @@ footer p{font-size:.81rem;color:var(--gray);line-height:1.7;margin-bottom:14px}
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Reservar mi turno
     </a>
-    <a href="#servicios" class="btn-wa" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)">
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})" class="btn-wa" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)">
       Ver servicios y precios
     </a>
   </div>
