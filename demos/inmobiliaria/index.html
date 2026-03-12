@@ -265,6 +265,18 @@ footer p{font-size:.81rem;color:var(--gray);line-height:1.7;margin-bottom:14px}
   </div>
 </section>
 
+<!-- RESERVAR VISITA -->
+<section class="sec" id="visita" style="background:var(--surface);border-top:1px solid var(--border)">
+  <div class="ctr">
+    <div class="tc" style="margin-bottom:32px">
+      <div class="stag">Visitas online</div>
+      <h2 class="stitle">Reserv&aacute; una visita</h2>
+      <p style="color:var(--gray);font-size:.93rem;max-width:440px;margin:0 auto;line-height:1.7">Eleg&iacute; d&iacute;a y horario. Un asesor te acompa&ntilde;a en la visita a la propiedad que te interes&oacute;.</p>
+    </div>
+    <div id="mbw-inmo" style="--mbw-primary:#8B5CF6;--mbw-accent:#A78BFA;--mbw-card:#16161F;--mbw-surface:#0F0F1A;--mbw-border:#22222E;--mbw-gray:#94A3B8"></div>
+  </div>
+</section>
+
 <!-- TASACIÓN -->
 <section class="sec sec-tas" id="tasacion">
   <div class="ctr">
@@ -362,6 +374,22 @@ function filtrar(){
     c.style.display=m?'':'none';
   });
 }
+</script>
+<script src="../../assets/booking.js"></script>
+<script>
+new MoviltecBooking({
+  containerId: 'mbw-inmo',
+  apiUrl: 'https://script.google.com/macros/s/AKfycbwENjf4t3iKD-7a6J6LWIRKxtLNL6VY_AEjC4Vt5RC5wjYmhsgEEGpg9v87y45sIz9g/exec',
+  waNumber: '5492644114128',
+  servicios: [
+    'Visita a propiedad en venta',
+    'Visita a propiedad en alquiler',
+    'Consulta con asesor',
+    'Tasación presencial'
+  ],
+  primaryColor: '#8B5CF6',
+  accentColor: '#A78BFA'
+});
 </script>
 </body>
 </html>
