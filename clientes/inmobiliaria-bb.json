@@ -1,0 +1,82 @@
+{
+  "rubro"       : "inmobiliaria",
+  "nombre"      : "Inmobiliaria BB",
+  "slogan"      : "Tenés tu lugar en el mundo",
+  "slogan_linea1": "Tenés tu lugar",
+  "slogan_linea2": "en el mundo.",
+  "descripcion" : "Venta, alquiler, tasación y loteos privados en San Juan. Te ayudamos a encontrar el lugar que siempre soñaste.",
+  "telefono"    : "2068183478748",
+  "ciudad"      : "San Juan",
+  "pais"        : "Argentina",
+  "horario"     : "Lunes a Viernes 9–18hs · Sábado 9–13hs",
+  "color1"      : "#8B6F47",
+  "color2"      : "#C4A882",
+  "colorFondo"  : "#0F0B08",
+  "colorSurface": "#1A1410",
+  "colorCard"   : "#231C15",
+  "colorBorde"  : "#3A2E22",
+  "colorTexto"  : "#F5ECD7",
+  "logoIniciales": "BB",
+  "heroImg"     : "a1.jpg",
+  "apiUrl"      : "https://script.google.com/macros/s/AKfycbwENjf4t3iKD-7a6J6LWIRKxtLNL6VY_AEjC4Vt5RC5wjYmhsgEEGpg9v87y45sIz9g/exec",
+
+  "stats": [
+    { "numero": "+500",     "label": "Operaciones"     },
+    { "numero": "12 años",  "label": "De experiencia"  },
+    { "numero": "4.9★",     "label": "Calificación"    },
+    { "numero": "San Juan", "label": "Capital y Gran SJ"}
+  ],
+
+  "servicios": [
+    { "icono": "🏠", "nombre": "Venta de propiedades",  "descripcion": "Casas, departamentos, terrenos y locales. Te acompañamos hasta la escritura." },
+    { "icono": "🔑", "nombre": "Alquiler",               "descripcion": "Encontrá tu próximo hogar o local. Gestionamos tu propiedad y cobrás sin preocupaciones." },
+    { "icono": "📈", "nombre": "Tasación",               "descripcion": "Conocé el valor real de tu propiedad. Online o presencial, rápido y sin costo inicial." },
+    { "icono": "🌿", "nombre": "Loteos Privados",        "descripcion": "Lotes exclusivos en barrios privados y urbanizaciones. Invertí en el futuro." }
+  ],
+
+  "bookingServicios": [
+    "Visita a propiedad en venta",
+    "Visita a propiedad en alquiler",
+    "Consulta con asesor",
+    "Visita a lote / loteo privado",
+    "Tasación presencial"
+  ],
+
+  "items": [
+    {
+      "titulo"      : "Casa 4 amb. con garage y jardín",
+      "precio"      : "$29.387.475",
+      "operacion"   : "venta",
+      "tipoInmueble": "casa",
+      "zona"        : "Capital",
+      "ambientes"   : "4",
+      "metros"      : "180",
+      "foto"        : "a1.jpg"
+    },
+    {
+      "titulo"      : "Lote en barrio privado — Inversión",
+      "precio"      : "$485.895.948",
+      "operacion"   : "loteo",
+      "tipoInmueble": "lote",
+      "zona"        : "Gran San Juan",
+      "metros"      : "600",
+      "foto"        : "a2.jpg"
+    },
+    {
+      "titulo"      : "Departamento 2 amb. zona céntrica",
+      "precio"      : "$765.473.647",
+      "operacion"   : "venta",
+      "tipoInmueble": "depto",
+      "zona"        : "Centro SJ",
+      "ambientes"   : "2",
+      "metros"      : "65",
+      "foto"        : "a3.jpg"
+    }
+  ],
+
+  "testimonios": [
+    { "texto": "Vendí mi casa en Capital en menos de un mes al precio que pedí. El equipo de BB es profesional y siempre disponible.", "nombre": "Marcela G.", "lugar": "Capital, San Juan" },
+    { "texto": "Busqué departamento por meses. Con Inmobiliaria BB lo encontré en dos semanas. Me acompañaron en cada paso.", "nombre": "Roberto y Ana F.", "lugar": "Rawson, San Juan" },
+    { "texto": "Invertí en un lote del loteo privado y fue la mejor decisión. Buena ubicación, precio justo y documentación en orden.", "nombre": "Diego A.", "lugar": "Rivadavia, San Juan" }
+  ]
+}
