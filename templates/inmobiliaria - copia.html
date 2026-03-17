@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>{{INMOBILIARIA CARDENS}} &mdash; {{LO MEJOR PARA VIVIRSLOGAN}}</title>
+<meta name="description" content="{{DESCRIPCION MODIFICADA}} {{CIUDAD DE SAN JUAN}}."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:{{COLOR_BG}};--surface:{{COLOR_SURFACE}};--card:{{COLOR_CARD}};--border:{{COLOR_BORDE}};
+  --p:{{COLOR1}};--p2:{{COLOR2}};--texto:{{COLOR_TEXTO}};
+  --green:#25D366;--green2:#1aad54;--gray:#9C8A75;--gray2:#6B5B4A;--r:16px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--texto);overflow-x:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(15,11,8,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 26px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:#fff;flex-shrink:0}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--texto)}
+.nav-cta{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:.84rem;font-weight:800;white-space:nowrap;transition:all .2s}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 24px 70px;background:linear-gradient(180deg,rgba(15,11,8,.15) 0%,rgba(15,11,8,.72) 50%,var(--bg) 100%){{HERO_STYLE}};position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 35%,rgba(139,111,71,0.1) 0%,transparent 65%)}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(139,111,71,0.18);border:1px solid rgba(196,168,130,0.35);color:var(--p2);font-size:.77rem;font-weight:600;padding:7px 17px;border-radius:50px;margin-bottom:24px;position:relative}
+.htdot{width:7px;height:7px;background:var(--p2);border-radius:50%;animation:bl 1.5s infinite;flex-shrink:0}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,7vw,4.8rem);font-weight:900;line-height:1.05;letter-spacing:-1px;margin-bottom:16px;max-width:700px;color:#fff;position:relative}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--p2),var(--texto));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.05rem;color:rgba(245,236,215,.7);max-width:480px;line-height:1.8;margin-bottom:36px;position:relative}
+.hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;position:relative}
+.btn-p{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-decoration:none;padding:15px 32px;border-radius:50px;font-size:.98rem;font-weight:800;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.btn-p:hover{transform:translateY(-2px);opacity:.92}
+.btn-ghost{background:rgba(245,236,215,.08);border:1px solid rgba(245,236,215,.2);color:var(--texto);text-decoration:none;padding:15px 26px;border-radius:50px;font-size:.95rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-ghost:hover{background:rgba(245,236,215,.14);transform:translateY(-2px)}
+.hstats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;position:relative}
+.snum{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;background:linear-gradient(90deg,var(--p2),var(--texto));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center}
+.slbl{font-size:.72rem;color:rgba(245,236,215,.4);margin-top:3px;text-align:center;text-transform:uppercase;letter-spacing:.5px}
+.sec{padding:76px 24px}
+.ctr{max-width:1100px;margin:0 auto}
+.tc{text-align:center}
+.stag{display:inline-block;background:rgba(139,111,71,.15);color:var(--p2);font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:11px;text-transform:uppercase;letter-spacing:.5px}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:900;letter-spacing:-.5px;margin-bottom:10px;color:#fff}
+.ssub{color:var(--gray);font-size:.93rem;line-height:1.75;max-width:480px;margin:0 auto 48px}
+.sec-serv{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.serv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.serv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p),var(--p2));opacity:0;transition:opacity .2s}
+.serv-card:hover{border-color:rgba(196,168,130,.4);transform:translateY(-4px)}
+.serv-card:hover::before{opacity:1}
+.serv-ico{font-size:2.2rem;margin-bottom:14px}
+.serv-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:8px;color:#fff}
+.serv-desc{font-size:.83rem;color:var(--gray);line-height:1.65}
+.prop-filters{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:32px}
+.fsel{background:var(--card);border:1.5px solid var(--border);color:var(--texto);padding:9px 16px;border-radius:50px;font-size:.83rem;font-family:'Inter',sans-serif;cursor:pointer;outline:none;transition:border-color .2s}
+.fsel:focus{border-color:var(--p)}
+.prop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.prop-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
+.prop-card:hover{transform:translateY(-5px);border-color:rgba(196,168,130,.4);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.prop-img{height:220px;overflow:hidden;position:relative}
+.prop-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.prop-card:hover .prop-img img{transform:scale(1.06)}
+.prop-badge{position:absolute;top:14px;left:14px;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:.5px}
+.prop-body{padding:20px}
+.prop-tipo{font-size:.72rem;color:var(--p2);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.prop-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
+.prop-details{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.prop-det{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--gray)}
+.prop-price{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;background:linear-gradient(90deg,var(--p2),var(--texto));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px}
+.prop-foot{display:flex;gap:10px}
+.btn-consultar{flex:1;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border:none;padding:11px 14px;border-radius:10px;font-size:.83rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s}
+.btn-consultar:hover{opacity:.88}
+.btn-fav{background:var(--surface);border:1px solid var(--border);color:var(--gray);width:42px;border-radius:10px;cursor:pointer;font-size:1.1rem;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.btn-fav:hover{border-color:var(--p);color:var(--p2)}
+.sec-visita{background:var(--surface);border-top:1px solid var(--border)}
+.tas-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+@media(max-width:768px){.tas-grid{grid-template-columns:1fr}}
+.tas-text h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:900;margin-bottom:16px;line-height:1.2;color:#fff}
+.tas-text p{color:var(--gray);font-size:.93rem;line-height:1.75;margin-bottom:26px}
+.tas-feat{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.tas-ico{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.tas-info strong{display:block;font-size:.9rem;font-weight:700;color:#fff;margin-bottom:3px}
+.tas-info span{font-size:.8rem;color:var(--gray);line-height:1.5}
+.form-box{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:36px 32px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:.8rem;font-weight:600;color:rgba(245,236,215,.75);margin-bottom:6px}
+.fg input,.fg select{width:100%;padding:13px 16px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:'Inter',sans-serif;color:var(--texto);outline:none;transition:border-color .2s}
+.fg input::placeholder{color:var(--gray2)}
+.fg select option{background:var(--surface)}
+.fg input:focus,.fg select:focus{border-color:var(--p)}
+.btn-tasar{width:100%;background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;border:none;padding:15px;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:9px;transition:opacity .2s,transform .2s;margin-top:8px}
+.btn-tasar:hover{opacity:.9;transform:translateY(-1px)}
+.form-note{text-align:center;font-size:.75rem;color:var(--gray);margin-top:10px}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.tc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px}
+.tc-stars{color:var(--p2);font-size:.88rem;letter-spacing:3px;margin-bottom:12px}
+.tc-text{font-size:.86rem;color:rgba(245,236,215,.7);line-height:1.75;margin-bottom:16px;font-style:italic}
+.tc-au{display:flex;align-items:center;gap:12px}
+.tc-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:800;color:#fff;flex-shrink:0}
+.tc-name{font-size:.86rem;font-weight:700;color:#fff}
+.tc-loc{font-size:.73rem;color:var(--gray);margin-top:2px}
+footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:44px 24px}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;letter-spacing:1px;margin-bottom:10px;color:#fff}
+.f-logo span{color:var(--p2)}
+footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
+.f-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.f-links a{color:var(--gray2);text-decoration:none;font-size:.82rem;transition:color .2s}
+.f-links a:hover{color:var(--p2)}
+.f-copy{font-size:.72rem;color:var(--gray2);border-top:1px solid var(--border);padding-top:16px}
+.wa-f{position:fixed;bottom:28px;right:22px;z-index:999;background:var(--green);color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;animation:pw 2.5s infinite}
+.wa-f:hover{transform:scale(1.1)}
+@keyframes pw{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
+@media(max-width:600px){.hero{min-height:85vh;padding:75px 18px 55px}.hstats{gap:24px}nav{padding:12px 16px}.form-box{padding:24px 18px}.prop-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">{{LOGO_INICIALES}}</div>
+    <div class="nav-logo-text">{{NOMBRE INMOBILIARIA CONTINENTAL}}</div>
+  </div>
+  <a href="#visita" class="nav-cta">Reservar visita</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag"><div class="htdot"></div>Propiedades disponibles en {{CIUDAD}}</div>
+  <h1>{{SLOGAN_LINEA1- DALEEEEE}}<br><em>{{SLOGAN_LINEA2}}</em></h1>
+  <p>{{DESCRIPCION}}</p>
+  <div class="hbtns">
+    <a href="#propiedades" onclick="event.preventDefault();document.getElementById('propiedades').scrollIntoView({behavior:'smooth'})" class="btn-p">
+      <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Ver propiedades
+    </a>
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})" class="btn-ghost">
+      Nuestros servicios
+    </a>
+  </div>
+  <div class="hstats">
+    {{STATS_HTML}}
+  </div>
+</section>
+
+<section class="sec sec-serv" id="servicios">
+  <div class="ctr tc">
+    <div class="stag">Lo que hacemos</div>
+    <h2 class="stitle">Servicios inmobiliarios</h2>
+    <p class="ssub">Todo lo que necesit&aacute;s para comprar, vender, alquilar o invertir en propiedades en {{CIUDAD}}.</p>
+    <div class="serv-grid">
+      {{SERVICIOS_CARDS}}
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="propiedades">
+  <div class="ctr">
+    <div class="tc">
+      <div class="stag">Portfolio</div>
+      <h2 class="stitle">Propiedades destacadas</h2>
+      <p class="ssub">Las mejores oportunidades del mercado en {{CIUDAD}}.</p>
+    </div>
+    <div class="prop-filters">
+      <select class="fsel" id="fop" onchange="filtrar()">
+        <option value="all">Todas las operaciones</option>
+        <option value="venta">Venta</option>
+        <option value="alquiler">Alquiler</option>
+        <option value="loteo">Loteo privado</option>
+      </select>
+      <select class="fsel" id="ftipo" onchange="filtrar()">
+        <option value="all">Todos los tipos</option>
+        <option value="casa">Casa</option>
+        <option value="depto">Departamento</option>
+        <option value="lote">Lote / Terreno</option>
+      </select>
+    </div>
+    <div class="prop-grid">
+      {{ITEMS_CARDS}}
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-visita" id="visita">
+  <div class="ctr">
+    <div class="tc" style="margin-bottom:32px">
+      <div class="stag">Visitas online</div>
+      <h2 class="stitle">Reserv&aacute; una visita</h2>
+      <p style="color:var(--gray);font-size:.93rem;max-width:440px;margin:0 auto;line-height:1.7">Eleg&iacute; d&iacute;a y horario. Un asesor te acompa&ntilde;a personalmente en la visita a la propiedad.</p>
+    </div>
+    <div id="mbw-widget" style="--mbw-primary:{{COLOR1}};--mbw-accent:{{COLOR2}};--mbw-card:{{COLOR_CARD}};--mbw-surface:{{COLOR_SURFACE}};--mbw-border:{{COLOR_BORDE}};--mbw-gray:#94A3B8"></div>
+  </div>
+</section>
+
+<section class="sec" id="tasacion" style="background:var(--bg)">
+  <div class="ctr">
+    <div class="tas-grid">
+      <div class="tas-text">
+        <div class="stag">Tasaci&oacute;n online</div>
+        <h2>&iquest;Cu&aacute;nto vale<br>tu propiedad?</h2>
+        <p>Te enviamos una tasaci&oacute;n orientativa en menos de 24 horas. Gratis, sin compromiso y sin visitas.</p>
+        <div class="tas-feat"><div class="tas-ico">🏠</div><div class="tas-info"><strong>Tasaci&oacute;n sin cargo</strong><span>Sin visita, sin compromiso.</span></div></div>
+        <div class="tas-feat"><div class="tas-ico">⏰</div><div class="tas-info"><strong>Respuesta en 24hs</strong><span>Nuestros tasadores te responden r&aacute;pido.</span></div></div>
+        <div class="tas-feat"><div class="tas-ico">📈</div><div class="tas-info"><strong>Valor real de mercado</strong><span>Basado en operaciones recientes en {{CIUDAD}}.</span></div></div>
+      </div>
+      <div class="form-box">
+        <form onsubmit="pedirTasacion(event)">
+          <div class="fg"><label>Tu nombre *</label><input type="text" id="tnombre" placeholder="Nombre y apellido" required/></div>
+          <div class="fg"><label>Tu WhatsApp *</label><input type="tel" id="tcelular" placeholder="Ej: 264xxxxxxx" required/></div>
+          <div class="fg"><label>Direcci&oacute;n de la propiedad *</label><input type="text" id="tdir" placeholder="Calle, n&uacute;mero, barrio" required/></div>
+          <div class="fg">
+            <label>Tipo de propiedad *</label>
+            <select id="ttipo" required>
+              <option value="">Seleccion&aacute;...</option>
+              <option>Casa</option><option>Departamento</option><option>PH</option>
+              <option>Local comercial</option><option>Terreno / Lote</option><option>Propiedad rural</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Operaci&oacute;n que buscas</label>
+            <select id="top"><option value="">Indistinto</option><option>Vender</option><option>Alquilar</option><option>Solo saber el valor</option></select>
+          </div>
+          <button type="submit" class="btn-tasar">Pedir tasaci&oacute;n gratis</button>
+          <p class="form-note">🔒 Datos confidenciales &middot; Sin compromiso &middot; Gratis</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--surface);border-top:1px solid var(--border)">
+  <div class="ctr tc">
+    <div class="stag">Opiniones</div>
+    <h2 class="stitle">Clientes que confiaron en nosotros</h2>
+    <p class="ssub">La experiencia nos respalda.</p>
+    <div class="test-grid">
+      {{TESTIMONIOS_HTML}}
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">{{NOMBRE}}</div>
+  <p>{{SLOGAN}} &middot; {{CIUDAD}}, {{PAIS}}<br>{{HORARIO}}</p>
+  <div class="f-links">
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Servicios</a>
+    <a href="#propiedades" onclick="event.preventDefault();document.getElementById('propiedades').scrollIntoView({behavior:'smooth'})">Propiedades</a>
+    <a href="#visita" onclick="event.preventDefault();document.getElementById('visita').scrollIntoView({behavior:'smooth'})">Reservar visita</a>
+    <a href="#tasacion" onclick="event.preventDefault();document.getElementById('tasacion').scrollIntoView({behavior:'smooth'})">Tasaci&oacute;n</a>
+    <a href="https://wa.me/{{TELEFONO}}" target="_blank">WhatsApp</a>
+  </div>
+  <div class="f-copy">&copy; {{AÑO}} {{NOMBRE}} &middot; Todos los derechos reservados</div>
+</footer>
+
+<a href="https://wa.me/{{TELEFONO}}?text={{TELEFONO_URL}}" class="wa-f" target="_blank">
+  <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script src="../../assets/booking.js"></script>
+<script>
+new MoviltecBooking({
+  containerId: 'mbw-widget',
+  apiUrl: {{API_URL}},
+  waNumber: '{{TELEFONO}}',
+  servicios: {{BOOKING_SERVICIOS}},
+  primaryColor: '{{COLOR1}}',
+  accentColor: '{{COLOR2}}'
+});
+function consultar(prop){
+  var msg='🏠 *Consulta — {{NOMBRE}}*\n\nHola! Me interesa:\n*'+prop+'*\n\n¿Podrían darme más información?';
+  window.open('https://wa.me/{{TELEFONO}}?text='+encodeURIComponent(msg),'_blank');
+}
+function pedirTasacion(e){
+  e.preventDefault();
+  var n=document.getElementById('tnombre').value.trim(),c=document.getElementById('tcelular').value.trim(),d=document.getElementById('tdir').value.trim(),t=document.getElementById('ttipo').value,op=document.getElementById('top').value;
+  var msg='📊 *Tasación — {{NOMBRE}}*\n\n👤 '+n+'\n📱 '+c+'\n📍 '+d+'\n🏠 '+t+(op?'\n📋 '+op:'')+'\n\n¡Quedo esperando la tasación!';
+  window.open('https://wa.me/{{TELEFONO}}?text='+encodeURIComponent(msg),'_blank');
+}
+function filtrar(){
+  var op=document.getElementById('fop').value,tipo=document.getElementById('ftipo').value;
+  document.querySelectorAll('.prop-card').forEach(function(c){c.style.display=((op==='all'||c.dataset.op===op)&&(tipo==='all'||c.dataset.tipo===tipo))?'':'none';});
+}
+</script>
+</body>
+</html>

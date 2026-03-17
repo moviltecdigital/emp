@@ -187,6 +187,7 @@ const reemplazos = {
   '{{TESTIMONIOS_HTML}}' : testimoniosHtml(cfg.testimonios),
   '{{BOOKING_SERVICIOS}}': bookingServicios(cfg),
   '{{AÑO}}'              : new Date().getFullYear(),
+  '{{CANTIDAD_TRABAJOS}}': cfg.cantidadTrabajos || cfg.stats?.[0]?.numero || '+1000',
 };
 
 for (const [key, val] of Object.entries(reemplazos)) {

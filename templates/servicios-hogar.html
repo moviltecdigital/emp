@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>{{NOMBRE}} &mdash; {{SLOGAN}}</title>
+<meta name="description" content="{{DESCRIPCION}} {{CIUDAD}}."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:{{COLOR_BG}};--surface:{{COLOR_SURFACE}};--card:{{COLOR_CARD}};--border:{{COLOR_BORDE}};
+  --p:{{COLOR1}};--p2:{{COLOR2}};--texto:{{COLOR_TEXTO}};
+  --green:#25D366;--gray:#94A3B8;--gray2:#64748B;--r:14px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--texto);overflow-x:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(8,12,18,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 26px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-ico{font-size:1.6rem}
+.nav-logo-text{font-size:1rem;font-weight:800;color:var(--texto)}
+.nav-logo-text span{color:var(--p2)}
+.nav-cta{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:.84rem;font-weight:800;white-space:nowrap;transition:all .2s}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;background:linear-gradient(180deg,rgba(8,12,18,.05) 0%,rgba(8,12,18,.8) 60%,var(--bg) 100%){{HERO_STYLE}};position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(14,165,233,0.12);border:1px solid rgba(56,189,248,0.25);color:var(--p2);font-size:.77rem;font-weight:600;padding:7px 17px;border-radius:50px;margin-bottom:22px;position:relative}
+.htdot{width:7px;height:7px;background:var(--p2);border-radius:50%;animation:bl 1.5s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.2rem,6.5vw,4.2rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;margin-bottom:16px;max-width:620px;color:#fff;position:relative}
+.hero h1 span{background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1rem;color:rgba(255,255,255,.6);max-width:440px;line-height:1.8;margin-bottom:34px;position:relative}
+.hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px;position:relative}
+.btn-p{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-decoration:none;padding:14px 30px;border-radius:50px;font-size:.96rem;font-weight:800;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 8px 28px rgba(14,165,233,.35)}
+.btn-p:hover{transform:translateY(-2px);opacity:.92}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:var(--texto);text-decoration:none;padding:14px 24px;border-radius:50px;font-size:.93rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.hstats{display:flex;justify-content:center;gap:44px;flex-wrap:wrap;position:relative}
+.snum{font-size:1.9rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center}
+.slbl{font-size:.7rem;color:rgba(255,255,255,.3);margin-top:3px;text-align:center;text-transform:uppercase;letter-spacing:.5px}
+.sec{padding:72px 24px}
+.ctr{max-width:1060px;margin:0 auto}
+.tc{text-align:center}
+.stag{display:inline-block;background:rgba(14,165,233,.1);color:var(--p2);font-size:.7rem;font-weight:700;padding:4px 13px;border-radius:50px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.stitle{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:900;letter-spacing:-.5px;margin-bottom:10px;color:#fff}
+.ssub{color:var(--gray);font-size:.91rem;line-height:1.75;max-width:460px;margin:0 auto 44px}
+/* SERVICIOS */
+.sec-serv{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.serv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px 20px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.serv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p),var(--p2));opacity:0;transition:opacity .2s}
+.serv-card:hover{border-color:rgba(56,189,248,.4);transform:translateY(-4px)}
+.serv-card:hover::before{opacity:1}
+.serv-ico{font-size:1.9rem;margin-bottom:11px}
+.serv-name{font-size:.96rem;font-weight:700;margin-bottom:6px;color:#fff}
+.serv-desc{font-size:.79rem;color:var(--gray);line-height:1.6;flex:1;margin-bottom:12px}
+.serv-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:10px;margin-top:auto}
+.serv-price{font-size:.95rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.serv-time{font-size:.68rem;color:var(--gray2);background:var(--surface);padding:3px 8px;border-radius:50px;border:1px solid var(--border)}
+/* CONFIANZA */
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center}
+.trust-item{padding:28px 20px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.trust-ico{font-size:2.2rem;margin-bottom:12px}
+.trust-num{font-size:1.8rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.trust-lbl{font-size:.8rem;color:var(--gray);line-height:1.5}
+/* TURNO */
+.sec-turno{background:var(--surface);border-top:1px solid var(--border)}
+/* PROCESO */
+.proceso-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center}
+.paso{padding:26px 18px;position:relative}
+.paso-num{font-size:3rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;opacity:.4}
+.paso-title{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:6px}
+.paso-desc{font-size:.8rem;color:var(--gray);line-height:1.55}
+/* TESTIMONIOS */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.tc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px}
+.tc-stars{color:var(--p2);font-size:.85rem;letter-spacing:3px;margin-bottom:11px}
+.tc-text{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:14px;font-style:italic}
+.tc-au{display:flex;align-items:center;gap:11px}
+.tc-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0}
+.tc-name{font-size:.84rem;font-weight:700;color:#fff}
+.tc-loc{font-size:.71rem;color:var(--gray);margin-top:2px}
+footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:40px 24px}
+footer .f-logo{font-size:1.1rem;font-weight:800;margin-bottom:10px;color:#fff}
+footer .f-logo span{color:var(--p2)}
+footer p{font-size:.8rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
+.f-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.f-links a{color:var(--gray2);text-decoration:none;font-size:.8rem;transition:color .2s}
+.f-links a:hover{color:var(--p2)}
+.f-copy{font-size:.7rem;color:var(--gray2);border-top:1px solid var(--border);padding-top:14px}
+.wa-f{position:fixed;bottom:28px;right:22px;z-index:999;background:var(--green);color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s;animation:pw 2.5s infinite}
+.wa-f:hover{transform:scale(1.1)}
+@keyframes pw{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.4)}50%{box-shadow:0 4px 28px rgba(37,211,102,.65)}}
+@media(max-width:600px){.hero{min-height:84vh;padding:70px 16px 50px}.hstats{gap:22px}nav{padding:12px 16px}.serv-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-ico">🔧</div>
+    <div class="nav-logo-text">{{NOMBRE}}</div>
+  </div>
+  <a href="#turno" class="nav-cta">Pedir visita</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag"><div class="htdot"></div>Técnicos matriculados en {{CIUDAD}}</div>
+  <h1>{{SLOGAN_LINEA1}}<br><span>{{SLOGAN_LINEA2}}</span></h1>
+  <p>{{DESCRIPCION}}</p>
+  <div class="hbtns">
+    <a href="#turno" onclick="event.preventDefault();document.getElementById('turno').scrollIntoView({behavior:'smooth'})" class="btn-p">
+      📅 Agendar visita técnica
+    </a>
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})" class="btn-ghost">
+      Ver servicios
+    </a>
+  </div>
+  <div class="hstats">{{STATS_HTML}}</div>
+</section>
+
+<section class="sec sec-serv" id="servicios">
+  <div class="ctr tc">
+    <div class="stag">Qué hacemos</div>
+    <h2 class="stitle">Nuestros servicios</h2>
+    <p class="ssub">Técnicos matriculados con habilitación municipal. Presupuesto sin cargo.</p>
+    <div class="serv-grid">{{SERVICIOS_CARDS}}</div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--bg)">
+  <div class="ctr tc">
+    <div class="stag">Por qué elegirnos</div>
+    <h2 class="stitle">Tu hogar en manos seguras</h2>
+    <p class="ssub">Todos nuestros técnicos tienen matrícula vigente y seguro de responsabilidad civil.</p>
+    <div class="trust-grid">
+      <div class="trust-item"><div class="trust-ico">🏅</div><div class="trust-num">Mat.</div><div class="trust-lbl">Todos los técnicos con matrícula municipal vigente</div></div>
+      <div class="trust-item"><div class="trust-ico">⚡</div><div class="trust-num">24hs</div><div class="trust-lbl">Servicio de urgencias disponible las 24 horas</div></div>
+      <div class="trust-item"><div class="trust-ico">💬</div><div class="trust-num">$0</div><div class="trust-lbl">Presupuesto sin cargo ni compromiso</div></div>
+      <div class="trust-item"><div class="trust-ico">✅</div><div class="trust-num">Garan.</div><div class="trust-lbl">Garantía por escrito en todos los trabajos</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--surface);border-top:1px solid var(--border)">
+  <div class="ctr tc">
+    <div class="stag">Cómo funciona</div>
+    <h2 class="stitle">Simple, rápido y sin vueltas</h2>
+    <p class="ssub">Del problema a la solución en 3 pasos.</p>
+    <div class="proceso-grid">
+      <div class="paso"><div class="paso-num">1</div><div class="paso-title">Agendás la visita</div><div class="paso-desc">Elegís día y horario en el calendario. Sin esperas, sin llamadas.</div></div>
+      <div class="paso"><div class="paso-num">2</div><div class="paso-title">El técnico va a tu casa</div><div class="paso-desc">Llega en el horario acordado, evalúa y te da el presupuesto en el momento.</div></div>
+      <div class="paso"><div class="paso-num">3</div><div class="paso-title">Aprobás y listo</div><div class="paso-desc">Si aceptás el presupuesto, el trabajo empieza ese mismo día. Con garantía.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-turno" id="turno">
+  <div class="ctr">
+    <div class="tc" style="margin-bottom:32px">
+      <div class="stag">Visitas online</div>
+      <h2 class="stitle">Agendá una visita técnica</h2>
+      <p style="color:var(--gray);font-size:.91rem;max-width:440px;margin:0 auto;line-height:1.7">Elegí día y horario. Un técnico matriculado va a tu domicilio a revisar y presupuestar sin cargo.</p>
+    </div>
+    <div id="mbw-widget" style="--mbw-primary:{{COLOR1}};--mbw-accent:{{COLOR2}};--mbw-card:{{COLOR_CARD}};--mbw-surface:{{COLOR_SURFACE}};--mbw-border:{{COLOR_BORDE}};--mbw-gray:#94A3B8"></div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--bg)">
+  <div class="ctr tc">
+    <div class="stag">Opiniones</div>
+    <h2 class="stitle">Lo que dicen nuestros clientes</h2>
+    <p class="ssub">+{{CANTIDAD_TRABAJOS}} trabajos realizados. La confianza se construye trabajo a trabajo.</p>
+    <div class="test-grid">{{TESTIMONIOS_HTML}}</div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">{{NOMBRE}}</div>
+  <p>{{SLOGAN}} &middot; {{CIUDAD}}, {{PAIS}}<br>{{HORARIO}}</p>
+  <div class="f-links">
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Servicios</a>
+    <a href="#turno" onclick="event.preventDefault();document.getElementById('turno').scrollIntoView({behavior:'smooth'})">Agendar visita</a>
+    <a href="https://wa.me/{{TELEFONO}}" target="_blank">WhatsApp</a>
+  </div>
+  <div class="f-copy">&copy; {{AÑO}} {{NOMBRE}} &middot; Todos los derechos reservados</div>
+</footer>
+
+<a href="https://wa.me/{{TELEFONO}}?text={{TELEFONO_URL}}" class="wa-f" target="_blank">
+  <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script src="../../assets/booking.js"></script>
+<script>
+new MoviltecBooking({
+  containerId: 'mbw-widget',
+  apiUrl: {{API_URL}},
+  waNumber: '{{TELEFONO}}',
+  servicios: {{BOOKING_SERVICIOS}},
+  primaryColor: '{{COLOR1}}',
+  accentColor: '{{COLOR2}}'
+});
+</script>
+</body>
+</html>
