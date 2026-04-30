@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{negocio.nombre}} | {{negocio.rubro}} Premium en {{contacto.ciudad}}</title>
+  <meta name="description" content="{{negocio.descripcion}}. Sistema de reservas online, stock en tiempo real.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: {{diseno.color_primario}};
+      --primary-dark: {{diseno.color_secundario}};
+      --accent: #F59E0B;
+      --dark: #0F172A;
+      --gray: #64748B;
+      --light: #F8FAFC;
+      --white: #FFFFFF;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--light);
+    }
+    
+    /* Header Premium */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    
+    .top-bar {
+      background: var(--dark);
+      color: white;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+    }
+    
+    .top-bar-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+    }
+    
+    .nav-desktop {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .nav-desktop a {
+      color: var(--gray);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    
+    .nav-desktop a:hover { color: var(--primary); }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+    
+    .btn-success:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Hero Pro */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--light) 0%, white 50%, var(--light) 100%);
+      display: flex;
+      align-items: center;
+      padding: 180px 24px 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent 0%, rgba(59,130,246,0.03) 100%);
+      pointer-events: none;
+    }
+    
+    .hero-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--success), #059669);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-desc {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 32px;
+      max-width: 500px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    
+    .hero-features {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: var(--gray);
+    }
+    
+    .hero-feature::before {
+      content: '✓';
+      width: 24px;
+      height: 24px;
+      background: var(--success);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    
+    .hero-image {
+      position: relative;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .floating-cards {
+      position: absolute;
+      bottom: -30px;
+      left: -40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .floating-card {
+      background: white;
+      padding: 20px 24px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .floating-card:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .floating-card-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+    
+    .floating-card-content strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+    
+    .floating-card-content span {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--dark);
+      padding: 40px 24px;
+    }
+    
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+    
+    .stat-item strong {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stat-item span {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+    }
+    
+    /* Services Pro */
+    .services {
+      padding: 120px 24px;
+      background: white;
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 60px;
+    }
+    
+    .section-label {
+      display: inline-block;
+      background: rgba(59,130,246,0.1);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    
+    .section-header h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    
+    .section-header p {
+      color: var(--gray);
+      font-size: 1.1rem;
+    }
+    
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background: var(--light);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.3s;
+      border: 1px solid transparent;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(59,130,246,0.1);
+    }
+    
+    .service-header {
+      padding: 30px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+    }
+    
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+    
+    .service-header h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    
+    .service-header p {
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+    
+    .service-body {
+      padding: 30px;
+    }
+    
+    .service-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    
+    .service-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .service-features li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: 700;
+    }
+    
+    .service-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .service-price .price {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    
+    .service-price .period {
+      color: var(--gray);
+    }
+    
+    .btn-service {
+      width: 100%;
+      padding: 16px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn-service:hover {
+      background: var(--primary);
+    }
+    
+    /* Booking Section */
+    .booking {
+      padding: 120px 24px;
+      background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+      color: white;
+    }
+    
+    .booking-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    
+    .booking-content h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    
+    .booking-content > p {
+      opacity: 0.8;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+    
+    .booking-features {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .booking-feature {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .booking-feature-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    
+    .booking-feature-content h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+    
+    .booking-feature-content p {
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+    
+    .booking-form {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      color: var(--dark);
+    }
+    
+    .booking-form h3 {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      padding: 120px 24px;
+      background: var(--light);
+    }
+    
+    .testimonials-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .testimonial-card {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .testimonial-meta h4 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    
+    .testimonial-meta .stars {
+      color: var(--accent);
+    }
+    
+    .testimonial-card p {
+      color: var(--gray);
+      font-style: italic;
+      line-height: 1.8;
+    }
+    
+    /* Footer Pro */
+    .footer {
+      background: #0a0f1a;
+      color: rgba(255,255,255,0.7);
+      padding: 80px 24px 40px;
+    }
+    
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 60px;
+    }
+    
+    .footer-brand h3 {
+      color: white;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .footer-brand p {
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .footer-col h4 {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+    
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+    
+    .footer-col a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 60px auto 0;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 70px;
+      height: 70px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 2.2rem;
+      box-shadow: 0 10px 40px rgba(37,211,102,0.4);
+      transition: all 0.3s;
+      z-index: 999;
+      animation: whatsapp-pulse 2s infinite;
+    }
+    
+    @keyframes whatsapp-pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 10px 40px rgba(37,211,102,0.4); }
+      50% { transform: scale(1.05); box-shadow: 0 15px 50px rgba(37,211,102,0.5); }
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero-inner,
+      .booking-inner {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .floating-cards {
+        display: none;
+      }
+      
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .nav-desktop {
+        display: none;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .stats-inner,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span>🎉 {{negocio.promo_banner}}</span>
+      <a href="tel:{{contacto.whatsapp}}">
+        <span>📞</span> Atención 24/7: {{contacto.whatsapp}}
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">⭐</div>
+        {{negocio.nombre}}
+      </a>
+      
+      <nav class="nav-desktop">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#reservas">Reservas</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      
+      <a href="https://wa.me/549{{contacto.whatsapp}}" class="btn btn-success" target="_blank">
+        💬 WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">✓ Sistema de reservas online</div>
+        
+        <h1>{{negocio.slogan}}</h1>
+        
+        <p class="hero-desc">{{negocio.descripcion}}. Reservá tu turno online las 24hs, consultá disponibilidad en tiempo real y recibí confirmación inmediata.</p>
+        
+        <div class="hero-buttons">
+          <a href="#reservas" class="btn btn-primary">
+            Reservar ahora →
+          </a>
+          <a href="https://wa.me/549{{contacto.whatsapp}}" class="btn btn-outline" target="_blank">
+            Consultar por WhatsApp
+          </a>
+        </div>
+        
+        <div class="hero-features">
+          <span class="hero-feature">Reserva inmediata</span>
+          <span class="hero-feature">Sin demoras</span>
+          <span class="hero-feature">Recordatorios automáticos</span>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=500&fit=crop" alt="{{negocio.nombre}}">
+        
+        <div class="floating-cards">
+          <div class="floating-card">
+            <div class="floating-card-icon">📅</div>
+            <div class="floating-card-content">
+              <strong>Reservá 24/7</strong>
+              <span>Sin llamar por teléfono</span>
+            </div>
+          </div>
+          
+          <div class="floating-card">
+            <div class="floating-card-icon">⏰</div>
+            <div class="floating-card-content">
+              <strong>Confirmación</strong>
+              <span>Instantánea por WhatsApp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <strong>{{stats.clientes}}+</strong>
+        <span>Clientes satisfechos</span>
+      </div>
+      
+      <div class="stat-item">
+        <strong>{{stats.años}}+</strong>
+        <span>Años de experiencia</span>
+      </div>
+      
+      <div class="stat-item">
+        <strong>{{stats.reservas}}+</strong>
+        <span>Reservas este mes</span>
+      </div>
+      
+      <div class="stat-item">
+        <strong>{{stats.rating}}</strong>
+        <span>Valoración promedio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="servicios">
+    <div class="section-header">
+      <span class="section-label">SERVICIOS PREMIUM</span>
+      <h2>Soluciones diseñadas para vos</h2>
+      <p>Elegí el servicio que necesitás y reservá tu turno al instante</p>
+    </div>
+    
+    <div class="services-grid">
+      {{#each servicios}}
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">{{icono}}</div>
+          <h3>{{nombre}}</h3>
+          <p>{{descripcion_corta}}</p>
+        </div>
+        
+        <div class="service-body">
+          <ul class="service-features">
+            {{#each caracteristicas}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+          
+          <div class="service-price">
+            <span class="price">${{precio}}</span>
+            <span class="period">/ {{periodo}}</span>
+          </div>
+          
+          <a href="https://wa.me/549{{../contacto.whatsapp}}?text=Hola!%20Quiero%20reservar%20{{nombre}}" class="btn-service" target="_blank">
+            Reservar ahora →
+          </a>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="booking" id="reservas">
+    <div class="booking-inner">
+      <div class="booking-content">
+        <span class="section-label" style="background: rgba(255,255,255,0.1); color: white;">RESERVAS ONLINE</span>
+        
+        <h2>Reservá tu turno en segundos</h2>
+        
+        <p>Nuestro sistema de reservas te permite agendar tu turno las 24 horas, los 7 días de la semana. Sin esperas, sin llamadas telefónicas.</p>
+        
+        <div class="booking-features">
+          <div class="booking-feature">
+            <div class="booking-feature-icon">📅</div>
+            <div class="booking-feature-content">
+              <h4>Disponibilidad en tiempo real</h4>
+              <p>Vé los horarios disponibles actualizados al instante</p>
+            </div>
+          </div>
+          
+          <div class="booking-feature">
+            <div class="booking-feature-icon">🔔</div>
+            <div class="booking-feature-content">
+              <h4>Recordatorios automáticos</h4>
+              <p>Recibí alertas por WhatsApp antes de tu turno</p>
+            </div>
+          </div>
+          
+          <div class="booking-feature">
+            <div class="booking-feature-icon">🔄</div>
+            <div class="booking-feature-content">
+              <h4>Cancelación flexible</h4>
+              <p>Modificá o cancelá tu turno hasta 24hs antes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="booking-form">
+        <h3>Completa tus datos</h3>
+        
+        <form action="https://formsubmit.co/moviltecdigital@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nueva reserva - {{negocio.nombre}}">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" name="telefono" placeholder="264-XXXXXXX" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Servicio</label>
+            <select name="servicio" required>
+              <option value="">Seleccioná un servicio</option>
+              {{#each servicios}}
+              <option value="{{nombre}}">{{nombre}} - ${{precio}}</option>
+              {{/each}}
+            </select>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Fecha</label>
+              <input type="date" name="fecha" required>
+            </div>
+            
+            <div class="form-group">
+              <label>Hora</label>
+              <select name="hora" required>
+                <option value="">Seleccioná</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Notas adicionales</label>
+            <textarea name="notas" placeholder="¿Algo que debamos saber?"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 16px;">
+            Confirmar reserva →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonios">
+    <div class="section-header">
+      <span class="section-label">TESTIMONIOS</span>
+      <h2>Lo que dicen nuestros clientes</h2>
+      <p>Experiencias reales de quienes confían en nosotros</p>
+    </div>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">M</div>
+          <div class="testimonial-meta">
+            <h4>María González</h4>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p>"Excelente servicio. Pude reservar mi turno a las 2 de la mañana sin problemas. Me llegó la confirmación al instante y el recordatorio el día anterior. Muy profesionales!"</p>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">C</div>
+          <div class="testimonial-meta">
+            <h4>Carlos Rodríguez</h4>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p>"La mejor decisión fue elegirlos. El sistema de reservas online es súper práctico, y la atención es de primera. Los recomiendo a todos mis amigos."</p>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">L</div>
+          <div class="testimonial-meta">
+            <h4>Laura Fernández</h4>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <p>"Tuve que cancelar un turno de emergencia y pude hacerlo sin problemas desde el WhatsApp. Me reagendaron para el día siguiente. Un 10 en atención al cliente."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contacto">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>
+          <div class="logo-icon" style="width: 40px; height: 40px; font-size: 1.2rem; display: inline-flex;">⭐</div>
+          {{negocio.nombre}}
+        </h3>
+        
+        <p>{{negocio.descripcion}}. Comprometidos con la excelencia y la satisfacción de nuestros clientes.</p>
+        
+        <div class="footer-contact">
+          <div class="footer-contact-item">
+            <span>📍</span> {{contacto.direccion}}, {{contacto.ciudad}}
+          </div>
+          <div class="footer-contact-item">
+            <span>📱</span> {{contacto.whatsapp}}
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span> {{contacto.email}}
+          </div>
+          <div class="footer-contact-item">
+            <span>🕐</span> {{contacto.horarios}}
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        {{#each servicios}}
+        <a href="#servicios">{{nombre}}</a>
+        {{/each}}
+      </div>
+      
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="#">Sobre nosotros</a>
+        <a href="#">Equipo</a>
+        <a href="#">Trabajá con nosotros</a>
+        <a href="#">Blog</a>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Soporte</h4>
+        <a href="#">Preguntas frecuentes</a>
+        <a href="#">Políticas de cancelación</a>
+        <a href="#">Términos y condiciones</a>
+        <a href="#">Privacidad</a>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Seguinos</h4>
+        <a href="#">📘 Facebook</a>
+        <a href="#">📸 Instagram</a>
+        <a href="#">🐦 Twitter</a>
+        <a href="#">💼 LinkedIn</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© {{current_year}} {{negocio.nombre}}. Todos los derechos reservados.</p>
+      <p>Hecho con ❤️ por Moviltec Digital</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/549{{contacto.whatsapp}}" class="whatsapp-float" target="_blank" title="Chateá con nosotros">💬</a>
+
+</body>
+</html>

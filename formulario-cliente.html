@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear mi Sitio Web - Moviltec Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3B82F6;
+      --primary-dark: #2563EB;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --dark: #0F172A;
+      --gray: #64748B;
+      --light: #F8FAFC;
+      --border: #E2E8F0;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+    
+    .header {
+      background: var(--dark);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    
+    .header p {
+      opacity: 0.8;
+      font-size: 1.1rem;
+    }
+    
+    .form-container {
+      padding: 40px;
+    }
+    
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .section-subtitle {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+    
+    .form-group {
+      margin-bottom: 24px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    label {
+      display: block;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    
+    label .required {
+      color: var(--warning);
+      margin-left: 4px;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.2s;
+      background: white;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+    }
+    
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .hint {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 6px;
+    }
+    
+    .plan-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .plan-card {
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    
+    .plan-card:hover {
+      border-color: var(--primary);
+    }
+    
+    .plan-card.selected {
+      border-color: var(--primary);
+      background: rgba(59,130,246,0.05);
+    }
+    
+    .plan-card input {
+      position: absolute;
+      opacity: 0;
+    }
+    
+    .plan-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    
+    .plan-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    
+    .plan-price span {
+      font-size: 0.9rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+    
+    .plan-features {
+      list-style: none;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+    
+    .plan-features li {
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .plan-features li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 700;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    
+    .demo-option {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .demo-option:hover {
+      border-color: var(--primary);
+    }
+    
+    .demo-option.selected {
+      border-color: var(--primary);
+      background: rgba(59,130,246,0.05);
+    }
+    
+    .demo-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    
+    .demo-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .service-item {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 16px;
+      background: var(--light);
+      border-radius: 12px;
+    }
+    
+    @media (max-width: 600px) {
+      .service-item {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .btn-add-service {
+      background: var(--success);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    
+    .btn-remove {
+      background: #EF4444;
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(59,130,246,0.4);
+    }
+    
+    .footer-note {
+      text-align: center;
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: 24px;
+    }
+    
+    .success-message {
+      display: none;
+      background: var(--success);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    
+    .success-message.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>🚀 Crear mi Sitio Web</h1>
+    <p>Completá el formulario y en 24-48hs tendrás tu web online</p>
+  </div>
+
+  <form class="form-container" id="clientForm" action="https://formsubmit.co/moviltecdigital@gmail.com" method="POST">
+    <!-- Configuración del formulario -->
+    <input type="hidden" name="_subject" value="Nueva solicitud de sitio web">
+    <input type="hidden" name="_next" value="https://moviltecdigital.com.ar/gracias.html">
+    <input type="hidden" name="_captcha" value="false">
+    
+    <div class="success-message" id="successMsg">
+      ✅ ¡Formulario enviado! Te contactaremos en menos de 24hs.
+    </div>
+
+    <!-- SECCIÓN 1: Datos del Negocio -->
+    <div class="section">
+      <div class="section-title">
+        🏢 Datos de tu Negocio
+      </div>
+      <div class="section-subtitle">
+        Contanos sobre tu emprendimiento
+      </div>
+
+      <div class="form-group">
+        <label>Nombre del negocio <span class="required">*</span></label>
+        <input type="text" name="nombre_negocio" placeholder="Ej: Peluquería María" required>
+      </div>
+
+      <div class="form-group">
+        <label>Slogan o frase principal <span class="required">*</span></label>
+        <input type="text" name="slogan" placeholder="Ej: Tu look, nuestra pasión" required>
+        <div class="hint">Frase corta que identifique tu negocio</div>
+      </div>
+
+      <div class="form-group">
+        <label>Descripción <span class="required">*</span></label>
+        <textarea name="descripcion" placeholder="Contá qué hacés, cuánto tiempo hace, qué te diferencia..." required></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Rubro <span class="required">*</span></label>
+          <select name="rubro" required>
+            <option value="">Seleccionar...</option>
+            <option value="peluqueria">Peluquería / Barbería</option>
+            <option value="estetica">Estética / Belleza</option>
+            <option value="odontologia">Odontología / Salud</option>
+            <option value="gastronomia">Gastronomía / Viandas</option>
+            <option value="ropa">Venta de Ropa</option>
+            <option value="inmobiliaria">Inmobiliaria</option>
+            <option value="gimnasio">Gimnasio / Fitness</option>
+            <option value="veterinaria">Veterinaria</option>
+            <option value="taller">Taller Mecánico</option>
+            <option value="servicios">Servicios del Hogar</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Año de inicio</label>
+          <input type="number" name="año_inicio" placeholder="Ej: 2019" min="1950" max="2026">
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: Contacto -->
+    <div class="section">
+      <div class="section-title">
+        📞 Datos de Contacto
+      </div>
+      <div class="section-subtitle">
+        Cómo te contactarán tus clientes
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>WhatsApp <span class="required">*</span></label>
+          <input type="tel" name="whatsapp" placeholder="Ej: 2644123456" required>
+          <div class="hint">Sin 0 ni 15, solo números</div>
+        </div>
+
+        <div class="form-group">
+          <label>Email <span class="required">*</span></label>
+          <input type="email" name="email" placeholder="Ej: contacto@tunegocio.com" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Dirección <span class="required">*</span></label>
+        <input type="text" name="direccion" placeholder="Ej: Av. Libertador 1234" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ciudad <span class="required">*</span></label>
+          <input type="text" name="ciudad" placeholder="Ej: San Juan" required>
+        </div>
+
+        <div class="form-group">
+          <label>Horarios de atención</label>
+          <input type="text" name="horarios" placeholder="Ej: Lun a Vie 9-18hs | Sáb 9-13hs">
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: Elegir Plan -->
+    <div class="section">
+      <div class="section-title">
+        📦 Elegí tu Pack
+      </div>
+      <div class="section-subtitle">
+        Seleccioná el plan que se adapte a tus necesidades
+      </div>
+
+      <div class="plan-options">
+        <label class="plan-card" onclick="selectPlan(this, 'presencia')">
+          <input type="radio" name="plan" value="presencia" required>
+          <div class="plan-name">Presencia Digital</div>
+          <div class="plan-price">$15.000<span>/mes</span></div>
+          <ul class="plan-features">
+            <li>Landing page profesional</li>
+            <li>Botón de WhatsApp</li>
+            <li>Formulario de contacto</li>
+            <li>Diseño mobile</li>
+          </ul>
+        </label>
+
+        <label class="plan-card" onclick="selectPlan(this, 'ventas')">
+          <input type="radio" name="plan" value="ventas">
+          <div class="plan-name">Ventas Automáticas ⭐</div>
+          <div class="plan-price">$35.000<span>/mes</span></div>
+          <ul class="plan-features">
+            <li>Todo lo anterior</li>
+            <li>Catálogo de productos/servicios</li>
+            <li>Carrito de compras</li>
+            <li>Precios visibles</li>
+          </ul>
+        </label>
+
+        <label class="plan-card" onclick="selectPlan(this, 'pro')">
+          <input type="radio" name="plan" value="pro">
+          <div class="plan-name">Negocio Digital Pro</div>
+          <div class="plan-price">$55.000<span>/mes</span></div>
+          <ul class="plan-features">
+            <li>Todo lo anterior</li>
+            <li>Sistema de reservas online</li>
+            <li>Calendario de turnos</li>
+            <li>Soporte prioritario</li>
+          </ul>
+        </label>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4: Elegir Diseño -->
+    <div class="section">
+      <div class="section-title">
+        🎨 Elegí tu Diseño
+      </div>
+      <div class="section-subtitle">
+        Seleccioná el demo que más te guste
+      </div>
+
+      <div class="demo-grid">
+        <label class="demo-option" onclick="selectDemo(this)">
+          <input type="radio" name="demo" value="peluqueria" required>
+          <div class="demo-icon">💇</div>
+          <div class="demo-name">Peluquería</div>
+        </label>
+
+        <label class="demo-option" onclick="selectDemo(this)">
+          <input type="radio" name="demo" value="estetica">
+          <div class="demo-icon">💅</div>
+          <div class="demo-name">Estética</div>
+        </label>
+
+        <label class="demo-option" onclick="selectDemo(this)">
+          <input type="radio" name="demo" value="odontologia">
+          <div class="demo-icon">🦷</div>
+          <div class="demo-name">Odontología</div>
+        </label>
+
+        <label class="demo-option" onclick="selectDemo(this)">
+          <input type="radio" name="demo" value="gastronomia">
+          <div class="demo-icon">🍽️</div>
+          <div class="demo-name">Gastronomía</div>
+        </label>
+
+        <label class="demo-option" onclick="selectDemo(this)">
+          <input type="radio" name="demo" value="ropa">
+          <div class="demo-icon">👕</div>
+          <div class="demo-name">Ropa</div>
+        </label>
+
+        <label class="demo-option" onclick="selectDemo(this)">
+          <input type="radio" name="demo" value="inmobiliaria">
+          <div class="demo-icon">🏠</div>
+          <div class="demo-name">Inmobiliaria</div>
+        </label>
+
+        <label class="demo-option" onclick="selectDemo(this)">
+          <input type="radio" name="demo" value="gimnasio">
+          <div class="demo-icon">💪</div>
+          <div class="demo-name">Gimnasio</div>
+        </label>
+
+        <label class="demo-option" onclick="selectDemo(this)">
+          <input type="radio" name="demo" value="veterinaria">
+          <div class="demo-icon">🐾</div>
+          <div class="demo-name">Veterinaria</div>
+        </label>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5: Servicios -->
+    <div class="section">
+      <div class="section-title">
+        📝 Servicios
+      </div>
+      <div class="section-subtitle">
+        Agregá los servicios que ofrecés (para plan Ventas/Pro incluí precios)
+      </div>
+
+      <div id="servicesContainer">
+        <div class="services-list" id="servicesList">
+          <!-- Los servicios se agregan acá -->
+        </div>
+      </div>
+
+      <div style="background: var(--light); padding: 20px; border-radius: 12px; margin-top: 16px;">
+        <div class="form-row">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>Nombre del servicio</label>
+            <input type="text" id="serviceName" placeholder="Ej: Corte Femenino">
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>Precio (opcional)</label>
+            <input type="number" id="servicePrice" placeholder="Ej: 3500">
+          </div>
+        </div>
+        
+        <button type="button" class="btn-add-service" onclick="addService()">
+          + Agregar servicio
+        </button>
+      </div>
+      
+      <input type="hidden" name="servicios" id="servicesInput">
+    </div>
+
+    <!-- SECCIÓN 6: Notas adicionales -->
+    <div class="section">
+      <div class="section-title">
+        💬 Notas Adicionales
+      </div>
+      
+      <div class="form-group">
+        <label>¿Algo más que quieras contarnos?</label>
+        <textarea name="notas" placeholder="Referencias de colores, estilos preferidos, funcionalidades especiales..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>¿Tenés dominio propio?</label>
+        <input type="text" name="dominio" placeholder="Ej: tunegocio.com.ar (opcional)">
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      🚀 Enviar solicitud
+    </button>
+
+    <div class="footer-note">
+      Te contactaremos en menos de 24hs vía WhatsApp o email.
+    </div>
+  </form>
+</div>
+
+<script>
+  let services = [];
+
+  function selectPlan(element, plan) {
+    document.querySelectorAll('.plan-card').forEach(card => card.classList.remove('selected'));
+    element.classList.add('selected');
+    element.querySelector('input').checked = true;
+  }
+
+  function selectDemo(element) {
+    document.querySelectorAll('.demo-option').forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+    element.querySelector('input').checked = true;
+  }
+
+  function addService() {
+    const name = document.getElementById('serviceName').value.trim();
+    const price = document.getElementById('servicePrice').value.trim();
+    
+    if (!name) {
+      alert('Por favor ingresá el nombre del servicio');
+      return;
+    }
+    
+    services.push({ name, price });
+    updateServicesList();
+    
+    // Limpiar inputs
+    document.getElementById('serviceName').value = '';
+    document.getElementById('servicePrice').value = '';
+  }
+
+  function removeService(index) {
+    services.splice(index, 1);
+    updateServicesList();
+  }
+
+  function updateServicesList() {
+    const list = document.getElementById('servicesList');
+    const input = document.getElementById('servicesInput');
+    
+    if (services.length === 0) {
+      list.innerHTML = '<p style="color: var(--gray); font-size: 0.9rem;">Todavía no agregaste servicios</p>';
+    } else {
+      list.innerHTML = services.map((s, i) => `
+        <div class="service-item">
+          <div><strong>${s.name}</strong></div>
+          <div>${s.price ? '$' + s.price : 'Consultar'}</div>
+          <div></div>
+          <button type="button" class="btn-remove" onclick="removeService(${i})">×</button>
+        </div>
+      `).join('');
+    }
+    
+    // Actualizar input hidden
+    input.value = services.map(s => `${s.name}${s.price ? ': $' + s.price : ''}`).join(', ');
+  }
+
+  // Inicializar lista vacía
+  updateServicesList();
+
+  // Mostrar mensaje de éxito después de enviar
+  document.getElementById('clientForm').addEventListener('submit', function(e) {
+    document.getElementById('successMsg').classList.add('show');
+  });
+</script>
+
+</body>
+</html>

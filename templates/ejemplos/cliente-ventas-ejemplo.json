@@ -1,0 +1,205 @@
+{
+  "plan": "ventas_automaticas",
+  "version": "1.0",
+  "fecha_creacion": "2025-01-29",
+  
+  "negocio": {
+    "nombre": "NOIR Studio",
+    "slogan": "Moda que te define",
+    "descripcion": "Tienda de ropa urbana con diseños exclusivos y ediciones limitadas",
+    "rubro": "ropa",
+    "tipo_catalogo": "ropa"
+  },
+
+  "contacto": {
+    "whatsapp": "5492645304372",
+    "whatsapp_bot": "5492645304372",
+    "telefono": "0264 4123456",
+    "email": "hola@noirstudio.com",
+    "direccion": "Av. Rivadavia 567",
+    "ciudad": "San Juan",
+    "horarios": "Lun a Vie: 10:00 - 20:00 | Sáb: 10:00 - 14:00",
+    "tiempo_respuesta": "Respondemos en menos de 1 hora"
+  },
+
+  "redes": {
+    "instagram": "noir.studio.sj",
+    "facebook": "NoirStudioSJ",
+    "tiktok": "noir.studio"
+  },
+
+  "diseno": {
+    "color_primario": "#111111",
+    "color_secundario": "#D4AF37",
+    "color_acento": "#F43F5E",
+    "tipografia": "Inter",
+    "logo_url": "assets/logo-noir.png",
+    "favicon_url": "assets/favicon-noir.ico"
+  },
+
+  "catalogo": {
+    "titulo": "Nueva Colección 2025",
+    "subtitulo": "Elegí tus favoritas antes que se agoten",
+    "categorias": ["Remeras", "Buzos", "Jeans", "Camperas", "Accesorios"],
+    
+    "productos": [
+      {
+        "id": "prod_001",
+        "nombre": "Remera Oversize Premium",
+        "descripcion": "100% algodón peinado. Corte oversize relaxed fit.",
+        "precio": 8500,
+        "precio_anterior": null,
+        "imagen": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
+        "categoria": "Remeras",
+        "talles": ["XS", "S", "M", "L", "XL"],
+        "colores": ["Negro", "Blanco", "Gris", "Beige", "Verde"],
+        "stock": 25,
+        "destacado": true
+      },
+      {
+        "id": "prod_002",
+        "nombre": "Buzo Hoodie Fleece",
+        "descripcion": "Fleece interior súper suave. Capucha doble, bolsillo canguro.",
+        "precio": 16000,
+        "precio_anterior": 20000,
+        "imagen": "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500",
+        "categoria": "Buzos",
+        "talles": ["S", "M", "L", "XL", "XXL"],
+        "colores": ["Negro", "Gris", "Beige"],
+        "stock": 18,
+        "destacado": true
+      },
+      {
+        "id": "prod_003",
+        "nombre": "Jean Skinny Tiro Alto",
+        "descripcion": "Denim elastizado 2%. Corte skinny, tiro alto.",
+        "precio": 22500,
+        "precio_anterior": null,
+        "imagen": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500",
+        "categoria": "Jeans",
+        "talles": ["36", "38", "40", "42", "44"],
+        "colores": ["Negro", "Azul"],
+        "stock": 12,
+        "destacado": false
+      },
+      {
+        "id": "prod_004",
+        "nombre": "Campera Bomber",
+        "descripcion": "Estilo clásico bomber. Interior forrado.",
+        "precio": 35000,
+        "precio_anterior": null,
+        "imagen": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500",
+        "categoria": "Camperas",
+        "talles": ["S", "M", "L", "XL"],
+        "colores": ["Negro", "Verde Militar", "Beige"],
+        "stock": 8,
+        "destacado": true
+      }
+    ],
+
+    "configuracion": {
+      "mostrar_precios": true,
+      "permitir_agotados": false,
+      "maximo_por_producto": 5,
+      "envio_gratis_desde": 30000
+    }
+  },
+
+  "bot": {
+    "nombre_bot": "NOIR Bot",
+    "mensaje_bienvenida": "¡Hola! 👋 Soy tu asistente de compras en NOIR Studio. Te ayudo a encontrar lo que buscás y responder todas tus dudas.",
+    "mensaje_fuera_horario": "Hola! En este momento estamos cerrados, pero dejame tu consulta y te respondo apenas abramos 😊",
+    
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "¿Cuáles son los métodos de pago?",
+        "respuesta": "Aceptamos MercadoPago (tarjeta, débito, efectivo), transferencia bancaria y efectivo en el local."
+      },
+      {
+        "pregunta": "¿Hacen envíos?",
+        "respuesta": "Sí! Enviamos a todo el país por OCA y Andreani. En San Juan capital el envío es gratis en compras mayores a $30.000."
+      },
+      {
+        "pregunta": "¿Cómo sé mi talle?",
+        "respuesta": "Cada producto tiene su tabla de talles. Si tenés dudas, consultame y te ayudo. También tenés cambio de talle gratis dentro de los 30 días."
+      },
+      {
+        "pregunta": "¿Tienen local físico?",
+        "respuesta": "Sí! Estamos en Av. Rivadavia 567, San Juan capital. Horario: Lun a Vie 10-20hs, Sáb 10-14hs."
+      }
+    ],
+
+    "flujo_venta": {
+      "paso1_saludo": true,
+      "paso2_catalogo": true,
+      "paso3_seleccion": true,
+      "paso4_carrito": true,
+      "paso5_envio": true,
+      "paso6_pago": true
+    }
+  },
+
+  "pagos": {
+    "metodos": ["mercadopago", "transferencia", "efectivo"],
+    "link_mercadopago": "https://mpago.la/...",
+    "cuenta_bancaria": "...",
+    "alias_cbu": "NOIR.STUDIO",
+    "titular_cuenta": "NOIR Studio SRL"
+  },
+
+  "envios": {
+    "tipos": [
+      {
+        "nombre": "Envío a domicilio",
+        "descripcion": "Entrega en tu casa u oficina",
+        "precio": 1500,
+        "tiempo": "3-5 días hábiles",
+        "gratis_desde": 30000
+      },
+      {
+        "nombre": "Retiro en local",
+        "descripcion": "Retirás en nuestro local de San Juan",
+        "precio": 0,
+        "tiempo": "Listo en 2 horas",
+        "gratis_desde": 0
+      }
+    ],
+    "zonas_cobertura": ["San Juan capital", "Gran San Juan", "Todo el país"]
+  },
+
+  "contenido": {
+    "hero_titulo": "Tu estilo, tu identidad",
+    "hero_subtitulo": "Descubrí nuestra nueva colección de ropa urbana. Diseños exclusivos, ediciones limitadas.",
+    "hero_imagen": "assets/hero-noir.jpg",
+    
+    "como_funciona_pasos": [
+      {
+        "numero": 1,
+        "titulo": "Elegí tus productos",
+        "descripcion": "Navegá el catálogo y seleccioná tus favoritos"
+      },
+      {
+        "numero": 2,
+        "titulo": "Seleccioná talle y color",
+        "descripcion": "Cada prenda tiene opciones disponibles"
+      },
+      {
+        "numero": 3,
+        "titulo": "Agregá al carrito",
+        "descripcion": "Revisá tu pedido antes de confirmar"
+      },
+      {
+        "numero": 4,
+        "titulo": "Pagá seguro",
+        "descripcion": "Con MercadoPago, transferencia o en el local"
+      }
+    ]
+  },
+
+  "seo": {
+    "titulo_pagina": "NOIR Studio | Ropa Urbana en San Juan",
+    "descripcion_meta": "Tienda de ropa urbana en San Juan. Diseños exclusivos, envíos a todo el país. Comprá online 24/7.",
+    "keywords": "ropa urbana san juan, tienda de ropa, moda urbana, buzos, remeras",
+    "imagen_og": "assets/og-noir.jpg"
+  }
+}

@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>{{INMOBILIARIA CARDENS}} &mdash; {{LO MEJOR PARA VIVIRSLOGAN}}</title>
-<meta name="description" content="{{DESCRIPCION MODIFICADA}} {{CIUDAD DE SAN JUAN}}."/>
+<title>Inmobiliaria del Sur &mdash; Tenés tu lugar en el mundo</title>
+<meta name="description" content="Venta, alquiler, tasación y loteos privados en San Juan. Te ayudamos a encontrar el lugar que siempre soñaste. San Juan."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:{{COLOR_BG}};--surface:{{COLOR_SURFACE}};--card:{{COLOR_CARD}};--border:{{COLOR_BORDE}};
-  --p:{{COLOR1}};--p2:{{COLOR2}};--texto:{{COLOR_TEXTO}};
+  --bg:#0F0B08;--surface:#1A1410;--card:#231C15;--border:#3A2E22;
+  --p:#8B6F47;--p2:#C4A882;--texto:#F5ECD7;
   --green:#25D366;--green2:#1aad54;--gray:#9C8A75;--gray2:#6B5B4A;--r:16px
 }
 html{scroll-behavior:smooth}
@@ -22,7 +22,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(15,11,8,0.96);backdrop-fil
 .nav-logo-text{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--texto)}
 .nav-cta{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:.84rem;font-weight:800;white-space:nowrap;transition:all .2s}
 .nav-cta:hover{opacity:.9;transform:translateY(-1px)}
-.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 24px 70px;background:linear-gradient(180deg,rgba(15,11,8,.15) 0%,rgba(15,11,8,.72) 50%,var(--bg) 100%){{HERO_STYLE}};position:relative}
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 24px 70px;background:linear-gradient(180deg,rgba(15,11,8,.15) 0%,rgba(15,11,8,.72) 50%,var(--bg) 100%),url('a1.jpg') center/cover no-repeat;position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 35%,rgba(139,111,71,0.1) 0%,transparent 65%)}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(139,111,71,0.18);border:1px solid rgba(196,168,130,0.35);color:var(--p2);font-size:.77rem;font-weight:600;padding:7px 17px;border-radius:50px;margin-bottom:24px;position:relative}
 .htdot{width:7px;height:7px;background:var(--p2);border-radius:50%;animation:bl 1.5s infinite;flex-shrink:0}
@@ -119,16 +119,16 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
 
 <nav>
   <div class="nav-logo">
-    <div class="nav-logo-mark">{{LOGO_INICIALES}}</div>
-    <div class="nav-logo-text">{{NOMBRE INMOBILIARIA CONTINENTAL}}</div>
+    <div class="nav-logo-mark">BB</div>
+    <div class="nav-logo-text">Inmobiliaria del Sur</div>
   </div>
   <a href="#visita" class="nav-cta">Reservar visita</a>
 </nav>
 
 <section class="hero">
-  <div class="hero-tag"><div class="htdot"></div>Propiedades disponibles en {{CIUDAD}}</div>
-  <h1>{{SLOGAN_LINEA1- DALEEEEE}}<br><em>{{SLOGAN_LINEA2}}</em></h1>
-  <p>{{DESCRIPCION}}</p>
+  <div class="hero-tag"><div class="htdot"></div>Propiedades disponibles en San Juan</div>
+  <h1>Tenés tu lugar en esta tierra<br><em>San Juan.</em></h1>
+  <p>Venta, alquiler, tasación y loteos privados en San Juan. Te ayudamos a encontrar el lugar que siempre soñaste.</p>
   <div class="hbtns">
     <a href="#propiedades" onclick="event.preventDefault();document.getElementById('propiedades').scrollIntoView({behavior:'smooth'})" class="btn-p">
       <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -139,7 +139,11 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
     </a>
   </div>
   <div class="hstats">
-    {{STATS_HTML}}
+    
+    <div><div class="snum">+500</div><div class="slbl">Operaciones</div></div>
+    <div><div class="snum">12 años</div><div class="slbl">De experiencia</div></div>
+    <div><div class="snum">4.9★</div><div class="slbl">Calificación</div></div>
+    <div><div class="snum">San Juan</div><div class="slbl">Capital y Gran SJ</div></div>
   </div>
 </section>
 
@@ -147,9 +151,29 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
   <div class="ctr tc">
     <div class="stag">Lo que hacemos</div>
     <h2 class="stitle">Servicios inmobiliarios</h2>
-    <p class="ssub">Todo lo que necesit&aacute;s para comprar, vender, alquilar o invertir en propiedades en {{CIUDAD}}.</p>
+    <p class="ssub">Todo lo que necesit&aacute;s para comprar, vender, alquilar o invertir en propiedades en San Juan.</p>
     <div class="serv-grid">
-      {{SERVICIOS_CARDS}}
+      
+      <div class="serv-card">
+        <div class="serv-ico">🏠</div>
+        <div class="serv-name">Venta de propiedades</div>
+        <div class="serv-desc">Casas, departamentos, terrenos y locales. Te acompañamos hasta la escritura.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">🔑</div>
+        <div class="serv-name">Alquiler</div>
+        <div class="serv-desc">Encontrá tu próximo hogar o local. Gestionamos tu propiedad y cobrás sin preocupaciones.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">📈</div>
+        <div class="serv-name">Tasación</div>
+        <div class="serv-desc">Conocé el valor real de tu propiedad. Online o presencial, rápido y sin costo inicial.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">🌿</div>
+        <div class="serv-name">Loteos Privados</div>
+        <div class="serv-desc">Lotes exclusivos en barrios privados y urbanizaciones. Invertí en el futuro.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -159,7 +183,7 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
     <div class="tc">
       <div class="stag">Portfolio</div>
       <h2 class="stitle">Propiedades destacadas</h2>
-      <p class="ssub">Las mejores oportunidades del mercado en {{CIUDAD}}.</p>
+      <p class="ssub">Las mejores oportunidades del mercado en San Juan.</p>
     </div>
     <div class="prop-filters">
       <select class="fsel" id="fop" onchange="filtrar()">
@@ -176,7 +200,67 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
       </select>
     </div>
     <div class="prop-grid">
-      {{ITEMS_CARDS}}
+      
+      <div class="prop-card" data-op="venta" data-tipo="casa">
+        <div class="prop-img">
+          <img src="a1.jpg" alt="Casa 4 amb. con garage y jardín"/>
+          <div class="prop-badge">venta</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-tipo">casa &bull; Capital</div>
+          <div class="prop-title">Casa 4 amb. con garage y jardín</div>
+          <div class="prop-details">
+            <div class="prop-det">🏠 4 amb.</div>
+            <div class="prop-det">🔧 180 m²</div>
+            <div class="prop-det">📍 Capital</div>
+          </div>
+          <div class="prop-price">$29.387.475</div>
+          <div class="prop-foot">
+            <button class="btn-consultar" onclick="consultar('Casa 4 amb. con garage y jardín — $29.387.475')">💬 Consultar</button>
+            <button class="btn-fav">♡</button>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card" data-op="loteo" data-tipo="lote">
+        <div class="prop-img">
+          <img src="a2.jpg" alt="Lote en barrio privado — Inversión"/>
+          <div class="prop-badge">loteo</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-tipo">lote &bull; Gran San Juan</div>
+          <div class="prop-title">Lote en barrio privado — Inversión</div>
+          <div class="prop-details">
+            
+            <div class="prop-det">🔧 600 m²</div>
+            <div class="prop-det">📍 Gran San Juan</div>
+          </div>
+          <div class="prop-price">$485.895.948</div>
+          <div class="prop-foot">
+            <button class="btn-consultar" onclick="consultar('Lote en barrio privado — Inversión — $485.895.948')">💬 Consultar</button>
+            <button class="btn-fav">♡</button>
+          </div>
+        </div>
+      </div>
+      <div class="prop-card" data-op="venta" data-tipo="depto">
+        <div class="prop-img">
+          <img src="a3.jpg" alt="Departamento 2 amb. zona céntrica"/>
+          <div class="prop-badge">venta</div>
+        </div>
+        <div class="prop-body">
+          <div class="prop-tipo">depto &bull; Centro SJ</div>
+          <div class="prop-title">Departamento 2 amb. zona céntrica</div>
+          <div class="prop-details">
+            <div class="prop-det">🏠 2 amb.</div>
+            <div class="prop-det">🔧 65 m²</div>
+            <div class="prop-det">📍 Centro SJ</div>
+          </div>
+          <div class="prop-price">$765.473.647</div>
+          <div class="prop-foot">
+            <button class="btn-consultar" onclick="consultar('Departamento 2 amb. zona céntrica — $765.473.647')">💬 Consultar</button>
+            <button class="btn-fav">♡</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -188,7 +272,7 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
       <h2 class="stitle">Reserv&aacute; una visita</h2>
       <p style="color:var(--gray);font-size:.93rem;max-width:440px;margin:0 auto;line-height:1.7">Eleg&iacute; d&iacute;a y horario. Un asesor te acompa&ntilde;a personalmente en la visita a la propiedad.</p>
     </div>
-    <div id="mbw-widget" style="--mbw-primary:{{COLOR1}};--mbw-accent:{{COLOR2}};--mbw-card:{{COLOR_CARD}};--mbw-surface:{{COLOR_SURFACE}};--mbw-border:{{COLOR_BORDE}};--mbw-gray:#94A3B8"></div>
+    <div id="mbw-widget" style="--mbw-primary:#8B6F47;--mbw-accent:#C4A882;--mbw-card:#231C15;--mbw-surface:#1A1410;--mbw-border:#3A2E22;--mbw-gray:#94A3B8"></div>
   </div>
 </section>
 
@@ -201,7 +285,7 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
         <p>Te enviamos una tasaci&oacute;n orientativa en menos de 24 horas. Gratis, sin compromiso y sin visitas.</p>
         <div class="tas-feat"><div class="tas-ico">🏠</div><div class="tas-info"><strong>Tasaci&oacute;n sin cargo</strong><span>Sin visita, sin compromiso.</span></div></div>
         <div class="tas-feat"><div class="tas-ico">⏰</div><div class="tas-info"><strong>Respuesta en 24hs</strong><span>Nuestros tasadores te responden r&aacute;pido.</span></div></div>
-        <div class="tas-feat"><div class="tas-ico">📈</div><div class="tas-info"><strong>Valor real de mercado</strong><span>Basado en operaciones recientes en {{CIUDAD}}.</span></div></div>
+        <div class="tas-feat"><div class="tas-ico">📈</div><div class="tas-info"><strong>Valor real de mercado</strong><span>Basado en operaciones recientes en San Juan.</span></div></div>
       </div>
       <div class="form-box">
         <form onsubmit="pedirTasacion(event)">
@@ -234,25 +318,49 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
     <h2 class="stitle">Clientes que confiaron en nosotros</h2>
     <p class="ssub">La experiencia nos respalda.</p>
     <div class="test-grid">
-      {{TESTIMONIOS_HTML}}
+      
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Vendí mi casa en Capital en menos de un mes al precio que pedí. El equipo de BB es profesional y siempre disponible."</p>
+        <div class="tc-au">
+          <div class="tc-av">M</div>
+          <div><div class="tc-name">Marcela G.</div><div class="tc-loc">📍 Capital, San Juan</div></div>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Busqué departamento por meses. Con Inmobiliaria BB lo encontré en dos semanas. Me acompañaron en cada paso."</p>
+        <div class="tc-au">
+          <div class="tc-av">R</div>
+          <div><div class="tc-name">Roberto y Ana F.</div><div class="tc-loc">📍 Rawson, San Juan</div></div>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Invertí en un lote del loteo privado y fue la mejor decisión. Buena ubicación, precio justo y documentación en orden."</p>
+        <div class="tc-au">
+          <div class="tc-av">D</div>
+          <div><div class="tc-name">Diego A.</div><div class="tc-loc">📍 Rivadavia, San Juan</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="f-logo">{{NOMBRE}}</div>
-  <p>{{SLOGAN}} &middot; {{CIUDAD}}, {{PAIS}}<br>{{HORARIO}}</p>
+  <div class="f-logo">Inmobiliaria del Sur</div>
+  <p>Tenés tu lugar en el mundo &middot; San Juan, Argentina<br>Lunes a Viernes 9–18hs · Sábado 9–13hs</p>
   <div class="f-links">
     <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Servicios</a>
     <a href="#propiedades" onclick="event.preventDefault();document.getElementById('propiedades').scrollIntoView({behavior:'smooth'})">Propiedades</a>
     <a href="#visita" onclick="event.preventDefault();document.getElementById('visita').scrollIntoView({behavior:'smooth'})">Reservar visita</a>
     <a href="#tasacion" onclick="event.preventDefault();document.getElementById('tasacion').scrollIntoView({behavior:'smooth'})">Tasaci&oacute;n</a>
-    <a href="https://wa.me/{{TELEFONO}}" target="_blank">WhatsApp</a>
+    <a href="https://wa.me/5492641234567" target="_blank">WhatsApp</a>
   </div>
-  <div class="f-copy">&copy; {{AÑO}} {{NOMBRE}} &middot; Todos los derechos reservados</div>
+  <div class="f-copy">&copy; 2026 Inmobiliaria del Sur &middot; Todos los derechos reservados</div>
 </footer>
 
-<a href="https://wa.me/{{TELEFONO}}?text={{TELEFONO_URL}}" class="wa-f" target="_blank">
+<a href="https://wa.me/5492641234567?text=Hola!%20Vi%20Inmobiliaria%20del%20Sur%20y%20quiero%20consultar" class="wa-f" target="_blank">
   <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 
@@ -260,21 +368,21 @@ footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
 <script>
 new MoviltecBooking({
   containerId: 'mbw-widget',
-  apiUrl: {{API_URL}},
-  waNumber: '{{TELEFONO}}',
-  servicios: {{BOOKING_SERVICIOS}},
-  primaryColor: '{{COLOR1}}',
-  accentColor: '{{COLOR2}}'
+  apiUrl: 'https://script.google.com/macros/s/AKfycbwENjf4t3iKD-7a6J6LWIRKxtLNL6VY_AEjC4Vt5RC5wjYmhsgEEGpg9v87y45sIz9g/exec',
+  waNumber: '5492641234567',
+  servicios: ["Visita a propiedad en venta","Visita a propiedad en alquiler","Consulta con asesor","Visita a lote / loteo privado","Tasación presencial"],
+  primaryColor: '#8B6F47',
+  accentColor: '#C4A882'
 });
 function consultar(prop){
-  var msg='🏠 *Consulta — {{NOMBRE}}*\n\nHola! Me interesa:\n*'+prop+'*\n\n¿Podrían darme más información?';
-  window.open('https://wa.me/{{TELEFONO}}?text='+encodeURIComponent(msg),'_blank');
+  var msg='🏠 *Consulta — Inmobiliaria del Sur*\n\nHola! Me interesa:\n*'+prop+'*\n\n¿Podrían darme más información?';
+  window.open('https://wa.me/5492641234567?text='+encodeURIComponent(msg),'_blank');
 }
 function pedirTasacion(e){
   e.preventDefault();
   var n=document.getElementById('tnombre').value.trim(),c=document.getElementById('tcelular').value.trim(),d=document.getElementById('tdir').value.trim(),t=document.getElementById('ttipo').value,op=document.getElementById('top').value;
-  var msg='📊 *Tasación — {{NOMBRE}}*\n\n👤 '+n+'\n📱 '+c+'\n📍 '+d+'\n🏠 '+t+(op?'\n📋 '+op:'')+'\n\n¡Quedo esperando la tasación!';
-  window.open('https://wa.me/{{TELEFONO}}?text='+encodeURIComponent(msg),'_blank');
+  var msg='📊 *Tasación — Inmobiliaria del Sur*\n\n👤 '+n+'\n📱 '+c+'\n📍 '+d+'\n🏠 '+t+(op?'\n📋 '+op:'')+'\n\n¡Quedo esperando la tasación!';
+  window.open('https://wa.me/5492641234567?text='+encodeURIComponent(msg),'_blank');
 }
 function filtrar(){
   var op=document.getElementById('fop').value,tipo=document.getElementById('ftipo').value;

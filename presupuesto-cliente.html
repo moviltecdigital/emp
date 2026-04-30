@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Presupuesto - Moviltec Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f5f5f5;padding:40px 20px;color:#333}
+.container{max-width:800px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.1);overflow:hidden}
+.header{background:linear-gradient(135deg,#3B82F6,#7C3AED);color:#fff;padding:40px;text-align:center}
+.header h1{font-size:2rem;font-weight:800;margin-bottom:8px}
+.header p{opacity:.9;font-size:1rem}
+.content{padding:40px}
+.section{margin-bottom:32px}
+.section-title{font-size:1.1rem;font-weight:700;color:#3B82F6;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.plan{background:linear-gradient(135deg,#f8f9fa,#e9ecef);border:2px solid #3B82F6;border-radius:12px;padding:24px;margin-bottom:24px}
+.plan-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+.plan-name{font-size:1.3rem;font-weight:800}
+.plan-price{font-size:2rem;font-weight:800;color:#3B82F6}
+.plan-price span{font-size:1rem;color:#666;font-weight:500}
+.features{list-style:none;display:grid;gap:10px}
+.features li{display:flex;align-items:center;gap:10px;font-size:.95rem}
+.features li::before{content:"✓";color:#10b981;font-weight:800}
+.cost-table{width:100%;border-collapse:collapse;margin-top:16px}
+.cost-table th,.cost-table td{padding:12px;text-align:left;border-bottom:1px solid #e5e7eb}
+.cost-table th{background:#f8f9fa;font-weight:600;font-size:.85rem;color:#666}
+.cost-table td{font-size:.95rem}
+.cost-table .total{font-weight:800;color:#3B82F6}
+.note{background:#fef3c7;border-left:4px solid #f59e0b;padding:16px;border-radius:0 8px 8px 0;margin:20px 0;font-size:.9rem}
+.info-box{background:#dbeafe;border-left:4px solid #3B82F6;padding:16px;border-radius:0 8px 8px 0;margin:20px 0}
+.info-box h4{margin-bottom:8px;color:#1e40af}
+.info-box p{font-size:.9rem;color:#1e3a8a}
+.footer{background:#f8f9fa;padding:24px 40px;text-align:center;border-top:1px solid #e5e7eb}
+.footer p{font-size:.85rem;color:#666}
+.badge{display:inline-block;background:#10b981;color:#fff;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:700}
+.print-btn{position:fixed;bottom:20px;right:20px;background:#3B82F6;color:#fff;border:none;padding:14px 24px;border-radius:50px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(59,130,246,.4);transition:all .2s}
+.print-btn:hover{background:#2563eb;transform:translateY(-2px)}
+@media print{.print-btn{display:none}body{background:#fff}.container{box-shadow:none}}
+@media(max-width:600px){.content{padding:24px}.header{padding:24px}.plan-price{font-size:1.5rem}}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>📋 PRESUPUESTO DETALLADO</h1>
+    <p>Moviltec Digital - Servicios de Automatización de Ventas</p>
+  </div>
+
+  <div class="content">
+    
+    <!-- PLAN SELECCIONADO -->
+    <div class="section">
+      <div class="section-title">📦 Plan Seleccionado</div>
+      <div class="plan">
+        <div class="plan-header">
+          <div>
+            <div class="plan-name">⚡ Ventas Automáticas</div>
+            <span class="badge">El más elegido</span>
+          </div>
+          <div class="plan-price">
+            $35.000
+            <span>ARS/mes</span>
+          </div>
+        </div>
+        
+        <ul class="features">
+          <li>Bot de ventas interactivo 24/7</li>
+          <li>Catálogo web con 50+ productos</li>
+          <li>Carrito de compras integrado</li>
+          <li>Link de pago automático (MercadoPago)</li>
+          <li>Panel de pedidos en tiempo real</li>
+          <li>Soporte técnico incluido</li>
+          <li>Actualizaciones sin costo</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DESGLOSE DE COSTOS -->
+    <div class="section">
+      <div class="section-title">💰 Desglose de Costos Mensuales</div>
+      
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Costo</th>
+            <th>Quién lo paga</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Servicio Moviltec (mantenimiento)</td>
+            <td class="total">$35.000 ARS</td>
+            <td>Vos (cliente)</td>
+          </tr>
+          <tr>
+            <td>Hosting y servidor web</td>
+            <td>Incluido</td>
+            <td>Moviltec</td>
+          </tr>
+          <tr>
+            <td>Soporte técnico</td>
+            <td>Incluido</td>
+            <td>Moviltec</td>
+          </tr>
+          <tr>
+            <td>Actualizaciones del sistema</td>
+            <td>Incluido</td>
+            <td>Moviltec</td>
+          </tr>
+          <tr style="border-top:2px solid #3B82F6">
+            <td><strong>TOTAL MENSUAL FIJO</strong></td>
+            <td class="total"><strong>$35.000 ARS</strong></td>
+            <td>Vos (cliente)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- COSTOS VARIABLES -->
+    <div class="section">
+      <div class="section-title">📊 Costos por Venta (Variables)</div>
+      
+      <p style="margin-bottom:16px;font-size:.95rem;color:#666">
+        Estos costos dependen de tus ventas y se aplican solo cuando cobrás:
+      </p>
+
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Porcentaje</th>
+            <th>Ejemplo ($10.000)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Comisión MercadoPago (link de pago)</td>
+            <td>6,19%</td>
+            <td>$619 ARS</td>
+          </tr>
+          <tr>
+            <td>Retiro a cuenta bancaria</td>
+            <td>~2%</td>
+            <td>~$200 ARS</td>
+          </tr>
+          <tr style="border-top:2px solid #e5e7eb">
+            <td><strong>Total aproximado por venta</strong></td>
+            <td><strong>~8%</strong></td>
+            <td><strong>~$819 ARS</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>💡 Nota importante:</strong> Las comisiones de MercadoPago son independientes de nuestro servicio. 
+        Son el costo estándar de usar cualquier pasarela de pagos en Argentina. 
+        Nosotros no cobramos comisión sobre tus ventas.
+      </div>
+    </div>
+
+    <!-- EJEMPLO PRÁCTICO -->
+    <div class="section">
+      <div class="section-title">🧮 Ejemplo Práctico</div>
+      
+      <p style="margin-bottom:16px">
+        Si en un mes vendés <strong>$200.000 ARS</strong> en productos:
+      </p>
+
+      <table class="cost-table">
+        <tbody>
+          <tr>
+            <td>Ventas totales del mes</td>
+            <td>$200.000 ARS</td>
+          </tr>
+          <tr>
+            <td>Servicio Moviltec</td>
+            <td>-$35.000 ARS</td>
+          </tr>
+          <tr>
+            <td>Comisión MercadoPago (~8%)</td>
+            <td>-$16.000 ARS</td>
+          </tr>
+          <tr style="border-top:2px solid #10b981;background:#d1fae5">
+            <td><strong>💰 TU GANANCIA NETA</strong></td>
+            <td><strong>$149.000 ARS</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- OFERTA -->
+    <div class="section">
+      <div class="section-title">🎁 Oferta de Lanzamiento</div>
+      
+      <div class="info-box">
+        <h4>Sin riesgo, sin compromiso</h4>
+        <p>
+          • <strong>30 días GRATIS</strong> para probar todo el sistema<br>
+          • <strong>Sin costo de instalación</strong> (setup gratuito)<br>
+          • <strong>Sin contrato de permanencia</strong> (cancelás cuando querás)<br>
+          • <strong>Si no te gusta, no pagás</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- QUÉ INCLUYE / QUÉ NO -->
+    <div class="section">
+      <div class="section-title">✅ Incluye vs ❌ No Incluye</div>
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div>
+          <h4 style="color:#10b981;margin-bottom:12px">✅ INCLUYE</h4>
+          <ul style="list-style:none;font-size:.9rem;line-height:2">
+            <li>✓ Bot de ventas 24/7</li>
+            <li>✓ Catálogo web ilimitado</li>
+            <li>✓ Carrito de compras</li>
+            <li>✓ Link de pago automático</li>
+            <li>✓ Panel de pedidos</li>
+            <li>✓ Soporte técnico</li>
+            <li>✓ Actualizaciones</li>
+            <li>✓ Hosting y dominio</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="color:#ef4444;margin-bottom:12px">❌ NO INCLUYE</h4>
+          <ul style="list-style:none;font-size:.9rem;line-height:2">
+            <li>✗ Comisiones de MercadoPago</li>
+            <li>✗ Impuestos (IVA, IIBB)</li>
+            <li>✗ Costos de envío/logística</li>
+            <li>✗ Fotografía de productos</li>
+            <li>✗ Redes sociales (gestión)</li>
+            <li>✗ Publicidad paga (ads)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p><strong>Moviltec Digital</strong> - San Juan, Argentina</p>
+    <p>📱 WhatsApp: +54 9 264 411-4128 | 🌐 moviltecdigital.com.ar</p>
+    <p style="margin-top:12px;font-size:.75rem;color:#999">
+      Este presupuesto tiene validez de 30 días. Los precios están expresados en Pesos Argentinos (ARS).
+      Las comisiones de MercadoPago pueden variar según actualizaciones de la plataforma.
+    </p>
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+
+</body>
+</html>

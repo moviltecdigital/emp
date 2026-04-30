@@ -1,0 +1,32 @@
+{
+  "plan": "ventas",
+  "negocio": {
+    "nombre": "Peluquería María",
+    "slogan": "Tu look, nuestra pasión",
+    "descripcion": "Peluquería familiar con 10 años de experiencia en San Juan",
+    "rubro": "peluqueria",
+    "año_fundacion": 2014
+  },
+  "contacto": {
+    "whatsapp": "2644123456",
+    "telefono": "0264 412-3456",
+    "email": "peluqueriamaria@gmail.com",
+    "direccion": "Av. Libertador 567",
+    "ciudad": "San Juan",
+    "horarios": "Lun a Sáb: 9:00 - 20:00"
+  },
+  "servicios": [
+    {
+      "nombre": "Corte Femenino",
+      "descripcion": "Corte con lavado y styling",
+      "precio": 3500,
+      "duracion": "45 min"
+    },
+    {
+      "nombre": "Coloración",
+      "descripcion": "Color completo con productos premium",
+      "precio": 8000,
+      "duracion": "2 hs"
+    }
+  ]
+}

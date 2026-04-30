@@ -1,0 +1,85 @@
+{
+  "plan": "presencia_digital",
+  "version": "1.0",
+  "fecha_creacion": "2025-01-29",
+  
+  "negocio": {
+    "nombre": "Estilo Urbano",
+    "slogan": "Tu look, tu estilo",
+    "descripcion": "Peluquería unisex especializada en cortes modernos y coloración profesional",
+    "año_fundacion": 2019,
+    "rubro": "peluqueria"
+  },
+
+  "contacto": {
+    "whatsapp": "5492645304372",
+    "telefono": "0264 4123456",
+    "email": "contacto@estilourbano.com",
+    "direccion": "Av. Libertador 1234",
+    "ciudad": "San Juan",
+    "horarios": "Lun a Sáb: 9:00 - 20:00"
+  },
+
+  "redes": {
+    "instagram": "estilo.urbano.sj",
+    "facebook": "EstiloUrbanoSJ",
+    "tiktok": ""
+  },
+
+  "diseno": {
+    "color_primario": "#3B82F6",
+    "color_secundario": "#1E40AF",
+    "color_acento": "#F59E0B",
+    "tipografia": "Inter",
+    "logo_url": "assets/logo.png",
+    "favicon_url": "assets/favicon.ico"
+  },
+
+  "contenido": {
+    "hero_titulo": "Transformá tu imagen con los mejores",
+    "hero_subtitulo": "Especialistas en coloración, cortes modernos y tratamientos capilares. Reservá tu turno hoy.",
+    "hero_imagen": "assets/hero-peluqueria.jpg",
+    
+    "servicios": [
+      {
+        "titulo": "Corte y Estilizado",
+        "descripcion": "Cortes personalizados según tu tipo de rostro y estilo de vida",
+        "icono": "tijeras"
+      },
+      {
+        "titulo": "Coloración Profesional",
+        "descripcion": "Tintes, mechas, balayage y más con productos de primera línea",
+        "icono": "paleta"
+      },
+      {
+        "titulo": "Tratamientos Capilares",
+        "descripcion": "Reparación, hidratación y nutrición para tu cabello",
+        "icono": "corazon"
+      },
+      {
+        "titulo": "Alisados y Permanentes",
+        "descripcion": "Técnicas modernas para el cabello que siempre soñaste",
+        "icono": "estrella"
+      }
+    ],
+
+    "galeria_imagenes": [
+      "assets/galeria-1.jpg",
+      "assets/galeria-2.jpg",
+      "assets/galeria-3.jpg",
+      "assets/galeria-4.jpg",
+      "assets/galeria-5.jpg",
+      "assets/galeria-6.jpg"
+    ],
+
+    "sobre_nosotros_texto": "En Estilo Urbano llevamos más de 5 años ayudando a nuestros clientes a encontrar su mejor versión. Nuestro equipo de profesionales se capacita constantemente para ofrecerte las últimas tendencias en corte, color y cuidado capilar. Usamos productos de alta calidad que cuidan tu cabello mientras te hacen lucir espectacular.",
+    "sobre_nosotros_imagen": "assets/equipo.jpg"
+  },
+
+  "seo": {
+    "titulo_pagina": "Estilo Urbano | Peluquería en San Juan",
+    "descripcion_meta": "Peluquería unisex en San Juan. Cortes, coloración, tratamientos capilares. Reservá tu turno online.",
+    "keywords": "peluqueria san juan, corte de pelo, coloracion, mechas, balayage",
+    "imagen_og": "assets/og-image.jpg"
+  }
+}

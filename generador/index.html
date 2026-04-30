@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moviltec Digital - Crear tu Sitio Web Profesional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --card: #18181F;
+      --border: #26262E;
+      --primary: #3B82F6;
+      --primary-dark: #2563EB;
+      --success: #10B981;
+      --warning: #F59E0B;
+      --white: #FFFFFF;
+      --gray: #94A3B8;
+      --gray2: #64748B;
+      --r: 12px;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    /* Header */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+    
+    .logo span {
+      color: var(--white);
+      font-weight: 400;
+    }
+    
+    .nav-back {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .nav-back:hover { color: var(--white); }
+    
+    /* Layout */
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 450px 1fr;
+      min-height: calc(100vh - 80px);
+    }
+    
+    /* Form Panel */
+    .form-panel {
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 30px;
+      overflow-y: auto;
+      max-height: calc(100vh - 80px);
+    }
+    
+    .form-header {
+      margin-bottom: 30px;
+    }
+    
+    .form-header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    
+    .form-header p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    /* Progress */
+    .progress-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+    
+    .progress-step {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    
+    .progress-step.active { background: var(--primary); }
+    .progress-step.completed { background: var(--success); }
+    
+    /* Form Steps */
+    .form-step { display: none; }
+    .form-step.active { display: block; animation: fadeIn 0.3s; }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .step-number {
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+    
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    
+    .form-group label .required {
+      color: var(--warning);
+      margin-left: 4px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 12px 16px;
+      color: var(--white);
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    
+    /* Plan Selection */
+    .plan-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .plan-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: var(--r);
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    
+    .plan-card:hover { border-color: var(--primary); }
+    .plan-card.selected {
+      border-color: var(--primary);
+      background: rgba(59,130,246,0.1);
+    }
+    
+    .plan-card input { position: absolute; opacity: 0; }
+    
+    .plan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    
+    .plan-name {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    
+    .plan-price {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    
+    .plan-price span {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+    
+    .plan-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    
+    .plan-features {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+    
+    .plan-features li {
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .plan-features li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 700;
+      font-size: 0.7rem;
+    }
+    
+    /* Color Picker */
+    .color-picker {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .color-option {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 3px solid transparent;
+      transition: all 0.2s;
+      position: relative;
+    }
+    
+    .color-option:hover { transform: scale(1.1); }
+    .color-option.selected {
+      border-color: var(--white);
+      box-shadow: 0 0 0 3px var(--primary);
+    }
+    
+    /* Services */
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    
+    .service-tag {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .service-tag button {
+      background: none;
+      border: none;
+      color: var(--gray);
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+    }
+    
+    .add-service {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .add-service input { flex: 1; }
+    .add-service button {
+      background: var(--primary);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: var(--r);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    
+    /* Buttons */
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--r);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      text-decoration: none;
+      flex: 1;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover { background: var(--primary-dark); }
+    
+    .btn-secondary {
+      background: var(--card);
+      color: var(--white);
+      border: 1px solid var(--border);
+    }
+    
+    .btn-secondary:hover { background: var(--border); }
+    
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+    
+    .btn-success:hover { background: #059669; }
+    
+    /* Preview Panel */
+    .preview-panel {
+      background: #000;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .preview-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 15px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .preview-header h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .preview-badge {
+      background: var(--success);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .preview-frame-container {
+      flex: 1;
+      padding: 20px;
+      overflow: hidden;
+    }
+    
+    .preview-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: var(--r);
+      background: white;
+    }
+    
+    .preview-devices {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .device-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--gray);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    
+    .device-btn:hover,
+    .device-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    /* Submit Section */
+    .submit-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 20px 24px;
+    }
+    
+    .submit-section p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-panel {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        max-height: none;
+      }
+      
+      .preview-panel {
+        min-height: 500px;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .form-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">Moviltec <span>Generator Pro</span></div>
+      <a href="../agencia/index.html" class="nav-back">← Volver al sitio</a>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <!-- Form Panel -->
+    <div class="form-panel">
+      <div class="form-header">
+        <h1>Crear tu sitio web</h1>
+        <p>Completá los datos y visualizá los cambios en tiempo real.</p>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-bar">
+        <div class="progress-step active" data-step="1"></div>
+        <div class="progress-step" data-step="2"></div>
+        <div class="progress-step" data-step="3"></div>
+        <div class="progress-step" data-step="4"></div>
+      </div>
+
+      <form id="generatorForm">
+        
+        <!-- STEP 1: PLAN -->
+        <div class="form-step active" data-step="1">
+          <div class="step-title">
+            <span class="step-number">1</span>
+            Elegí tu plan
+          </div>
+
+          <div class="plan-grid">
+            <label class="plan-card" onclick="selectPlan('presencia')">
+              <input type="radio" name="plan" value="presencia" required>
+              <div class="plan-header">
+                <span class="plan-name">Presencia Digital</span>
+                <span class="plan-price">$15.000<span>/mes</span></span>
+              </div>
+              <div class="plan-desc">Para emprendedores que necesitan presencia online profesional.</div>
+              <ul class="plan-features">
+                <li>Landing page profesional</li>
+                <li>Botón WhatsApp integrado</li>
+                <li>Formulario de contacto</li>
+                <li>Diseño mobile responsive</li>
+              </ul>
+            </label>
+
+            <label class="plan-card" onclick="selectPlan('ventas')">
+              <input type="radio" name="plan" value="ventas">
+              <div class="plan-header">
+                <span class="plan-name">Ventas Automáticas ⭐</span>
+                <span class="plan-price">$35.000<span>/mes</span></span>
+              </div>
+              <div class="plan-desc">Bot de ventas + catálogo + carrito. Atención 24/7.</div>
+              <ul class="plan-features">
+                <li>Todo lo de Presencia Digital</li>
+                <li>Catálogo de productos</li>
+                <li>Carrito de compras</li>
+                <li>Bot de ventas WhatsApp</li>
+                <li>Panel de pedidos</li>
+              </ul>
+            </label>
+
+            <label class="plan-card" onclick="selectPlan('pro')">
+              <input type="radio" name="plan" value="pro">
+              <div class="plan-header">
+                <span class="plan-name">Negocio Digital Pro</span>
+                <span class="plan-price">$55.000<span>/mes</span></span>
+              </div>
+              <div class="plan-desc">Para negocios con volumen. Sistema completo.</div>
+              <ul class="plan-features">
+                <li>Todo lo de Ventas Automáticas</li>
+                <li>Sistema de reservas online</li>
+                <li>Stock en tiempo real</li>
+                <li>Reportes automáticos</li>
+                <li>Soporte prioritario 24/7</li>
+              </ul>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <div></div>
+            <button type="button" class="btn btn-primary" onclick="nextStep(2)">
+              Continuar →
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: DATOS DEL NEGOCIO -->
+        <div class="form-step" data-step="2">
+          <div class="step-title">
+            <span class="step-number">2</span>
+            Datos de tu negocio
+          </div>
+
+          <div class="form-group">
+            <label>Nombre del negocio <span class="required">*</span></label>
+            <input type="text" name="nombre_negocio" placeholder="Ej: Estilo Urbano" required oninput="updatePreview()">
+          </div>
+
+          <div class="form-group">
+            <label>Slogan o frase principal <span class="required">*</span></label>
+            <input type="text" name="slogan" placeholder="Ej: Tu look, tu estilo" required oninput="updatePreview()">
+          </div>
+
+          <div class="form-group">
+            <label>Descripción <span class="required">*</span></label>
+            <textarea name="descripcion" placeholder="Contá qué hacés, qué te diferencia..." required oninput="updatePreview()"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Rubro <span class="required">*</span></label>
+            <select name="rubro" required onchange="updatePreview()">
+              <option value="">Seleccionar rubro</option>
+              <option value="peluqueria">Peluquería / Barbería</option>
+              <option value="estetica">Estética / Belleza</option>
+              <option value="odontologia">Odontología / Salud</option>
+              <option value="ropa">Venta de Ropa</option>
+              <option value="gastronomia">Gastronomía / Viandas</option>
+              <option value="inmobiliaria">Inmobiliaria</option>
+              <option value="gimnasio">Gimnasio / Fitness</option>
+              <option value="veterinaria">Veterinaria</option>
+              <option value="taller">Taller Mecánico</option>
+              <option value="servicios">Servicios del Hogar</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Año de fundación</label>
+            <input type="number" name="año_fundacion" placeholder="Ej: 2019" min="1950" max="2026" oninput="updatePreview()">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(1)">← Volver</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(3)">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: CONTACTO Y DISEÑO -->
+        <div class="form-step" data-step="3">
+          <div class="step-title">
+            <span class="step-number">3</span>
+            Contacto y diseño
+          </div>
+
+          <div class="form-group">
+            <label>WhatsApp <span class="required">*</span></label>
+            <input type="tel" name="whatsapp" placeholder="Ej: 2645304372" required oninput="updatePreview()">
+          </div>
+
+          <div class="form-group">
+            <label>Email <span class="required">*</span></label>
+            <input type="email" name="email" placeholder="Ej: contacto@tunegocio.com" required oninput="updatePreview()">
+          </div>
+
+          <div class="form-group">
+            <label>Dirección <span class="required">*</span></label>
+            <input type="text" name="direccion" placeholder="Ej: Av. Libertador 1234" required oninput="updatePreview()">
+          </div>
+
+          <div class="form-group">
+            <label>Ciudad <span class="required">*</span></label>
+            <input type="text" name="ciudad" placeholder="Ej: San Juan" required oninput="updatePreview()">
+          </div>
+
+          <div class="form-group">
+            <label>Horarios de atención</label>
+            <input type="text" name="horarios" placeholder="Ej: Lun a Vie 9-18hs | Sáb 9-13hs" oninput="updatePreview()">
+          </div>
+
+          <div class="form-group">
+            <label>Color principal de tu marca</label>
+            <div class="color-picker">
+              <div class="color-option selected" style="background:#3B82F6" data-color="#3B82F6" onclick="selectColor(this)"></div>
+              <div class="color-option" style="background:#F59E0B" data-color="#F59E0B" onclick="selectColor(this)"></div>
+              <div class="color-option" style="background:#EF4444" data-color="#EF4444" onclick="selectColor(this)"></div>
+              <div class="color-option" style="background:#10B981" data-color="#10B981" onclick="selectColor(this)"></div>
+              <div class="color-option" style="background:#8B5CF6" data-color="#8B5CF6" onclick="selectColor(this)"></div>
+              <div class="color-option" style="background:#EC4899" data-color="#EC4899" onclick="selectColor(this)"></div>
+              <div class="color-option" style="background:#06B6D4" data-color="#06B6D4" onclick="selectColor(this)"></div>
+              <div class="color-option" style="background:#111827" data-color="#111827" onclick="selectColor(this)"></div>
+            </div>
+            <input type="hidden" name="color_primario" id="colorInput" value="#3B82F6">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(2)">← Volver</button>
+            <button type="button" class="btn btn-primary" onclick="nextStep(4)">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: SERVICIOS Y ENVÍO -->
+        <div class="form-step" data-step="4">
+          <div class="step-title">
+            <span class="step-number">4</span>
+            Servicios y revisión
+          </div>
+
+          <div class="form-group">
+            <label>Servicios que ofrecés</label>
+            <div class="services-list" id="servicesList"></div>
+            <div class="add-service">
+              <input type="text" id="newService" placeholder="Agregar servicio...">
+              <button type="button" onclick="addService()">Agregar</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>¿Tenés un dominio propio?</label>
+            <input type="text" name="dominio" placeholder="Ej: tunegocio.com.ar (opcional)">
+          </div>
+
+          <div class="form-group">
+            <label>Notas adicionales</label>
+            <textarea name="notas" placeholder="¿Algo más que quieras contarnos sobre tu negocio?"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" onclick="prevStep(3)">← Volver</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Submit Section -->
+      <div class="submit-section">
+        <p>✅ Revisá tu sitio en la vista previa. Cuando esté listo, envialo para que lo publiquemos.</p>
+        
+        <button type="button" class="btn btn-success" onclick="submitForm()" style="width: 100%;">
+          🚀 Enviar solicitud →
+        </button>
+      </div>
+    </div>
+
+    <!-- Preview Panel -->
+    <div class="preview-panel">
+      <div class="preview-header">
+        <h3>
+          👁️ Vista previa en tiempo real
+          <span class="preview-badge">LIVE</span>
+        </h3>
+        
+        <div class="preview-devices">
+          <button class="device-btn active" onclick="setDevice('desktop')">💻 Desktop</button>
+          <button class="device-btn" onclick="setDevice('mobile')">📱 Mobile</button>
+        </div>
+      </div>
+      
+      <div class="preview-frame-container">
+        <iframe id="previewFrame" class="preview-frame"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State
+    let currentStep = 1;
+    let services = [];
+    let formData = {};
+    let previewUpdateTimeout;
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+      updatePreview();
+      
+      // Enter key on service input
+      document.getElementById('newService').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addService();
+        }
+      });
+    });
+
+    // Navigation
+    function nextStep(step) {
+      if (!validateStep(currentStep)) return;
+      
+      document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+      document.querySelector(`.progress-step[data-step="${currentStep}"]`).classList.add('completed');
+      
+      currentStep = step;
+      
+      document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+      document.querySelector(`.progress-step[data-step="${currentStep}"]`).classList.add('active');
+      
+      updatePreview();
+    }
+
+    function prevStep(step) {
+      document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.remove('active');
+      document.querySelector(`.progress-step[data-step="${currentStep}"]`).classList.remove('active');
+      
+      currentStep = step;
+      
+      document.querySelector(`.form-step[data-step="${currentStep}"]`).classList.add('active');
+    }
+
+    function validateStep(step) {
+      const currentStepEl = document.querySelector(`.form-step[data-step="${step}"]`);
+      const requiredFields = currentStepEl.querySelectorAll('[required]');
+      
+      for (let field of requiredFields) {
+        if (!field.value.trim()) {
+          field.focus();
+          alert('Por favor completá todos los campos obligatorios');
+          return false;
+        }
+      }
+      
+      return true;
+    }
+
+    // Plan selection
+    function selectPlan(plan) {
+      document.querySelectorAll('.plan-card').forEach(card => card.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+      updatePreview();
+    }
+
+    // Color selection
+    function selectColor(el) {
+      document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+      document.getElementById('colorInput').value = el.dataset.color;
+      updatePreview();
+    }
+
+    // Services
+    function addService() {
+      const input = document.getElementById('newService');
+      const value = input.value.trim();
+      
+      if (value && !services.includes(value)) {
+        services.push(value);
+        renderServices();
+        input.value = '';
+        updatePreview();
+      }
+    }
+
+    function removeService(index) {
+      services.splice(index, 1);
+      renderServices();
+      updatePreview();
+    }
+
+    function renderServices() {
+      const list = document.getElementById('servicesList');
+      
+      list.innerHTML = services.map((service, index) => `
+        <div class="service-tag">
+          ${service}
+          <button type="button" onclick="removeService(${index})">×</button>
+        </div>
+      `).join('');
+    }
+
+    // Generate HTML based on plan
+    function generateHTML(data) {
+      const plan = data.plan || 'presencia';
+      const colorPrimario = data.color_primario || '#3B82F6';
+      
+      // Calculate secondary color
+      const hex = colorPrimario.replace('#', '');
+      const r = Math.max(0, parseInt(hex.substr(0, 2), 16) - 30);
+      const g = Math.max(0, parseInt(hex.substr(2, 2), 16) - 30);
+      const b = Math.max(0, parseInt(hex.substr(4, 2), 16) - 30);
+      const colorSecundario = '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+      
+      const serviciosHTML = (data.servicios || []).map((s, i) => {
+        const iconos = ['⚡', '🎯', '💎', '🔥', '⭐', '💪', '🚀', '✨'];
+        return `
+          <div class="feature-card" style="background: #f8fafc; padding: 32px; border-radius: 20px; transition: all 0.3s;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; margin-bottom: 20px;">${iconos[i % iconos.length]}</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 12px;">${s}</h3>
+            <p style="color: #64748b; font-size: 0.95rem;">Servicio profesional de ${s.toLowerCase()} con la mejor calidad.</p>
+          </div>
+        `;
+      }).join('');
+
+      // Different layouts based on plan
+      let heroSection, mainContent;
+      
+      if (plan === 'presencia') {
+        heroSection = `
+          <section style="min-height: 100vh; background: linear-gradient(135deg, #f8fafc 0%, white 50%, #f8fafc 100%); display: flex; align-items: center; padding: 140px 24px 100px;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+              <div>
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: white; padding: 8px 16px; border-radius: 50px; font-size: 0.9rem; color: ${colorPrimario}; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.08); margin-bottom: 24px;">
+                  <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>
+                  Abierto ahora
+                </div>
+                <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; color: #0f172a; margin-bottom: 24px;">${data.slogan || 'Bienvenidos a ' + data.nombre_negocio}</h1>
+                <p style="font-size: 1.15rem; color: #64748b; margin-bottom: 32px;">${data.descripcion}</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                  <a href="https://wa.me/549${data.whatsapp}" style="background: ${colorPrimario}; color: white; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">Contactar por WhatsApp →</a>
+                </div>
+              </div>
+              <div>
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600" style="width: 100%; border-radius: 24px; box-shadow: 0 30px 60px rgba(0,0,0,0.12);">
+              </div>
+            </div>
+          </section>
+        `;
+        
+        mainContent = `
+          <section style="padding: 100px 24px; background: white;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+              <div style="text-align: center; max-width: 600px; margin: 0 auto 60px;">
+                <span style="display: inline-block; background: rgba(59,130,246,0.1); color: ${colorPrimario}; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">NUESTROS SERVICIOS</span>
+                <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 16px;">¿Qué ofrecemos?</h2>
+                <p style="color: #64748b; font-size: 1.1rem;">Soluciones profesionales adaptadas a tus necesidades</p>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                ${serviciosHTML || '<div style="text-align: center; color: #64748b; grid-column: 1/-1;">Agregá servicios en el formulario para verlos aquí</div>'}
+              </div>
+            </div>
+          </section>
+          
+          <section style="padding: 100px 24px; background: #0f172a; color: white;">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+              <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 30px;">Contactanos</h2>
+              <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 40px;">
+                <div>📍 ${data.direccion}, ${data.ciudad}</div>
+                <div>📱 ${data.whatsapp}</div>
+                <div>✉️ ${data.email}</div>
+              </div>
+              <a href="https://wa.me/549${data.whatsapp}" style="background: ${colorPrimario}; color: white; padding: 16px 40px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-block;">Escribinos por WhatsApp</a>
+            </div>
+          </section>
+        `;
+      } else if (plan === 'ventas') {
+        heroSection = `
+          <section style="min-height: 90vh; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; align-items: center; padding: 140px 24px 80px; color: white;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+              <div>
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 50px; font-size: 0.9rem; margin-bottom: 24px;">🚀 Tienda Online Oficial</div>
+                <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 24px;">${data.slogan || 'Tu tienda online'}</h1>
+                <p style="font-size: 1.15rem; opacity: 0.8; margin-bottom: 32px;">${data.descripcion} Comprá desde tu casa y recibí en tu domicilio.</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                  <a href="#catalogo" style="background: ${colorPrimario}; color: white; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600;">Ver catálogo →</a>
+                  <a href="https://wa.me/549${data.whatsapp}" style="background: #25d366; color: white; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600;">💬 WhatsApp</a>
+                </div>
+              </div>
+              <div>
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600" style="width: 100%; border-radius: 24px; box-shadow: 0 40px 80px rgba(0,0,0,0.3);">
+              </div>
+            </div>
+          </section>
+        `;
+        
+        mainContent = `
+          <section id="catalogo" style="padding: 100px 24px; background: #f8fafc;">
+            <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+              <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 16px;">Nuestros Productos</h2>
+              <p style="color: #64748b; margin-bottom: 40px;">Seleccioná lo que te guste y consultá por WhatsApp</p>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px;">
+                <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                  <div style="aspect-ratio: 1; background: linear-gradient(135deg, ${colorPrimario}20, ${colorSecundario}20); display: flex; align-items: center; justify-content: center; font-size: 4rem;">👕</div>
+                  <div style="padding: 24px;">
+                    <div style="font-size: 0.85rem; color: ${colorPrimario}; font-weight: 600; margin-bottom: 8px;">PRODUCTO DE EJEMPLO</div>
+                    <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 12px;">Producto de ejemplo</h3>
+                    <div style="font-size: 1.4rem; font-weight: 800; color: ${colorPrimario}; margin-bottom: 16px;">$0.000</div>
+                    <button style="width: 100%; padding: 14px; background: #0f172a; color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer;">Consultar por WhatsApp</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <section style="padding: 100px 24px; background: white;">
+            <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+              <h2 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 50px;">¿Cómo comprar?</h2>
+              
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+                <div>
+                  <div style="width: 80px; height: 80px; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 800; margin: 0 auto 20px;">1</div>
+                  <h3>Elegí</h3>
+                  <p style="color: #64748b;">Seleccioná tus productos</p>
+                </div>
+                
+                <div>
+                  <div style="width: 80px; height: 80px; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 800; margin: 0 auto 20px;">2</div>
+                  <h3>Consultá</h3>
+                  <p style="color: #64748b;">Verificá stock por WhatsApp</p>
+                </div>
+                
+                <div>
+                  <div style="width: 80px; height: 80px; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 800; margin: 0 auto 20px;">3</div>
+                  <h3>Pagá</h3>
+                  <p style="color: #64748b;">Coordinamos el pago</p>
+                </div>
+                
+                <div>
+                  <div style="width: 80px; height: 80px; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 800; margin: 0 auto 20px;">4</div>
+                  <h3>Recibí</h3>
+                  <p style="color: #64748b;">Te lo llevamos a tu casa</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+      } else {
+        // Pro plan
+        heroSection = `
+          <section style="min-height: 100vh; background: linear-gradient(135deg, #f8fafc 0%, white 50%, #f8fafc 100%); display: flex; align-items: center; padding: 140px 24px 100px;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;">
+              <div>
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;">✓ Sistema de reservas online</div>
+                <h1 style="font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.05; color: #0f172a; margin-bottom: 24px;">${data.slogan || 'Tu negocio digital'}</h1>
+                <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 32px;">${data.descripcion} Reservá tu turno online las 24hs.</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
+                  <a href="#reservas" style="background: ${colorPrimario}; color: white; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600;">Reservar ahora →</a>
+                  <a href="https://wa.me/549${data.whatsapp}" style="background: transparent; color: #0f172a; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; border: 2px solid ${colorPrimario};">Consultar</a>
+                </div>
+                
+                <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                  <span style="display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> Reserva inmediata</span>
+                  <span style="display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> Sin demoras</span>
+                  <span style="display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> Recordatorios automáticos</span>
+                </div>
+              </div>
+              <div>
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" style="width: 100%; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.12);">
+              </div>
+            </div>
+          </section>
+        `;
+        
+        mainContent = `
+          <section style="background: #0f172a; padding: 40px 24px; color: white;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center;">
+              <div>
+                <strong style="display: block; font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">500+</strong>
+                <span style="opacity: 0.7;">Clientes satisfechos</span>
+              </div>
+              <div>
+                <strong style="display: block; font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5+</strong>
+                <span style="opacity: 0.7;">Años de experiencia</span>
+              </div>
+              <div>
+                <strong style="display: block; font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">1000+</strong>
+                <span style="opacity: 0.7;">Reservas este mes</span>
+              </div>
+              <div>
+                <strong style="display: block; font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, ${colorPrimario}, ${colorSecundario}); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">4.9</strong>
+                <span style="opacity: 0.7;">Valoración promedio</span>
+              </div>
+            </div>
+          </section>
+          
+          <section id="reservas" style="padding: 100px 24px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white;">
+            <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+              <div>
+                <span style="display: inline-block; background: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; margin-bottom: 16px;">RESERVAS ONLINE</span>
+                <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 20px;">Reservá tu turno en segundos</h2>
+                <p style="opacity: 0.8; margin-bottom: 40px;">Nuestro sistema te permite agendar tu turno las 24 horas, los 7 días de la semana.</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                  <div style="display: flex; gap: 20px;">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">📅</div>
+                    <div>
+                      <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Disponibilidad en tiempo real</h4>
+                      <p style="opacity: 0.7; font-size: 0.95rem;">Vé los horarios disponibles actualizados</p>
+                    </div>
+                  </div>
+                  
+                  <div style="display: flex; gap: 20px;">
+                    <div style="width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;">🔔</div>
+                    <div>
+                      <h4 style="font-size: 1.2rem; margin-bottom: 5px;">Recordatorios automáticos</h4>
+                      <p style="opacity: 0.7; font-size: 0.95rem;">Recibí alertas por WhatsApp</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div style="background: white; padding: 40px; border-radius: 24px; color: #0f172a;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 24px;">Completa tus datos</h3>
+                
+                <form>
+                  <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 0.9rem; color: #64748b; margin-bottom: 6px;">Nombre</label>
+                    <input type="text" placeholder="Tu nombre" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px;">
+                  </div>
+                  
+                  <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-size: 0.9rem; color: #64748b; margin-bottom: 6px;">Servicio</label>
+                    <select style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px;">
+                      <option>Seleccioná un servicio</option>
+                      ${(data.servicios || []).map(s => `<option>${s}</option>`).join('')}
+                    </select>
+                  </div>
+                  
+                  <button type="button" style="width: 100%; padding: 14px; background: ${colorPrimario}; color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer;">Confirmar reserva →</button>
+                </form>
+              </div>
+            </div>
+          </section>
+        `;
+      }
+      
+      return `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${data.nombre_negocio || 'Mi Negocio'} | ${data.rubro || 'Servicios'} en ${data.ciudad || 'San Juan'}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body style="margin: 0; font-family: 'Inter', sans-serif;">
+  <!-- Header -->
+  <header style="position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+      <a href="#" style="font-size: 1.5rem; font-weight: 800; color: ${colorPrimario}; text-decoration: none; display: flex; align-items: center; gap: 10px;">
+        <span style="width: 40px; height: 40px; background: ${colorPrimario}; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">⚡</span>
+        ${data.nombre_negocio || 'Mi Negocio'}
+      </a>
+      
+      <nav style="display: flex; gap: 40px; align-items: center;">
+        <a href="#" style="color: #64748b; text-decoration: none; font-weight: 500;">Inicio</a>
+        <a href="#" style="color: #64748b; text-decoration: none; font-weight: 500;">Servicios</a>
+        <a href="#" style="color: #64748b; text-decoration: none; font-weight: 500;">Contacto</a>
+        <a href="https://wa.me/549${data.whatsapp}" style="background: ${colorPrimario}; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 600;">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  ${heroSection}
+  ${mainContent}
+
+  <!-- Footer -->
+  <footer style="background: #0a0f1a; color: rgba(255,255,255,0.6); padding: 60px 24px 30px;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <p style="margin-bottom: 20px;"><strong style="color: white;">${data.nombre_negocio}</strong> — ${data.ciudad}, Argentina</p>
+      <p>📱 ${data.whatsapp} | ✉️ ${data.email}</p>
+      <p style="margin-top: 30px; font-size: 0.9rem;">Hecho con ❤️ por Moviltec Digital</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/549${data.whatsapp}" style="position: fixed; bottom: 30px; right: 30px; width: 64px; height: 64px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 2rem; box-shadow: 0 8px 30px rgba(37,211,102,0.4); z-index: 999;">💬</a>
+
+</body>
+</html>`;
+    }
+
+    // Update preview
+    function updatePreview() {
+      clearTimeout(previewUpdateTimeout);
+      previewUpdateTimeout = setTimeout(() => {
+        const form = document.getElementById('generatorForm');
+        const formDataObj = new FormData(form);
+        
+        formData = {
+          plan: formDataObj.get('plan') || 'presencia',
+          nombre_negocio: formDataObj.get('nombre_negocio') || 'Tu Negocio',
+          slogan: formDataObj.get('slogan') || 'Tu slogan aquí',
+          descripcion: formDataObj.get('descripcion') || 'Descripción de tu negocio...',
+          rubro: formDataObj.get('rubro') || 'negocio',
+          año_fundacion: formDataObj.get('año_fundacion') || '2020',
+          whatsapp: formDataObj.get('whatsapp') || '2645304372',
+          email: formDataObj.get('email') || 'contacto@ejemplo.com',
+          direccion: formDataObj.get('direccion') || 'Av. Ejemplo 123',
+          ciudad: formDataObj.get('ciudad') || 'San Juan',
+          horarios: formDataObj.get('horarios') || 'Lun a Vie 9-18hs',
+          color_primario: formDataObj.get('color_primario') || '#3B82F6',
+          servicios: services
+        };
+        
+        const html = generateHTML(formData);
+        const frame = document.getElementById('previewFrame');
+        frame.srcdoc = html;
+      }, 300);
+    }
+
+    // Device toggle
+    function setDevice(device) {
+      document.querySelectorAll('.device-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      const frame = document.getElementById('previewFrame');
+      if (device === 'mobile') {
+        frame.style.maxWidth = '375px';
+        frame.style.margin = '0 auto';
+      } else {
+        frame.style.maxWidth = '100%';
+        frame.style.margin = '0';
+      }
+    }
+
+    // Submit form
+    function submitForm() {
+      if (!validateStep(currentStep)) return;
+      
+      // Collect all data
+      const form = document.getElementById('generatorForm');
+      const formDataObj = new FormData(form);
+      
+      const finalData = {
+        plan: formDataObj.get('plan'),
+        nombre_negocio: formDataObj.get('nombre_negocio'),
+        slogan: formDataObj.get('slogan'),
+        descripcion: formDataObj.get('descripcion'),
+        rubro: formDataObj.get('rubro'),
+        año_fundacion: formDataObj.get('año_fundacion'),
+        whatsapp: formDataObj.get('whatsapp'),
+        email: formDataObj.get('email'),
+        direccion: formDataObj.get('direccion'),
+        ciudad: formDataObj.get('ciudad'),
+        horarios: formDataObj.get('horarios'),
+        color_primario: formDataObj.get('color_primario'),
+        servicios: services,
+        dominio: formDataObj.get('dominio'),
+        notas: formDataObj.get('notas'),
+        fecha_solicitud: new Date().toISOString()
+      };
+      
+      // Generate HTML
+      const html = generateHTML(finalData);
+      
+      // Create mailto link with data
+      const subject = `Nueva solicitud de sitio web - ${finalData.nombre_negocio}`;
+      const body = `
+Nueva solicitud de creación de sitio web:
+
+PLAN: ${finalData.plan}
+NEGOCIO: ${finalData.nombre_negocio}
+RUBRO: ${finalData.rubro}
+CIUDAD: ${finalData.ciudad}
+
+CONTACTO:
+- WhatsApp: ${finalData.whatsapp}
+- Email: ${finalData.email}
+- Dirección: ${finalData.direccion}
+
+SERVICIOS:
+${finalData.servicios.join('\n')}
+
+NOTAS ADICIONALES:
+${finalData.notas || 'Ninguna'}
+
+El código HTML completo está adjunto o disponible en el sistema.
+      `;
+      
+      // Show confirmation
+      alert(`✅ ¡Solicitud lista para enviar!\n\nResumen:\n• Plan: ${finalData.plan}\n• Negocio: ${finalData.nombre_negocio}\n• Rubro: ${finalData.rubro}\n\nSe abrirá tu cliente de email. Si no funciona, copiá esta info y enviala manualmente a: moviltecdigital@gmail.com`);
+      
+      // Open email client
+      window.location.href = `mailto:moviltecdigital@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Also save to localStorage for backup
+      localStorage.setItem('moviltec_solicitud_' + Date.now(), JSON.stringify({
+        datos: finalData,
+        html: html
+      }));
+    }
+  </script>
+
+</body>
+</html>

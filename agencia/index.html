@@ -76,6 +76,11 @@
     .dp3{background:linear-gradient(135deg,#0D1B2A,#1e3a5f,#2563EB)}
     .dp4{background:linear-gradient(135deg,#0A0A0A,#1f1f1f,#374151)}
     .dp5{background:linear-gradient(135deg,#0C1F3F,#1e3a5f,#0ea5e9)}
+    .dp6{background:linear-gradient(135deg,#1a1505,#3d2805,#f59e0b)}
+    .dp7{background:linear-gradient(135deg,#0f172a,#1e293b,#0ea5e9)}
+    .dp8{background:linear-gradient(135deg,#1a1005,#2d1b05,#d97706)}
+    .dp9{background:linear-gradient(135deg,#0f0518,#240e3d,#d946ef)}
+    .dp10{background:linear-gradient(135deg,#f0f9ff,#e0f2fe,#0ea5e9)}
     .demo-tag{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);color:#fff;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:50px;border:1px solid rgba(255,255,255,.18)}
     .demo-body{padding:20px 22px}
     .demo-rubro{font-size:.7rem;color:var(--blue2);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
@@ -102,7 +107,7 @@
     .pack-mant strong{color:rgba(255,255,255,.8)}
     .pack-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
     .pack-feats li{font-size:.83rem;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:8px}
-    .pack-feats li::before{content:'&#10003;';color:#6ee7b7;font-weight:700;flex-shrink:0;margin-top:1px}
+    .pack-feats li::before{content:'';display:none}
     .btn-pack{width:100%;background:rgba(255,255,255,.07);color:#fff;border:1px solid rgba(255,255,255,.18);padding:13px;border-radius:50px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;text-decoration:none;display:flex;align-items:center;justify-content:center}
     .btn-pack:hover{background:rgba(255,255,255,.13)}
     .btn-pack.p{background:var(--grad);border-color:transparent}
@@ -198,31 +203,100 @@
 </section>
 
 <!-- PROBLEMA -->
-<section class="sec sec-prob">
-  <div class="ctr tc">
-    <div class="stag red">El problema</div>
-    <h2 class="stitle">&iquest;Te identific&aacute;s con esto?</h2>
-    <p class="ssub">Millones de emprendedores en Argentina pierden clientes todos los d&iacute;as por no tener presencia digital.</p>
-    <div class="prob-grid">
-      <div class="prob-card">
-        <div class="prob-icon">&#128518;</div>
-        <h3>Solo llegás por Instagram</h3>
-        <p>Tu negocio depende del algoritmo. Si no post&eacute;as, no exist&iacute;s. Y tus clientes no tienen c&oacute;mo encontrarte solos.</p>
+<section class="sec" style="background:linear-gradient(135deg,#3B82F6,#7C3AED);text-align:center;padding:100px 24px">
+  <div class="ctr">
+    <h2 style="font-size:clamp(1.8rem,5vw,2.8rem);color:#fff;font-weight:900;margin-bottom:16px;line-height:1.1">¿Estás perdiendo clientes<br>y no lo sabés?</h2>
+    <p style="color:rgba(255,255,255,.88);font-size:1.05rem;max-width:600px;margin:0 auto 48px;line-height:1.75">Millones de emprendedores en Argentina pierden ventas todos los días por no tener presencia digital. Estas son las señales de alerta:</p>
+    
+    <div class="prob-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;text-align:left">
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:26px 22px;backdrop-filter:blur(10px)">
+        <div style="margin-bottom:11px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3 style="font-size:.96rem;font-weight:700;margin-bottom:7px;color:#fff">Solo llegás por Instagram</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.65">Tu negocio depende del algoritmo. Si no posteás, no existís. Y tus clientes no tienen cómo encontrarte solos.</p>
       </div>
-      <div class="prob-card">
-        <div class="prob-icon">&#128172;</div>
-        <h3>Todo pasa por DM</h3>
-        <p>Respond&eacute;s las mismas preguntas todo el d&iacute;a: precios, horarios, disponibilidad. Tiempo perdido que no pod&eacute;s dedicar al trabajo.</p>
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:26px 22px;backdrop-filter:blur(10px)">
+        <div style="margin-bottom:11px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3 style="font-size:.96rem;font-weight:700;margin-bottom:7px;color:#fff">Todo pasa por DM</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.65">Respondés las mismas preguntas todo el día: precios, horarios, disponibilidad. Tiempo perdido que no podés dedicar al trabajo.</p>
       </div>
-      <div class="prob-card">
-        <div class="prob-icon">&#128542;</div>
-        <h3>No tenés forma de cobrar online</h3>
-        <p>Perd&eacute;s ventas porque el cliente no puede pagar en el momento. Sin sistema de cobro, se enfr&iacute;an y no vuelven.</p>
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:26px 22px;backdrop-filter:blur(10px)">
+        <div style="margin-bottom:11px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <h3 style="font-size:.96rem;font-weight:700;margin-bottom:7px;color:#fff">No tenés forma de cobrar online</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.65">Perdés ventas porque el cliente no puede pagar en el momento. Sin sistema de cobro, se enfrían y no vuelven.</p>
       </div>
-      <div class="prob-card">
-        <div class="prob-icon">&#128197;</div>
-        <h3>Dependés del boca en boca</h3>
-        <p>Tus clientes nuevos vienen de recomendaciones, pero no ten&eacute;s forma de captar a los que te buscan en Google.</p>
+      <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:26px 22px;backdrop-filter:blur(10px)">
+        <div style="margin-bottom:11px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 style="font-size:.96rem;font-weight:700;margin-bottom:7px;color:#fff">Dependés del boca en boca</h3>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.65">Tus clientes nuevos vienen de recomendaciones, pero no tenés forma de captar a los que te buscan en Google.</p>
+      </div>
+    </div>
+    
+    <a href="#demos" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#3B82F6;text-decoration:none;padding:16px 32px;border-radius:50px;font-weight:700;font-size:1rem;margin-top:48px;transition:all .2s;box-shadow:0 4px 20px rgba(0,0,0,.2)">Ver cómo lo resolvemos →</a>
+  </div>
+</section>
+
+<!-- BOT DE VENTAS DESTACADO -->
+<section class="sec" style="background:linear-gradient(180deg,var(--surface),var(--bg));border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="ctr">
+    <div class="tc" style="margin-bottom:40px">
+      <div class="stag" style="background:rgba(37,211,102,.15);color:#25D366">Novedad</div>
+      <h2 class="stitle">Bot de Ventas Automáticas</h2>
+      <p class="ssub">Un vendedor que nunca duerme. Atiende clientes, responde preguntas y cierra ventas 24/7.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:40px">
+      <div>
+        <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:20px">¿Cómo funciona?</h3>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;gap:16px;align-items:flex-start">
+            <div style="width:40px;height:40px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0">1</div>
+            <div>
+              <div style="font-weight:700;margin-bottom:4px">El cliente escribe por WhatsApp</div>
+              <div style="font-size:.9rem;color:var(--gray)">El bot responde al instante con saludo personalizado</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start">
+            <div style="width:40px;height:40px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0">2</div>
+            <div>
+              <div style="font-weight:700;margin-bottom:4px">Muestra el catálogo completo</div>
+              <div style="font-size:.9rem;color:var(--gray)">El cliente elige productos, talles y colores</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start">
+            <div style="width:40px;height:40px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0">3</div>
+            <div>
+              <div style="font-weight:700;margin-bottom:4px">Responde preguntas frecuentes</div>
+              <div style="font-size:.9rem;color:var(--gray)">Precios, envíos, talles, stock disponible</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start">
+            <div style="width:40px;height:40px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0">4</div>
+            <div>
+              <div style="font-weight:700;margin-bottom:4px">Cierra la venta</div>
+              <div style="font-size:.9rem;color:var(--gray)">Genera link de pago MercadoPago y confirma el pedido</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--card);border:2px solid var(--border);border-radius:24px;padding:24px;text-align:center;position:relative">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:6px 20px;border-radius:20px;font-size:.8rem;font-weight:700">👆 INTERACTIVO - Probá como cliente</div>
+        <div style="width:100px;height:100px;margin:0 auto 16px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center"><svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
+        <h4 style="font-size:1.1rem;font-weight:800;margin-bottom:8px">SHOW ROOM Bot</h4>
+        <p style="font-size:.9rem;color:var(--gray);margin-bottom:20px">Hacé clic y experimentá cómo tus clientes serían atendidos automáticamente</p>
+        <a href="../demos/bot-ropa/index.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:700;transition:opacity .2s">
+          <span>Probar el bot ahora</span>
+          <span style="font-size:1.2rem">→</span>
+        </a>
+        <p style="font-size:.75rem;color:var(--gray2);margin-top:16px">Simulación 100% funcional - Sin necesidad de instalar nada</p>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,rgba(37,211,102,.12),rgba(18,140,126,.08));border:2px solid rgba(37,211,102,.4);border-radius:20px;padding:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:0 8px 40px rgba(37,211,102,.15)">
+      <div style="width:80px;height:80px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <div style="flex:1;min-width:280px">
+        <div style="font-size:1.2rem;font-weight:800;margin-bottom:8px;color:#fff">¿Por qué un bot de ventas?</div>
+        <div style="font-size:.95rem;color:var(--gray);line-height:1.7">El 70% de los clientes no insiste si no respondés rápido. Un bot atiende instantáneamente, las 24hs, los 7 días de la semana. <strong style="color:#25D366">Nunca pierdas una venta por no estar disponible.</strong></div>
       </div>
     </div>
   </div>
@@ -237,61 +311,139 @@
     <div class="demos-grid">
 
       <a href="../demos/gastronomia/index.html" class="demo-card" target="_blank">
-        <div class="demo-prev dp1">&#127869;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-prev dp1"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M8 21h8a2 2 0 0 0 2-2v-6H6v6a2 2 0 0 0 2 2z"/><path d="M12 3v10"/><path d="M12 3a3 3 0 0 1 3 3v4H9V6a3 3 0 0 1 3-3z"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
         <div class="demo-body">
-          <div class="demo-rubro">Gastronom&iacute;a &middot; Viandas</div>
-          <h3>Viandas &amp; Comida casera</h3>
-          <p>Men&uacute; semanal con carrito de pedidos, control de cantidades y env&iacute;o del pedido por WhatsApp.</p>
-          <div class="demo-feats"><span class="df">Men&uacute; digital</span><span class="df">Carrito de pedidos</span><span class="df">MercadoPago</span><span class="df">WhatsApp</span></div>
-          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Restaurantes &middot; Catering &middot; Viandas</span></div>
+          <div class="demo-rubro">Gastronomía · Viandas</div>
+          <h3>Viandas & Comida casera</h3>
+          <p>Menú semanal con carrito de pedidos, control de cantidades y envío del pedido por WhatsApp.</p>
+          <div class="demo-feats"><span class="df">Menú digital</span><span class="df">Carrito de pedidos</span><span class="df">MercadoPago</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Restaurantes · Catering · Viandas</span></div>
         </div>
       </a>
 
       <a href="../demos/peluqueria/index.html" class="demo-card" target="_blank">
-        <div class="demo-prev dp2">&#9986;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-prev dp2"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M6 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2"/><path d="M6 8h12"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
         <div class="demo-body">
-          <div class="demo-rubro">Peluquer&iacute;a &middot; Est&eacute;tica</div>
-          <h3>Peluquer&iacute;a &amp; Studio</h3>
-          <p>Galer&iacute;a de trabajos, lista de servicios con precios y reserva de turno online.</p>
-          <div class="demo-feats"><span class="df">Galer&iacute;a</span><span class="df">Reserva de turnos</span><span class="df">Precios visibles</span><span class="df">WhatsApp</span></div>
-          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Peluquer&iacute;as &middot; Barber&iacute;as &middot; Est&eacute;tica</span></div>
+          <div class="demo-rubro">Peluquería · Estética</div>
+          <h3>Peluquería & Studio</h3>
+          <p>Galería de trabajos, lista de servicios con precios y reserva de turno online.</p>
+          <div class="demo-feats"><span class="df">Galería</span><span class="df">Reserva de turnos</span><span class="df">Precios visibles</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Peluquerías · Barberías · Estética</span></div>
         </div>
       </a>
 
       <a href="../demos/servicios-hogar/index.html" class="demo-card" target="_blank">
-        <div class="demo-prev dp3">&#128295;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-prev dp3"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
         <div class="demo-body">
           <div class="demo-rubro">Servicios del Hogar</div>
-          <h3>Gas &middot; Electricidad &middot; Plomer&iacute;a</h3>
-          <p>Servicios disponibles, formulario de presupuesto y bot&oacute;n de urgencia 24hs.</p>
+          <h3>Gas · Electricidad · Plomería</h3>
+          <p>Servicios disponibles, formulario de presupuesto y botón de urgencia 24hs.</p>
           <div class="demo-feats"><span class="df">Presupuesto online</span><span class="df">Urgencias 24hs</span><span class="df">Zona cobertura</span><span class="df">WhatsApp</span></div>
-          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Gas &middot; Electricidad &middot; Plomer&iacute;a</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Gas · Electricidad · Plomería</span></div>
         </div>
       </a>
 
       <a href="../demos/ropa/index.html" class="demo-card" target="_blank">
-        <div class="demo-prev dp4">&#128248;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-prev dp4"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20.38 3.4a1.6 1.6 0 0 0-2.26 0l-1.7 1.7a1.6 1.6 0 0 1-2.26 0l-1.7-1.7a1.6 1.6 0 0 0-2.26 0l-1.7 1.7a1.6 1.6 0 0 1-2.26 0l-1.7-1.7a1.6 1.6 0 0 0-2.26 0L2 6.85V21h20V6.85z"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
         <div class="demo-body">
           <div class="demo-rubro">Venta de Ropa</div>
           <h3>Tienda de Indumentaria</h3>
-          <p>Cat&aacute;logo de productos con talles, precios, ofertas y compra directa por WhatsApp.</p>
-          <div class="demo-feats"><span class="df">Cat&aacute;logo digital</span><span class="df">Talles y colores</span><span class="df">Env&iacute;os Argentina</span><span class="df">MercadoPago</span></div>
-          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Ropa &middot; Accesorios &middot; Calzado</span></div>
+          <p>Catálogo de productos con talles, precios, ofertas y compra directa por WhatsApp.</p>
+          <div class="demo-feats"><span class="df">Catálogo digital</span><span class="df">Talles y colores</span><span class="df">Envíos Argentina</span><span class="df">MercadoPago</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Ropa · Accesorios · Calzado</span></div>
         </div>
       </a>
 
       <a href="../demos/inmobiliaria/index.html" class="demo-card" target="_blank">
-        <div class="demo-prev dp5">&#127968;<span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-prev dp5"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
         <div class="demo-body">
-          <div class="demo-rubro">Inmobiliaria &middot; Alquileres</div>
+          <div class="demo-rubro">Inmobiliaria · Alquileres</div>
           <h3>Inmobiliaria</h3>
-          <p>Listado de propiedades, filtros, tasaci&oacute;n sin cargo y consultas por WhatsApp.</p>
-          <div class="demo-feats"><span class="df">Listado propiedades</span><span class="df">Tasaci&oacute;n gratis</span><span class="df">Filtros</span><span class="df">WhatsApp</span></div>
-          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Ventas &middot; Alquileres &middot; Tasaciones</span></div>
+          <p>Listado de propiedades, filtros, tasación sin cargo y consultas por WhatsApp.</p>
+          <div class="demo-feats"><span class="df">Listado propiedades</span><span class="df">Tasación gratis</span><span class="df">Filtros</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Ventas · Alquileres · Tasaciones</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/gimnasio/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp6"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M6 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2"/><path d="M6 8h12"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Fitness · Gimnasio</div>
+          <h3>PowerFit Gym</h3>
+          <p>Planes de membresía, horarios de clases, reserva de turnos y contacto directo.</p>
+          <div class="demo-feats"><span class="df">Planes mensuales</span><span class="df">Horarios</span><span class="df">Clases grupales</span><span class="df">WhatsApp</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Musculación · Funcional · Spinning</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/veterinaria/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp7"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><circle cx="12" cy="10" r="2"/><path d="M12 14v4"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Veterinaria · Mascotas</div>
+          <h3>Patitas Vet</h3>
+          <p>Servicios veterinarios, turnos online, urgencias 24hs y peluquería canina.</p>
+          <div class="demo-feats"><span class="df">Turnos online</span><span class="df">Urgencias 24hs</span><span class="df">Vacunación</span><span class="df">Peluquería</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Perros · Gatos · Mascotas exóticas</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/taller/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp8"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Taller Mecánico</div>
+          <h3>Mecánica Express</h3>
+          <p>Presupuestos sin cargo, servicios de mecánica, turnos y garantía escrita.</p>
+          <div class="demo-feats"><span class="df">Presupuesto gratis</span><span class="df">Service</span><span class="df">Diagnosis</span><span class="df">Frenos</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Mecánica · Electricidad · Aire</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/estetica/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp9"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><circle cx="12" cy="10" r="2"/><path d="M12 14v4"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Estética · Belleza</div>
+          <h3>Bella Estética</h3>
+          <p>Uñas esculpidas, cejas, pestañas, depilación. Turnos online y promos.</p>
+          <div class="demo-feats"><span class="df">Uñas</span><span class="df">Cejas</span><span class="df">Pestañas</span><span class="df">Depilación</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Manicure · Lifting · Laminado</span></div>
+        </div>
+      </a>
+
+      <a href="../demos/odontologia/index.html" class="demo-card" target="_blank">
+        <div class="demo-prev dp10"><svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg><span class="demo-tag">Ver demo &rarr;</span></div>
+        <div class="demo-body">
+          <div class="demo-rubro">Odontología · Salud</div>
+          <h3>Sonrisa Perfecta</h3>
+          <p>Implantes, ortodoncia, estética dental. Obras sociales y turnos online.</p>
+          <div class="demo-feats"><span class="df">Implantes</span><span class="df">Ortodoncia</span><span class="df">Obras sociales</span><span class="df">Turnos</span></div>
+          <div class="demo-foot"><span class="demo-ver">Ver demo &#128065;</span><span class="demo-lbl">Odontología · Estética · Cirugía</span></div>
         </div>
       </a>
 
     </div>
+
+    <!-- BOT DE VENTAS - DESTACADO SEPARADO -->
+    <div style="margin-top:60px;background:linear-gradient(135deg,rgba(37,211,102,.1),rgba(18,140,126,.05));border:2px solid rgba(37,211,102,.3);border-radius:24px;padding:40px;max-width:900px;margin-left:auto;margin-right:auto">
+      <div style="display:flex;align-items:center;gap:30px;flex-wrap:wrap">
+        <div style="flex:1;min-width:280px;text-align:left">
+          <div style="display:inline-block;background:rgba(37,211,102,.2);color:#25D366;padding:6px 16px;border-radius:20px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px">Tecnología Exclusiva</div>
+          <h3 style="font-size:1.5rem;font-weight:800;margin-bottom:12px">Bot de Ventas Automáticas</h3>
+          <p style="color:var(--gray);font-size:.95rem;line-height:1.7;margin-bottom:24px">Un vendedor virtual que atiende tus clientes 24/7 por WhatsApp. Muestra tu catálogo, responde preguntas y cierra ventas mientras vos descansás.</p>
+          <a href="../demos/bot-ropa/index.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:700">
+            <span>🤖 Probar el bot interactivo</span>
+            <span>→</span>
+          </a>
+        </div>
+        <div style="width:200px;height:200px;background:linear-gradient(135deg,#25D366,#128C7E);border-radius:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            <circle cx="12" cy="16" r="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -308,8 +460,8 @@
         <div class="pack-name">Presencia Digital</div>
         <div class="pack-desc">Para emprendedores que necesitan tener presencia online hoy mismo.</div>
         <div class="pack-price">
-          <div class="pack-free">60 d&iacute;as GRATIS</div>
-          <div class="pack-mant">Despu&eacute;s: <strong>~$15 USD/mes</strong></div>
+          <div class="pack-free">30 d&iacute;as GRATIS</div>
+          <div class="pack-mant">Despu&eacute;s: <strong>$15.000 ARS/mes</strong></div>
         </div>
         <ul class="pack-feats">
           <li>P&aacute;gina web completa para tu rubro</li>
@@ -319,46 +471,47 @@
           <li>Dise&ntilde;o profesional mobile</li>
           <li>Entrega en 48&ndash;72hs</li>
         </ul>
-        <a href="https://wa.me/5492644114128?text=Hola!%20Me%20interesa%20el%20pack%20%F0%9F%9A%80%20*Presencia%20Digital*%20(60%20d%C3%ADas%20gratis%20%2B%20%2415%20USD%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack" target="_blank">Quiero este paquete</a>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Me%20interesa%20el%20pack%20%F0%9F%9A%80%20*Presencia%20Digital*%20(30%20d%C3%ADas%20gratis%20%2B%20%2415.000%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack" target="_blank">Quiero este paquete</a>
       </div>
 
       <div class="pack pop">
         <div class="pop-badge">El m&aacute;s elegido</div>
         <div class="pack-ico">&#9889;</div>
         <div class="pack-name">Ventas Autom&aacute;ticas</div>
-        <div class="pack-desc">Automatiz&aacute; las consultas y pedidos para ganar tiempo y no perder ventas.</div>
+        <div class="pack-desc">Bot de ventas + Cat&aacute;logo + Carrito. Atenci&oacute;n 24/7.</div>
         <div class="pack-price">
-          <div class="pack-free">60 d&iacute;as GRATIS</div>
-          <div class="pack-mant">Despu&eacute;s: <strong>~$30 USD/mes</strong></div>
+          <div class="pack-free">30 d&iacute;as GRATIS</div>
+          <div class="pack-mant">Despu&eacute;s: <strong>$35.000 ARS/mes</strong></div>
         </div>
         <ul class="pack-feats">
           <li>Todo del pack anterior</li>
-          <li>Bot de preguntas frecuentes</li>
-          <li>Formulario de pedidos online</li>
-          <li>Respuesta autom&aacute;tica WhatsApp</li>
-          <li>Panel en Google Sheets</li>
-          <li>Entrega en 5&ndash;7 d&iacute;as</li>
+          <li><b>Bot de ventas interactivo</b></li>
+          <li>Cat&aacute;logo con 50+ productos</li>
+          <li>Carrito de compras integrado</li>
+          <li>Respuestas autom&aacute;ticas 24/7</li>
+          <li>Link de pago autom&aacute;tico</li>
+          <li>Panel de pedidos en Google Sheets</li>
         </ul>
-        <a href="https://wa.me/5492644114128?text=Hola!%20Me%20interesa%20el%20pack%20%E2%9A%A1%20*Ventas%20Autom%C3%A1ticas*%20(el%20m%C3%A1s%20elegido%20%E2%80%94%2060%20d%C3%ADas%20gratis%20%2B%20%2430%20USD%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack p" target="_blank">Quiero este paquete</a>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Me%20interesa%20el%20pack%20%E2%9A%A1%20*Ventas%20Autom%C3%A1ticas*%20(el%20m%C3%A1s%20elegido%20%E2%80%94%2030%20d%C3%ADas%20gratis%20%2B%20%2435.000%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack p" target="_blank">Quiero este paquete</a>
       </div>
 
       <div class="pack">
         <div class="pack-ico">&#128142;</div>
-        <div class="pack-name">Negocio Digital Completo</div>
-        <div class="pack-desc">Para negocios con volumen real que quieren profesionalizarse al m&aacute;ximo.</div>
+        <div class="pack-name">Negocio Digital Pro</div>
+        <div class="pack-desc">Para negocios con volumen. Sistema completo de gesti&oacute;n.</div>
         <div class="pack-price">
-          <div class="pack-free">60 d&iacute;as GRATIS</div>
-          <div class="pack-mant">Despu&eacute;s: <strong>~$50 USD/mes</strong></div>
+          <div class="pack-free">30 d&iacute;as GRATIS</div>
+          <div class="pack-mant">Despu&eacute;s: <strong>$55.000 ARS/mes</strong></div>
         </div>
         <ul class="pack-feats">
-          <li>Todo del pack anterior</li>
-          <li>Sistema de pedidos con confirmaci&oacute;n autom&aacute;tica</li>
+          <li>Todo del pack Ventas Autom&aacute;ticas</li>
+          <li>Sistema de stock en tiempo real</li>
           <li>Integraci&oacute;n Google Calendar</li>
-          <li>Notificaciones autom&aacute;ticas al cliente</li>
+          <li>Notificaciones autom&aacute;ticas</li>
           <li>Reportes semanales de ventas</li>
-          <li>Entrega en 10&ndash;14 d&iacute;as</li>
+          <li>Soporte prioritario</li>
         </ul>
-        <a href="https://wa.me/5492644114128?text=Hola!%20Me%20interesa%20el%20pack%20%F0%9F%92%8E%20*Negocio%20Digital%20Completo*%20(60%20d%C3%ADas%20gratis%20%2B%20%2450%20USD%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack" target="_blank">Quiero este paquete</a>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Me%20interesa%20el%20pack%20%F0%9F%92%8E%20*Negocio%20Digital%20Pro*%20(30%20d%C3%ADas%20gratis%20%2B%20%2455.000%2Fmes).%20%C2%BFPodemos%20hablar%3F" class="btn-pack" target="_blank">Quiero este paquete</a>
       </div>
 
     </div>
@@ -387,16 +540,44 @@
     <h2 class="stitle">Herramientas de primer nivel</h2>
     <p class="ssub">Usamos las mejores herramientas del mercado, muchas gratuitas, para darte un servicio profesional y sustentable.</p>
     <div class="tools-wrap">
-      <div class="tool">&#127760; Netlify (hosting gratis)</div>
-      <div class="tool">&#128154; WhatsApp Business</div>
-      <div class="tool">&#128179; MercadoPago</div>
-      <div class="tool">&#129302; Bot FAQ autom&aacute;tico</div>
-      <div class="tool">&#128203; Google Forms + Apps Script</div>
-      <div class="tool">&#128202; Google Sheets</div>
-      <div class="tool">&#128197; Google Calendar</div>
-      <div class="tool">&#127912; Dise&ntilde;o profesional</div>
-      <div class="tool">&#128241; 100% mobile</div>
-      <div class="tool">&#9889; Carga ultarr&aacute;pida</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00C7B7"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Netlify</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366"><path d="M12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.89 5.83L2 22l4.17-1.89A9.929 9.929 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.66 0-3.22-.52-4.5-1.41l-.32-.21-2.47 1.12.55-2.41-.21-.33A8.01 8.01 0 014 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8z"/></svg> WhatsApp Business</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00B1EA"><rect x="2" y="6" width="20" height="12" rx="2" fill="#00B1EA"/><path d="M7 12h10M7 10h10M7 14h6" stroke="white" stroke-width="1.5"/></svg> MercadoPago</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#4285F4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Google Workspace</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F4B400"><rect x="3" y="4" width="18" height="16" rx="2" fill="#F4B400"/><path d="M8 9h8M8 12h8M8 15h5" stroke="white" stroke-width="1.5"/></svg> Google Sheets</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#EA4335"><rect x="3" y="4" width="18" height="16" rx="2" fill="#EA4335"/><path d="M8 12h8M12 8v8" stroke="white" stroke-width="2"/></svg> Google Calendar</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#FF9900"><circle cx="12" cy="12" r="10" fill="#FF9900"/><path d="M12 6v6l4 2" stroke="white" stroke-width="2" fill="none"/></svg> Diseño profesional</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#8B5CF6"><rect x="5" y="2" width="14" height="20" rx="2" fill="#8B5CF6"/><circle cx="12" cy="18" r="1.5" fill="white"/></svg> 100% Mobile</div>
+      <div class="tool"><svg width="16" height="16" viewBox="0 0 24 24" fill="#10B981"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#10B981"/></svg> Carga ultrarrápida</div>
+    </div>
+
+    <!-- COSTOS TRANSPARENTES -->
+    <div style="margin-top:60px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;max-width:800px;margin-left:auto;margin-right:auto">
+      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:8px">💰 ¿Por qué cobramos mantenimiento?</h3>
+      <p style="color:var(--gray);font-size:.9rem;margin-bottom:24px">Te explicamos en qué se usa tu inversión mensual</p>
+      
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:left">
+        <div>
+          <div style="font-weight:700;margin-bottom:4px;color:var(--blue2)">Hosting & Dominio</div>
+          <div style="font-size:.85rem;color:var(--gray)">Servidor para que tu web esté online 24/7</div>
+        </div>
+        <div>
+          <div style="font-weight:700;margin-bottom:4px;color:var(--blue2)">WhatsApp Business</div>
+          <div style="font-size:.85rem;color:var(--gray)">Integración con tu número de WhatsApp</div>
+        </div>
+        <div>
+          <div style="font-weight:700;margin-bottom:4px;color:var(--blue2)">Soporte Técnico</div>
+          <div style="font-size:.85rem;color:var(--gray)">Actualizaciones y ayuda cuando necesites</div>
+        </div>
+        <div>
+          <div style="font-weight:700;margin-bottom:4px;color:var(--blue2)">Mejoras Continuas</div>
+          <div style="font-size:.85rem;color:var(--gray)">Nuevas funciones sin costo extra</div>
+        </div>
+      </div>
+      
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);text-align:center">
+        <p style="font-size:.9rem;color:var(--gray)"><b>Importante:</b> Si en algún momento querés dejar de pagar, tu web se puede migrar a tu propia cuenta sin costo. No te quedás sin nada.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -479,13 +660,13 @@
   <div class="f-links">
     <a href="#demos">Ver demos</a>
     <a href="#paquetes">Paquetes</a>
-    <a href="#auditoria">Auditor&iacute;a gratis</a>
-    <a href="https://wa.me/5492644114128" target="_blank">WhatsApp</a>
+    <a href="#auditoria">Auditoría gratis</a>
+    <a href="https://wa.me/5492645304372" target="_blank">WhatsApp</a>
   </div>
   <div class="f-copy">&copy; 2025 Moviltec Digital &middot; Todos los derechos reservados</div>
 </footer>
 
-<a href="https://wa.me/5492644114128?text=Hola!%20Vi%20Moviltec%20Digital%20y%20quiero%20consultar" class="wa-f" target="_blank">
+<a href="https://wa.me/5492645304372?text=Hola!%20Vi%20Moviltec%20Digital%20y%20quiero%20consultar" class="wa-f" target="_blank">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
 </a>
 

@@ -1,0 +1,481 @@
+{
+  "_comment": "ESTRUCTURA DE CONFIGURACIÓN DE PLANTILLAS MOVILTEC DIGITAL",
+  "version": "1.0",
+  "planes": {
+    "presencia_digital": {
+      "id": "presencia",
+      "nombre": "Presencia Digital",
+      "precio_mensual": 15000,
+      "caracteristicas": {
+        "has_bot": false,
+        "has_catalogo": false,
+        "has_carrito": false,
+        "has_reservas": false,
+        "has_stock": false
+      },
+      "secciones_obligatorias": [
+        "hero",
+        "servicios",
+        "galeria",
+        "sobre_nosotros",
+        "contacto",
+        "whatsapp_float"
+      ],
+      "secciones_opcionales": [
+        "testimonios",
+        "mapa",
+        "redes_sociales"
+      ],
+      "variables_configurables": {
+        "negocio": {
+          "nombre": "string",
+          "slogan": "string",
+          "descripcion": "string",
+          "año_fundacion": "number",
+          "rubro": "string"
+        },
+        "contacto": {
+          "whatsapp": "string",
+          "telefono": "string",
+          "email": "string",
+          "direccion": "string",
+          "ciudad": "string",
+          "horarios": "string"
+        },
+        "redes": {
+          "instagram": "string",
+          "facebook": "string",
+          "tiktok": "string"
+        },
+        "diseno": {
+          "color_primario": "hex",
+          "color_secundario": "hex",
+          "color_acento": "hex",
+          "tipografia": "string",
+          "logo_url": "url",
+          "favicon_url": "url"
+        },
+        "contenido": {
+          "hero_titulo": "string",
+          "hero_subtitulo": "string",
+          "hero_imagen": "url",
+          "servicios": [
+            {
+              "titulo": "string",
+              "descripcion": "string",
+              "icono": "string"
+            }
+          ],
+          "galeria_imagenes": ["url"],
+          "sobre_nosotros_texto": "string",
+          "sobre_nosotros_imagen": "url"
+        },
+        "seo": {
+          "titulo_pagina": "string",
+          "descripcion_meta": "string",
+          "keywords": "string",
+          "imagen_og": "url"
+        }
+      }
+    },
+
+    "ventas_automaticas": {
+      "id": "ventas",
+      "nombre": "Ventas Automáticas",
+      "precio_mensual": 35000,
+      "caracteristicas": {
+        "has_bot": true,
+        "has_catalogo": true,
+        "has_carrito": true,
+        "has_reservas": true,
+        "has_stock": false
+      },
+      "secciones_obligatorias": [
+        "hero",
+        "bot_promo",
+        "catalogo",
+        "como_funciona",
+        "faq",
+        "contacto",
+        "whatsapp_float",
+        "bot_chat"
+      ],
+      "secciones_opcionales": [
+        "testimonios",
+        "ofertas",
+        "envios",
+        "garantia"
+      ],
+      "variables_configurables": {
+        "negocio": {
+          "nombre": "string",
+          "slogan": "string",
+          "descripcion": "string",
+          "rubro": "string",
+          "tipo_catalogo": "ropa|gastronomia|servicios|productos"
+        },
+        "contacto": {
+          "whatsapp": "string",
+          "whatsapp_bot": "string",
+          "telefono": "string",
+          "email": "string",
+          "direccion": "string",
+          "ciudad": "string",
+          "horarios": "string",
+          "tiempo_respuesta": "string"
+        },
+        "redes": {
+          "instagram": "string",
+          "facebook": "string",
+          "tiktok": "string"
+        },
+        "diseno": {
+          "color_primario": "hex",
+          "color_secundario": "hex",
+          "color_acento": "hex",
+          "tipografia": "string",
+          "logo_url": "url",
+          "favicon_url": "url"
+        },
+        "catalogo": {
+          "titulo": "string",
+          "subtitulo": "string",
+          "categorias": ["string"],
+          "productos": [
+            {
+              "id": "string",
+              "nombre": "string",
+              "descripcion": "string",
+              "precio": "number",
+              "precio_anterior": "number",
+              "imagen": "url",
+              "categoria": "string",
+              "talles": ["string"],
+              "colores": ["string"],
+              "stock": "number",
+              "destacado": "boolean"
+            }
+          ],
+          "configuracion": {
+            "mostrar_precios": "boolean",
+            "permitir_agotados": "boolean",
+            "maximo_por_producto": "number",
+            "envio_gratis_desde": "number"
+          }
+        },
+        "bot": {
+          "nombre_bot": "string",
+          "mensaje_bienvenida": "string",
+          "mensaje_fuera_horario": "string",
+          "preguntas_frecuentes": [
+            {
+              "pregunta": "string",
+              "respuesta": "string"
+            }
+          ],
+          "flujo_venta": {
+            "paso1_saludo": "boolean",
+            "paso2_catalogo": "boolean",
+            "paso3_seleccion": "boolean",
+            "paso4_carrito": "boolean",
+            "paso5_envio": "boolean",
+            "paso6_pago": "boolean"
+          }
+        },
+        "pagos": {
+          "metodos": ["mercadopago", "transferencia", "efectivo"],
+          "link_mercadopago": "string",
+          "cuenta_bancaria": "string",
+          "alias_cbu": "string",
+          "titular_cuenta": "string"
+        },
+        "envios": {
+          "tipos": [
+            {
+              "nombre": "string",
+              "descripcion": "string",
+              "precio": "number",
+              "tiempo": "string",
+              "gratis_desde": "number"
+            }
+          ],
+          "zonas_cobertura": ["string"]
+        },
+        "contenido": {
+          "hero_titulo": "string",
+          "hero_subtitulo": "string",
+          "hero_imagen": "url",
+          "como_funciona_pasos": [
+            {
+              "numero": "number",
+              "titulo": "string",
+              "descripcion": "string"
+            }
+          ]
+        },
+        "seo": {
+          "titulo_pagina": "string",
+          "descripcion_meta": "string",
+          "keywords": "string",
+          "imagen_og": "url"
+        }
+      }
+    },
+
+    "negocio_digital_pro": {
+      "id": "pro",
+      "nombre": "Negocio Digital Pro",
+      "precio_mensual": 55000,
+      "caracteristicas": {
+        "has_bot": true,
+        "has_catalogo": true,
+        "has_carrito": true,
+        "has_reservas": true,
+        "has_stock": true,
+        "has_reportes": true,
+        "has_crm": true
+      },
+      "secciones_obligatorias": [
+        "hero",
+        "bot_promo",
+        "catalogo",
+        "como_funciona",
+        "faq",
+        "contacto",
+        "whatsapp_float",
+        "bot_chat",
+        "panel_admin"
+      ],
+      "secciones_opcionales": [
+        "testimonios",
+        "ofertas",
+        "envios",
+        "garantia",
+        "suscripcion",
+        "chat_en_vivo"
+      ],
+      "variables_configurables": {
+        "negocio": {
+          "nombre": "string",
+          "slogan": "string",
+          "descripcion": "string",
+          "rubro": "string",
+          "tipo_catalogo": "ropa|gastronomia|servicios|productos|inmobiliaria",
+          "cuit": "string",
+          "razon_social": "string"
+        },
+        "contacto": {
+          "whatsapp": "string",
+          "whatsapp_bot": "string",
+          "telefono": "string",
+          "email": "string",
+          "email_pedidos": "string",
+          "direccion": "string",
+          "ciudad": "string",
+          "horarios": "string",
+          "tiempo_respuesta": "string"
+        },
+        "redes": {
+          "instagram": "string",
+          "facebook": "string",
+          "tiktok": "string",
+          "youtube": "string",
+          "linkedin": "string"
+        },
+        "diseno": {
+          "color_primario": "hex",
+          "color_secundario": "hex",
+          "color_acento": "hex",
+          "tipografia": "string",
+          "logo_url": "url",
+          "favicon_url": "url",
+          "logo_footer": "url"
+        },
+        "catalogo": {
+          "titulo": "string",
+          "subtitulo": "string",
+          "categorias": ["string"],
+          "productos": [
+            {
+              "id": "string",
+              "sku": "string",
+              "nombre": "string",
+              "descripcion": "string",
+              "descripcion_larga": "string",
+              "precio": "number",
+              "precio_anterior": "number",
+              "precio_costo": "number",
+              "imagen": "url",
+              "imagenes": ["url"],
+              "categoria": "string",
+              "subcategoria": "string",
+              "talles": ["string"],
+              "colores": ["string"],
+              "stock": "number",
+              "stock_minimo": "number",
+              "peso": "number",
+              "dimensiones": "string",
+              "destacado": "boolean",
+              "visible": "boolean"
+            }
+          ],
+          "configuracion": {
+            "mostrar_precios": "boolean",
+            "mostrar_stock": "boolean",
+            "permitir_agotados": "boolean",
+            "alerta_stock_bajo": "number",
+            "maximo_por_producto": "number",
+            "envio_gratis_desde": "number",
+            "descuento_cantidad": {
+              "activo": "boolean",
+              "cantidad_minima": "number",
+              "porcentaje": "number"
+            }
+          }
+        },
+        "bot": {
+          "nombre_bot": "string",
+          "avatar_bot": "url",
+          "mensaje_bienvenida": "string",
+          "mensaje_fuera_horario": "string",
+          "mensaje_despedida": "string",
+          "preguntas_frecuentes": [
+            {
+              "pregunta": "string",
+              "respuesta": "string",
+              "categoria": "string"
+            }
+          ],
+          "respuestas_rapidas": ["string"],
+          "flujo_venta": {
+            "paso1_saludo": "boolean",
+            "paso2_catalogo": "boolean",
+            "paso3_seleccion": "boolean",
+            "paso4_carrito": "boolean",
+            "paso5_envio": "boolean",
+            "paso6_pago": "boolean",
+            "paso7_confirmacion": "boolean",
+            "paso8_seguimiento": "boolean"
+          },
+          "inteligencia": {
+            "detectar_intencion": "boolean",
+            "sugerir_productos": "boolean",
+            "recuperar_carrito_abandonado": "boolean"
+          }
+        },
+        "pagos": {
+          "metodos": ["mercadopago", "transferencia", "efectivo", "tarjeta"],
+          "link_mercadopago": "string",
+          "integracion_mercadopago": "boolean",
+          "cuenta_bancaria": "string",
+          "alias_cbu": "string",
+          "titular_cuenta": "string",
+          "cuotas_sin_interes": "boolean",
+          "maximo_cuotas": "number"
+        },
+        "envios": {
+          "tipos": [
+            {
+              "nombre": "string",
+              "descripcion": "string",
+              "precio": "number",
+              "tiempo": "string",
+              "gratis_desde": "number",
+              "proveedor": "string"
+            }
+          ],
+          "zonas_cobertura": ["string"],
+          "calculo_automatico": "boolean",
+          "seguimiento_envios": "boolean"
+        },
+        "reservas": {
+          "activo": "boolean",
+          "tipo": "turnos|eventos|salones",
+          "duracion_turno": "number",
+          "horarios_atencion": {
+            "lunes": {"inicio": "string", "fin": "string"},
+            "martes": {"inicio": "string", "fin": "string"},
+            "miercoles": {"inicio": "string", "fin": "string"},
+            "jueves": {"inicio": "string", "fin": "string"},
+            "viernes": {"inicio": "string", "fin": "string"},
+            "sabado": {"inicio": "string", "fin": "string"},
+            "domingo": {"inicio": "string", "fin": "string"}
+          },
+          "anticipacion_minima": "number",
+          "anticipacion_maxima": "number"
+        },
+        "panel_admin": {
+          "usuarios_permitidos": ["string"],
+          "notificaciones_email": "boolean",
+          "notificaciones_whatsapp": "boolean",
+          "reportes_automaticos": {
+            "diario": "boolean",
+            "semanal": "boolean",
+            "mensual": "boolean"
+          }
+        },
+        "contenido": {
+          "hero_titulo": "string",
+          "hero_subtitulo": "string",
+          "hero_imagen": "url",
+          "hero_video": "url",
+          "como_funciona_pasos": [
+            {
+              "numero": "number",
+              "titulo": "string",
+              "descripcion": "string",
+              "icono": "string"
+            }
+          ]
+        },
+        "seo": {
+          "titulo_pagina": "string",
+          "descripcion_meta": "string",
+          "keywords": "string",
+          "imagen_og": "url",
+          "google_analytics": "string",
+          "facebook_pixel": "string"
+        },
+        "integraciones": {
+          "google_sheets": "boolean",
+          "google_calendar": "boolean",
+          "mailchimp": "boolean",
+          "zapier": "boolean"
+        }
+      }
+    }
+  },
+
+  "componentes_reutilizables": {
+    "header": {
+      "tipos": ["simple", "con_navegacion", "transparente"],
+      "elementos": ["logo", "menu", "cta", "telefono", "redes"]
+    },
+    "footer": {
+      "tipos": ["simple", "completo", "minimal"],
+      "elementos": ["logo", "direccion", "telefono", "email", "redes", "mapa", "horarios", "links_rapidos"]
+    },
+    "whatsapp_float": {
+      "posicion": ["bottom_right", "bottom_left"],
+      "estilo": ["simple", "con_mensaje", "con_animacion"],
+      "mensaje_default": "Hola! Quiero hacer una consulta"
+    },
+    "botones": {
+      "primario": {"estilo": "gradient", "forma": "pill"},
+      "secundario": {"estilo": "outline", "forma": "pill"},
+      "whatsapp": {"estilo": "solid", "color": "#25D366"}
+    }
+  },
+
+  "estructura_carpetas": {
+    "templates/": {
+      "presencia/": ["index.html", "css/", "js/"],
+      "ventas/": ["index.html", "catalogo.html", "css/", "js/", "bot/"],
+      "pro/": ["index.html", "catalogo.html", "admin.html", "css/", "js/", "bot/", "panel/"]
+    },
+    "clientes/": {
+      "ejemplo_peluqueria/": ["config.json", "assets/"],
+      "ejemplo_gastronomia/": ["config.json", "assets/"]
+    }
+  }
+}

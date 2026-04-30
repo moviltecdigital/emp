@@ -1,0 +1,61 @@
+{
+  "plan": "ventas",
+  "negocio": {
+    "nombre": "Studio Elegance",
+    "slogan": "Tu belleza, nuestra pasión",
+    "descripcion": "Peluquería y estética premium en San Juan. Especialistas en coloración, cortes y tratamientos capilares.",
+    "rubro": "peluqueria",
+    "año_fundacion": 2019,
+    "años_experiencia": 5,
+    "logo": "assets/logo.png"
+  },
+  "contacto": {
+    "whatsapp": "2645304372",
+    "telefono": "0264 412-3456",
+    "email": "info@studioelegance.com",
+    "direccion": "Av. Libertador 1234",
+    "ciudad": "San Juan",
+    "horarios": "Lun a Vie: 9:00 - 20:00 | Sáb: 9:00 - 14:00"
+  },
+  "diseno": {
+    "color_primario": "#C9A84C",
+    "color_secundario": "#E8C96A"
+  },
+  "servicios": [
+    {
+      "nombre": "Corte Femenino",
+      "descripcion": "Corte con lavado, secado y styling final incluido.",
+      "precio": 4500,
+      "duracion": "45 min"
+    },
+    {
+      "nombre": "Balayage / Mechas",
+      "descripcion": "Técnica de iluminación a mano alzada. Resultado natural y luminoso.",
+      "precio": 12000,
+      "duracion": "3 hs"
+    },
+    {
+      "nombre": "Corte Masculino",
+      "descripcion": "Corte clásico o moderno con lavado incluido.",
+      "precio": 3500,
+      "duracion": "30 min"
+    }
+  ],
+  "galeria": [
+    {
+      "imagen": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400",
+      "titulo": "Balayage rubio"
+    },
+    {
+      "imagen": "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400",
+      "titulo": "Corte bob"
+    }
+  ],
+  "testimonios": [
+    {
+      "nombre": "María González",
+      "texto": "Excelente atención, me encantó mi nuevo look!",
+      "estrellas": 5
+    }
+  ]
+}
