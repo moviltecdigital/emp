@@ -281,11 +281,21 @@ new MoviltecBooking({
 
     <!-- PASO 4: Confirmacion -->
     <div id="fi-paso4" class="fi-paso" style="display:none;">
-      <div style="text-align:center;padding:20px;">
-        <div style="font-size:3rem;margin-bottom:10px;">&#10004;</div>
-        <h3 style="color:#C9A84C;margin:0 0 10px;">Recibido!</h3>
-        <p style="color:#ccc;font-size:0.95rem;">Nos comunicaremos contigo dentro de las proximas 24 horas. Gracias por tu interes!</p>
-        <button onclick="document.getElementById('formulario-inteligente').style.display='none';document.body.style.overflow='auto';" style="margin-top:20px;padding:12px 30px;background:#C9A84C;color:#1a1a2e;border:none;border-radius:8px;font-weight:700;cursor:pointer;">Cerrar</button>
+      <div style="padding:20px;">
+        <div style="text-align:center;margin-bottom:20px;">
+          <div style="width:60px;height:60px;background:linear-gradient(135deg,#C9A84C,#E8C96A);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;">
+            <svg width="30" height="30" fill="#1a1a2e" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h3 style="color:#C9A84C;margin:0 0 6px;font-size:1.2rem;">Gracias por tu consulta</h3>
+          <p style="color:#999;font-size:0.8rem;margin:0;">Tu solicitud fue registrada correctamente</p>
+        </div>
+        <div id="fi-resumen" style="background:#2a2a4a;border-radius:10px;padding:16px;margin-bottom:18px;border-left:3px solid #C9A84C;">
+        </div>
+        <div style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:10px;padding:14px;text-align:center;">
+          <p style="margin:0;color:#E8C96A;font-size:0.9rem;font-weight:600;">Nuestro equipo se comunicara contigo</p>
+          <p style="margin:6px 0 0;color:#aaa;font-size:0.82rem;">dentro de las proximas 24 horas habiles</p>
+        </div>
+        <button onclick="document.getElementById('formulario-inteligente').style.display='none';document.body.style.overflow='auto';fiReset();" style="margin-top:18px;width:100%;padding:14px;background:linear-gradient(135deg,#C9A84C,#E8C96A);color:#1a1a2e;border:none;border-radius:8px;font-weight:700;font-size:0.95rem;cursor:pointer;">Cerrar</button>
       </div>
     </div>
   </div>
@@ -300,8 +310,13 @@ new MoviltecBooking({
 // Formulario inteligente - logica
 let fiEleccion = '';
 
+function fiReset() {
+  document.querySelectorAll('.fi-paso').forEach(p => p.style.display = 'none');
+  document.getElementById('fi-paso1').style.display = 'block';
+  document.getElementById('fi-form').reset();
+}
+
 function fiPaso(paso, tipo) {
-  // Ocultar todos los pasos
   document.querySelectorAll('.fi-paso').forEach(p => p.style.display = 'none');
   
   if (paso === 2) {
@@ -330,7 +345,7 @@ function fiPaso(paso, tipo) {
   }
 }
 
-// Envio del formulario via WhatsApp
+// Envio del formulario
 document.getElementById('fi-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const nombre = document.getElementById('fi-nombre').value;
@@ -338,25 +353,49 @@ document.getElementById('fi-form').addEventListener('submit', function(e) {
   const negocio = document.getElementById('fi-negocio').value;
   const interes = document.getElementById('fi-interes').value;
   
-  // Enviar por WhatsApp al numero del vendedor
-  const msg = encodeURIComponent(
-    'Nuevo contacto desde Demo Peluqueria:\\n' +
-    'Nombre: ' + nombre + '\\n' +
-    'WhatsApp: ' + tel + '\\n' +
-    (negocio ? 'Negocio: ' + negocio + '\\n' : '') +
-    'Interes: ' + interes
-  );
+  // Mostrar resumen en paso 4
+  let resumenHTML = '<p style="margin:0 0 8px;font-size:0.82rem;color:#888;text-transform:uppercase;letter-spacing:1px;">Datos enviados</p>';
+  resumenHTML += '<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#C9A84C;">Nombre:</strong> ' + nombre + '</p>';
+  resumenHTML += '<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#C9A84C;">WhatsApp:</strong> ' + tel + '</p>';
+  if (negocio) resumenHTML += '<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#C9A84C;">Negocio:</strong> ' + negocio + '</p>';
+  resumenHTML += '<p style="margin:0;color:#eee;font-size:0.9rem;"><strong style="color:#C9A84C;">Consulta:</strong> ' + interes + '</p>';
+  document.getElementById('fi-resumen').innerHTML = resumenHTML;
   
-  // Abrir WhatsApp en segundo plano
-  window.open('https://wa.me/5492645304372?text=' + msg, '_blank');
-  
-  // Mostrar confirmacion
+  // Primero mostrar confirmacion
   document.querySelectorAll('.fi-paso').forEach(p => p.style.display = 'none');
   document.getElementById('fi-paso4').style.display = 'block';
+  
+  // Luego enviar a WhatsApp con delay para que el usuario vea la confirmacion
+  setTimeout(function() {
+    const lineas = [
+      '*Nuevo contacto - Demo Peluqueria*',
+      '',
+      '*Nombre:* ' + nombre,
+      '*WhatsApp:* ' + tel
+    ];
+    if (negocio) lineas.push('*Negocio:* ' + negocio);
+    lineas.push('*Interes:* ' + interes);
+    lineas.push('');
+    lineas.push('_Enviado desde moviltecdigital.com.ar_');
+    
+    const waMsg = encodeURIComponent(lineas.join('\n'));
+    window.open('https://wa.me/5492645304372?text=' + waMsg, '_blank');
+  }, 1500);
 });
 
-// Tambien el boton hero .btn-wa abre el formulario
+// Boton flotante y hero abren el formulario
 document.addEventListener('DOMContentLoaded', function() {
+  // Boton flotante .wa-f
+  const btnFlot = document.querySelector('.wa-f');
+  if (btnFlot) {
+    btnFlot.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      document.getElementById('formulario-inteligente').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  // Boton hero .btn-wa
   const btnHero = document.querySelector('.btn-wa');
   if (btnHero) {
     btnHero.addEventListener('click', function(e) {
