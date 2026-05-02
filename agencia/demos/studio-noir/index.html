@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Studio Noir &mdash; Tu mejor versión, cada día</title>
+<meta name="description" content="Peluquería femenina y masculina en Buenos Aires. Cortes, color, keratina y más. Buenos Aires."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0A0F;--surface:#111119;--card:#16161F;--border:#22222E;
+  --p:#C9A84C;--p2:#E8C96A;--texto:#FFFFFF;
+  --green:#25D366;--gray:#94A3B8;--gray2:#64748B;--r:16px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--texto);overflow-x:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(10,10,15,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 26px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--p),var(--p2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:#000;flex-shrink:0}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--texto)}
+.nav-logo-text span{color:var(--p2)}
+.nav-cta{background:linear-gradient(135deg,var(--p),var(--p2));color:#000;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:.84rem;font-weight:800;white-space:nowrap;transition:all .2s}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 24px 70px;background:linear-gradient(180deg,rgba(10,10,15,.1) 0%,rgba(10,10,15,.75) 55%,var(--bg) 100%);position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.15);border:1px solid rgba(232,201,106,0.3);color:var(--p2);font-size:.77rem;font-weight:600;padding:7px 17px;border-radius:50px;margin-bottom:24px;position:relative}
+.htdot{width:7px;height:7px;background:var(--p2);border-radius:50%;animation:bl 1.5s infinite;flex-shrink:0}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,7vw,4.8rem);font-weight:900;line-height:1.05;letter-spacing:-1px;margin-bottom:16px;max-width:680px;color:#fff;position:relative}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.05rem;color:rgba(255,255,255,.65);max-width:460px;line-height:1.8;margin-bottom:36px;position:relative}
+.hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;position:relative}
+.btn-p{background:linear-gradient(135deg,var(--p),var(--p2));color:#000;text-decoration:none;padding:15px 32px;border-radius:50px;font-size:.98rem;font-weight:800;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.btn-p:hover{transform:translateY(-2px);opacity:.92}
+.btn-ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);color:var(--texto);text-decoration:none;padding:15px 26px;border-radius:50px;font-size:.95rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-ghost:hover{background:rgba(255,255,255,.13);transform:translateY(-2px)}
+.hstats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;position:relative}
+.snum{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center}
+.slbl{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:3px;text-align:center;text-transform:uppercase;letter-spacing:.5px}
+.sec{padding:76px 24px}
+.ctr{max-width:1100px;margin:0 auto}
+.tc{text-align:center}
+.stag{display:inline-block;background:rgba(201,168,76,.12);color:var(--p2);font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:50px;margin-bottom:11px;text-transform:uppercase;letter-spacing:.5px}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:900;letter-spacing:-.5px;margin-bottom:10px;color:#fff}
+.ssub{color:var(--gray);font-size:.93rem;line-height:1.75;max-width:480px;margin:0 auto 48px}
+/* SERVICIOS CON PRECIO */
+.sec-serv{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.serv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px 22px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.serv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p),var(--p2));opacity:0;transition:opacity .2s}
+.serv-card:hover{border-color:rgba(201,168,76,.4);transform:translateY(-4px)}
+.serv-card:hover::before{opacity:1}
+.serv-ico{font-size:2rem;margin-bottom:12px}
+.serv-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:7px;color:#fff}
+.serv-desc{font-size:.81rem;color:var(--gray);line-height:1.6;flex:1;margin-bottom:14px}
+.serv-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;border-top:1px solid var(--border);padding-top:12px}
+.serv-price{font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.serv-time{font-size:.72rem;color:var(--gray2);background:var(--surface);padding:3px 9px;border-radius:50px;border:1px solid var(--border)}
+/* GALERÍA / ANTES-DESPUÉS */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.gallery-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.gallery-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.gallery-img{height:240px;overflow:hidden}
+.gallery-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-card:hover .gallery-img img{transform:scale(1.07)}
+.gallery-body{padding:16px 18px}
+.gallery-tag{font-size:.72rem;color:var(--p2);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.gallery-title{font-size:.92rem;font-weight:600;color:#fff}
+/* TURNO */
+.sec-turno{background:var(--surface);border-top:1px solid var(--border)}
+/* TESTIMONIOS */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.tc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px}
+.tc-stars{color:var(--p2);font-size:.88rem;letter-spacing:3px;margin-bottom:12px}
+.tc-text{font-size:.86rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:16px;font-style:italic}
+.tc-au{display:flex;align-items:center;gap:12px}
+.tc-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:800;color:#000;flex-shrink:0}
+.tc-name{font-size:.86rem;font-weight:700;color:#fff}
+.tc-loc{font-size:.73rem;color:var(--gray);margin-top:2px}
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:44px 24px}
+.f-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;letter-spacing:1px;margin-bottom:10px;color:#fff}
+.f-logo span{color:var(--p2)}
+footer p{font-size:.82rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
+.f-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.f-links a{color:var(--gray2);text-decoration:none;font-size:.82rem;transition:color .2s}
+.f-links a:hover{color:var(--p2)}
+.f-copy{font-size:.72rem;color:var(--gray2);border-top:1px solid var(--border);padding-top:16px}
+.wa-f{position:fixed;bottom:28px;right:22px;z-index:999;background:var(--green);color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s;animation:pw 2.5s infinite}
+.wa-f:hover{transform:scale(1.1)}
+@keyframes pw{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
+@media(max-width:600px){.hero{min-height:85vh;padding:75px 18px 55px}.hstats{gap:24px}nav{padding:12px 16px}.serv-grid{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">SN</div>
+    <div class="nav-logo-text">Studio Noir</div>
+  </div>
+  <a href="#turno" class="nav-cta">Reservar turno</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag"><div class="htdot"></div>Turnos disponibles en Buenos Aires</div>
+  <h1>Tu mejor versión, cada día<br><em></em></h1>
+  <p>Peluquería femenina y masculina en Buenos Aires. Cortes, color, keratina y más.</p>
+  <div class="hbtns">
+    <a href="#turno" onclick="event.preventDefault();document.getElementById('turno').scrollIntoView({behavior:'smooth'})" class="btn-p">
+      ✂️ Reservar turno
+    </a>
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})" class="btn-ghost">
+      Ver servicios y precios
+    </a>
+  </div>
+  <div class="hstats">
+    <div><div class="snum">+2000</div><div class="slbl">Clientes felices</div></div>
+    <div><div class="snum">8 años</div><div class="slbl">De experiencia</div></div>
+    <div><div class="snum">4.9★</div><div class="slbl">Google Reviews</div></div>
+    <div><div class="snum">CABA</div><div class="slbl">Palermo</div></div></div>
+</section>
+
+<section class="sec sec-serv" id="servicios">
+  <div class="ctr tc">
+    <div class="stag">Servicios &amp; precios</div>
+    <h2 class="stitle">¿Qué querés hacerte?</h2>
+    <p class="ssub">Todos nuestros servicios con precios claros. Sin sorpresas.</p>
+    <div class="serv-grid">
+      <div class="serv-card">
+        <div class="serv-ico">✂️</div>
+        <div class="serv-name">Corte femenino</div>
+        <div class="serv-desc">Corte personalizado según tu tipo de rostro y cabello.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">🎨</div>
+        <div class="serv-name">Balayage / Mechas</div>
+        <div class="serv-desc">Técnica francesa para un color natural y luminoso.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">💛</div>
+        <div class="serv-name">Color completo</div>
+        <div class="serv-desc">Coloración profesional con productos de primera calidad.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">✨</div>
+        <div class="serv-name">Keratina / Lissage</div>
+        <div class="serv-desc">Alisado progresivo que hidrata y elimina el frizz.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">💇</div>
+        <div class="serv-name">Brushing & Peinado</div>
+        <div class="serv-desc">Secado y peinado profesional para cualquier ocasión.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">💈</div>
+        <div class="serv-name">Corte masculino</div>
+        <div class="serv-desc">Corte moderno con acabado prolijo.</div>
+      </div></div>
+  </div>
+</section>
+
+<section class="sec" id="trabajos" style="background:var(--bg)">
+  <div class="ctr tc">
+    <div class="stag">Nuestro trabajo</div>
+    <h2 class="stitle">Resultados que hablan</h2>
+    <p class="ssub">Cada cliente es único. Estos son algunos de nuestros trabajos recientes.</p>
+    <div class="gallery-grid"></div>
+  </div>
+</section>
+
+<section class="sec sec-turno" id="turno">
+  <div class="ctr">
+    <div class="tc" style="margin-bottom:32px">
+      <div class="stag">Turnos online</div>
+      <h2 class="stitle">Reservá tu turno ahora</h2>
+      <p style="color:var(--gray);font-size:.93rem;max-width:440px;margin:0 auto;line-height:1.7">Elegí el día y horario disponible. Tu turno queda reservado al instante.</p>
+    </div>
+    <div id="mbw-widget" style="--mbw-primary:#C9A84C;--mbw-accent:#E8C96A;--mbw-card:#16161F;--mbw-surface:#111119;--mbw-border:#22222E;--mbw-gray:#94A3B8"></div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--surface);border-top:1px solid var(--border)">
+  <div class="ctr tc">
+    <div class="stag">Opiniones</div>
+    <h2 class="stitle">Lo que dicen nuestros clientes</h2>
+    <p class="ssub">La mejor publicidad es la que hacen ellos.</p>
+    <div class="test-grid">
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Fui por el balayage y quedé enamorada del resultado. Paola es una artista. Ya agendé para el próximo mes."</p>
+        <div class="tc-au">
+          <div class="tc-av">V</div>
+          <div><div class="tc-name">Valentina R.</div><div class="tc-loc">📍 Palermo, CABA</div></div>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Llevo 3 años viniendo y nunca me fallaron. Siempre quedan perfectos los cortes y el ambiente es hermoso."</p>
+        <div class="tc-au">
+          <div class="tc-av">S</div>
+          <div><div class="tc-name">Sofía M.</div><div class="tc-loc">📍 Belgrano, CABA</div></div>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Me hice la keratina y duró 5 meses impecable. Vale cada peso. El equipo es súper profesional."</p>
+        <div class="tc-au">
+          <div class="tc-av">L</div>
+          <div><div class="tc-name">Laura T.</div><div class="tc-loc">📍 Villa Urquiza, CABA</div></div>
+        </div>
+      </div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Studio Noir</div>
+  <p>Tu mejor versión, cada día &middot; Buenos Aires, Argentina<br>Lunes a Sábado 9–20hs</p>
+  <div class="f-links">
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Servicios</a>
+    <a href="#trabajos" onclick="event.preventDefault();document.getElementById('trabajos').scrollIntoView({behavior:'smooth'})">Trabajos</a>
+    <a href="#turno" onclick="event.preventDefault();document.getElementById('turno').scrollIntoView({behavior:'smooth'})">Reservar turno</a>
+    <a href="https://wa.me/5491154321234" target="_blank">WhatsApp</a>
+  </div>
+  <div class="f-copy">&copy; 2026 Studio Noir &middot; Todos los derechos reservados</div>
+</footer>
+
+<a href="https://wa.me/5491154321234?text=Hola!%20Vi%20Studio%20Noir%20y%20quiero%20consultar" class="wa-f" target="_blank">
+  <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script src="../../assets/booking.js"></script>
+<script>
+new MoviltecBooking({
+  containerId: 'mbw-widget',
+  apiUrl: null,
+  waNumber: '5491154321234',
+  servicios: ["Corte femenino — $4.500","Balayage / Mechas — desde $12.000","Color completo — desde $8.500","Keratina / Lissage — desde $18.000","Brushing & Peinado — $3.500","Corte masculino — $3.200","Asesoramiento general"],
+  primaryColor: '#C9A84C',
+  accentColor: '#E8C96A'
+});
+</script>
+</body>
+</html>

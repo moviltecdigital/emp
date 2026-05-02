@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TecnoHogar &mdash; Tu hogar en manos expertas</title>
+<meta name="description" content="Gasistas, electricistas y plomeros matriculados en Córdoba. Presupuesto sin cargo. Córdoba."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080C12;--surface:#0D1117;--card:#131B25;--border:#1E2D3D;
+  --p:#0EA5E9;--p2:#38BDF8;--texto:#E2EAF4;
+  --green:#25D366;--gray:#94A3B8;--gray2:#64748B;--r:14px
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--texto);overflow-x:hidden}
+nav{position:sticky;top:0;z-index:200;background:rgba(8,12,18,0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 26px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-ico{font-size:1.6rem}
+.nav-logo-text{font-size:1rem;font-weight:800;color:var(--texto)}
+.nav-logo-text span{color:var(--p2)}
+.nav-cta{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:.84rem;font-weight:800;white-space:nowrap;transition:all .2s}
+.nav-cta:hover{opacity:.9;transform:translateY(-1px)}
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;background:linear-gradient(180deg,rgba(8,12,18,.05) 0%,rgba(8,12,18,.8) 60%,var(--bg) 100%);position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(14,165,233,0.12);border:1px solid rgba(56,189,248,0.25);color:var(--p2);font-size:.77rem;font-weight:600;padding:7px 17px;border-radius:50px;margin-bottom:22px;position:relative}
+.htdot{width:7px;height:7px;background:var(--p2);border-radius:50%;animation:bl 1.5s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.2rem,6.5vw,4.2rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;margin-bottom:16px;max-width:620px;color:#fff;position:relative}
+.hero h1 span{background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1rem;color:rgba(255,255,255,.6);max-width:440px;line-height:1.8;margin-bottom:34px;position:relative}
+.hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px;position:relative}
+.btn-p{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff;text-decoration:none;padding:14px 30px;border-radius:50px;font-size:.96rem;font-weight:800;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 8px 28px rgba(14,165,233,.35)}
+.btn-p:hover{transform:translateY(-2px);opacity:.92}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:var(--texto);text-decoration:none;padding:14px 24px;border-radius:50px;font-size:.93rem;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-ghost:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.hstats{display:flex;justify-content:center;gap:44px;flex-wrap:wrap;position:relative}
+.snum{font-size:1.9rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center}
+.slbl{font-size:.7rem;color:rgba(255,255,255,.3);margin-top:3px;text-align:center;text-transform:uppercase;letter-spacing:.5px}
+.sec{padding:72px 24px}
+.ctr{max-width:1060px;margin:0 auto}
+.tc{text-align:center}
+.stag{display:inline-block;background:rgba(14,165,233,.1);color:var(--p2);font-size:.7rem;font-weight:700;padding:4px 13px;border-radius:50px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.stitle{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:900;letter-spacing:-.5px;margin-bottom:10px;color:#fff}
+.ssub{color:var(--gray);font-size:.91rem;line-height:1.75;max-width:460px;margin:0 auto 44px}
+/* SERVICIOS */
+.sec-serv{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.serv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.serv-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px 20px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.serv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--p),var(--p2));opacity:0;transition:opacity .2s}
+.serv-card:hover{border-color:rgba(56,189,248,.4);transform:translateY(-4px)}
+.serv-card:hover::before{opacity:1}
+.serv-ico{font-size:1.9rem;margin-bottom:11px}
+.serv-name{font-size:.96rem;font-weight:700;margin-bottom:6px;color:#fff}
+.serv-desc{font-size:.79rem;color:var(--gray);line-height:1.6;flex:1;margin-bottom:12px}
+.serv-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:10px;margin-top:auto}
+.serv-price{font-size:.95rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.serv-time{font-size:.68rem;color:var(--gray2);background:var(--surface);padding:3px 8px;border-radius:50px;border:1px solid var(--border)}
+/* CONFIANZA */
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center}
+.trust-item{padding:28px 20px;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.trust-ico{font-size:2.2rem;margin-bottom:12px}
+.trust-num{font-size:1.8rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.trust-lbl{font-size:.8rem;color:var(--gray);line-height:1.5}
+/* TURNO */
+.sec-turno{background:var(--surface);border-top:1px solid var(--border)}
+/* PROCESO */
+.proceso-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center}
+.paso{padding:26px 18px;position:relative}
+.paso-num{font-size:3rem;font-weight:900;background:linear-gradient(90deg,var(--p),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;opacity:.4}
+.paso-title{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:6px}
+.paso-desc{font-size:.8rem;color:var(--gray);line-height:1.55}
+/* TESTIMONIOS */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.tc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px}
+.tc-stars{color:var(--p2);font-size:.85rem;letter-spacing:3px;margin-bottom:11px}
+.tc-text{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:14px;font-style:italic}
+.tc-au{display:flex;align-items:center;gap:11px}
+.tc-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--p2));display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0}
+.tc-name{font-size:.84rem;font-weight:700;color:#fff}
+.tc-loc{font-size:.71rem;color:var(--gray);margin-top:2px}
+footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:40px 24px}
+footer .f-logo{font-size:1.1rem;font-weight:800;margin-bottom:10px;color:#fff}
+footer .f-logo span{color:var(--p2)}
+footer p{font-size:.8rem;color:var(--gray);line-height:1.75;margin-bottom:16px}
+.f-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.f-links a{color:var(--gray2);text-decoration:none;font-size:.8rem;transition:color .2s}
+.f-links a:hover{color:var(--p2)}
+.f-copy{font-size:.7rem;color:var(--gray2);border-top:1px solid var(--border);padding-top:14px}
+.wa-f{position:fixed;bottom:28px;right:22px;z-index:999;background:var(--green);color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.4);text-decoration:none;transition:transform .2s;animation:pw 2.5s infinite}
+.wa-f:hover{transform:scale(1.1)}
+@keyframes pw{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.4)}50%{box-shadow:0 4px 28px rgba(37,211,102,.65)}}
+@media(max-width:600px){.hero{min-height:84vh;padding:70px 16px 50px}.hstats{gap:22px}nav{padding:12px 16px}.serv-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-ico">🔧</div>
+    <div class="nav-logo-text">TecnoHogar</div>
+  </div>
+  <a href="#turno" class="nav-cta">Pedir visita</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag"><div class="htdot"></div>Técnicos matriculados en Córdoba</div>
+  <h1>Tu hogar en manos expertas<br><span></span></h1>
+  <p>Gasistas, electricistas y plomeros matriculados en Córdoba. Presupuesto sin cargo.</p>
+  <div class="hbtns">
+    <a href="#turno" onclick="event.preventDefault();document.getElementById('turno').scrollIntoView({behavior:'smooth'})" class="btn-p">
+      📅 Agendar visita técnica
+    </a>
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})" class="btn-ghost">
+      Ver servicios
+    </a>
+  </div>
+  <div class="hstats">
+    <div><div class="snum">+1500</div><div class="slbl">Trabajos realizados</div></div>
+    <div><div class="snum">10 años</div><div class="slbl">De experiencia</div></div>
+    <div><div class="snum">4.8★</div><div class="slbl">Calificación</div></div>
+    <div><div class="snum">Córdoba</div><div class="slbl">Capital y GBA</div></div></div>
+</section>
+
+<section class="sec sec-serv" id="servicios">
+  <div class="ctr tc">
+    <div class="stag">Qué hacemos</div>
+    <h2 class="stitle">Nuestros servicios</h2>
+    <p class="ssub">Técnicos matriculados con habilitación municipal. Presupuesto sin cargo.</p>
+    <div class="serv-grid">
+      <div class="serv-card">
+        <div class="serv-ico">🔥</div>
+        <div class="serv-name">Instalaciones de Gas</div>
+        <div class="serv-desc">Instalación y reparación de redes de gas. Gasistas matriculados con habilitación municipal.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">⚡</div>
+        <div class="serv-name">Electricidad</div>
+        <div class="serv-desc">Tableros, instalaciones eléctricas, iluminación y reparaciones. Electricistas matriculados.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">💧</div>
+        <div class="serv-name">Plomería</div>
+        <div class="serv-desc">Pérdidas, destapes, instalación de sanitarios y sistemas de agua caliente.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">🌿</div>
+        <div class="serv-name">Jardinería</div>
+        <div class="serv-desc">Diseño, mantenimiento y poda de jardines y espacios verdes.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">❄️</div>
+        <div class="serv-name">Aire Acondicionado</div>
+        <div class="serv-desc">Instalación, recarga y mantenimiento de equipos split y centrales.</div>
+      </div>
+      <div class="serv-card">
+        <div class="serv-ico">🏠</div>
+        <div class="serv-name">Reformas & Pintura</div>
+        <div class="serv-desc">Pequeñas reformas, pintura interior y exterior con acabados de calidad.</div>
+      </div></div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--bg)">
+  <div class="ctr tc">
+    <div class="stag">Por qué elegirnos</div>
+    <h2 class="stitle">Tu hogar en manos seguras</h2>
+    <p class="ssub">Todos nuestros técnicos tienen matrícula vigente y seguro de responsabilidad civil.</p>
+    <div class="trust-grid">
+      <div class="trust-item"><div class="trust-ico">🏅</div><div class="trust-num">Mat.</div><div class="trust-lbl">Todos los técnicos con matrícula municipal vigente</div></div>
+      <div class="trust-item"><div class="trust-ico">⚡</div><div class="trust-num">24hs</div><div class="trust-lbl">Servicio de urgencias disponible las 24 horas</div></div>
+      <div class="trust-item"><div class="trust-ico">💬</div><div class="trust-num">$0</div><div class="trust-lbl">Presupuesto sin cargo ni compromiso</div></div>
+      <div class="trust-item"><div class="trust-ico">✅</div><div class="trust-num">Garan.</div><div class="trust-lbl">Garantía por escrito en todos los trabajos</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--surface);border-top:1px solid var(--border)">
+  <div class="ctr tc">
+    <div class="stag">Cómo funciona</div>
+    <h2 class="stitle">Simple, rápido y sin vueltas</h2>
+    <p class="ssub">Del problema a la solución en 3 pasos.</p>
+    <div class="proceso-grid">
+      <div class="paso"><div class="paso-num">1</div><div class="paso-title">Agendás la visita</div><div class="paso-desc">Elegís día y horario en el calendario. Sin esperas, sin llamadas.</div></div>
+      <div class="paso"><div class="paso-num">2</div><div class="paso-title">El técnico va a tu casa</div><div class="paso-desc">Llega en el horario acordado, evalúa y te da el presupuesto en el momento.</div></div>
+      <div class="paso"><div class="paso-num">3</div><div class="paso-title">Aprobás y listo</div><div class="paso-desc">Si aceptás el presupuesto, el trabajo empieza ese mismo día. Con garantía.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-turno" id="turno">
+  <div class="ctr">
+    <div class="tc" style="margin-bottom:32px">
+      <div class="stag">Visitas online</div>
+      <h2 class="stitle">Agendá una visita técnica</h2>
+      <p style="color:var(--gray);font-size:.91rem;max-width:440px;margin:0 auto;line-height:1.7">Elegí día y horario. Un técnico matriculado va a tu domicilio a revisar y presupuestar sin cargo.</p>
+    </div>
+    <div id="mbw-widget" style="--mbw-primary:#0EA5E9;--mbw-accent:#38BDF8;--mbw-card:#131B25;--mbw-surface:#0D1117;--mbw-border:#1E2D3D;--mbw-gray:#94A3B8"></div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--bg)">
+  <div class="ctr tc">
+    <div class="stag">Opiniones</div>
+    <h2 class="stitle">Lo que dicen nuestros clientes</h2>
+    <p class="ssub">++1500 trabajos realizados. La confianza se construye trabajo a trabajo.</p>
+    <div class="test-grid">
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Me llamaron el mismo día, llegaron a la hora pactada y resolvieron la pérdida de gas en una hora. Muy profesionales."</p>
+        <div class="tc-au">
+          <div class="tc-av">C</div>
+          <div><div class="tc-name">Carlos M.</div><div class="tc-loc">📍 Nueva Córdoba</div></div>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Contraté el servicio eléctrico para una remodelación completa. Trabajo prolijo, limpio y en tiempo. Muy recomendables."</p>
+        <div class="tc-au">
+          <div class="tc-av">P</div>
+          <div><div class="tc-name">Patricia L.</div><div class="tc-loc">📍 Villa Cabrera, Córdoba</div></div>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-text">"Excelente servicio de plomería. Presupuesto honesto y trabajo de primera. Ya los tengo guardados para cualquier urgencia."</p>
+        <div class="tc-au">
+          <div class="tc-av">M</div>
+          <div><div class="tc-name">Martín F.</div><div class="tc-loc">📍 Cerro de las Rosas</div></div>
+        </div>
+      </div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">TecnoHogar</div>
+  <p>Tu hogar en manos expertas &middot; Córdoba, Argentina<br>Lunes a Sábado 8–20hs · Urgencias 24hs</p>
+  <div class="f-links">
+    <a href="#servicios" onclick="event.preventDefault();document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Servicios</a>
+    <a href="#turno" onclick="event.preventDefault();document.getElementById('turno').scrollIntoView({behavior:'smooth'})">Agendar visita</a>
+    <a href="https://wa.me/5492645304372" target="_blank">WhatsApp</a>
+  </div>
+  <div class="f-copy">&copy; 2026 TecnoHogar &middot; Todos los derechos reservados</div>
+</footer>
+
+<button onclick="document.getElementById('formulario-inteligente').style.display='block';document.body.style.overflow='hidden';" class="wa-f" style="border:none;cursor:pointer;">
+  <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.847L0 24l6.336-1.506A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.793-.502-5.39-1.38l-.386-.23-3.985.947.982-3.884-.253-.4A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</button>
+
+<script src="../../assets/booking.js"></script>
+<script>
+new MoviltecBooking({
+  containerId: 'mbw-widget',
+  apiUrl: null,
+  waNumber: '5492645304372',
+  servicios: ["Gas — Instalación / Reparación","Electricidad","Plomería","Jardinería","Aire acondicionado","Reformas & Pintura","Más de un servicio"],
+  primaryColor: '#0EA5E9',
+  accentColor: '#38BDF8'
+});
+</script>
+
+<!-- FORMULARIO INTELIGENTE INLINE -->
+<div id="formulario-inteligente" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;background:rgba(0,0,0,0.7);overflow-y:auto;">
+  <div style="max-width:500px;margin:30px auto;background:#1a1a2e;border-radius:16px;padding:30px 25px;position:relative;color:#fff;font-family:'Segoe UI',sans-serif;">
+    <button onclick="document.getElementById('formulario-inteligente').style.display='none';document.body.style.overflow='auto';" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;">&times;</button>
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="width:50px;height:50px;background:#0EA5E9;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px;">
+        <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      </div>
+      <h2 style="margin:0;font-size:1.3rem;color:#0EA5E9;">Asistente Virtual</h2>
+      <p style="margin:5px 0 0;font-size:0.85rem;color:#aaa;">TecnoHogar - Servicios Profesionales</p>
+    </div>
+    <div id="fi-paso1" class="fi-paso">
+      <p style="background:#2a2a4a;padding:14px;border-radius:10px;font-size:0.95rem;line-height:1.5;">Hola! Bienvenido/a a <strong>TecnoHogar</strong>. Soy el asistente virtual. Selecciona que te interesa:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:15px;">
+        <button class="fi-btn" onclick="fiPaso(2,'info')">Quiero informacion sobre servicios</button>
+        <button class="fi-btn" onclick="fiPaso(2,'turno')">Quiero solicitar un servicio</button>
+        <button class="fi-btn" onclick="fiPaso(2,'planes')">Me interesa tener esto para mi negocio</button>
+        <button class="fi-btn" onclick="fiPaso(2,'otro')">Otra consulta</button>
+      </div>
+    </div>
+    <div id="fi-paso2" class="fi-paso" style="display:none;">
+      <p id="fi-msg2" style="background:#2a2a4a;padding:14px;border-radius:10px;font-size:0.95rem;line-height:1.5;"></p>
+      <div id="fi-opciones2" style="display:flex;flex-direction:column;gap:10px;margin-top:15px;"></div>
+    </div>
+    <div id="fi-paso3" class="fi-paso" style="display:none;">
+      <p style="background:#2a2a4a;padding:14px;border-radius:10px;font-size:0.95rem;line-height:1.5;">Perfecto! Dejanos tus datos y te contactamos en menos de 24hs:</p>
+      <form id="fi-form" style="margin-top:15px;display:flex;flex-direction:column;gap:12px;">
+        <input type="text" id="fi-nombre" placeholder="Tu nombre" required style="padding:12px;border-radius:8px;border:1px solid #444;background:#2a2a4a;color:#fff;font-size:0.95rem;">
+        <input type="tel" id="fi-tel" placeholder="Tu WhatsApp (ej: 2645551234)" required style="padding:12px;border-radius:8px;border:1px solid #444;background:#2a2a4a;color:#fff;font-size:0.95rem;">
+        <input type="text" id="fi-negocio" placeholder="Nombre de tu negocio (opcional)" style="padding:12px;border-radius:8px;border:1px solid #444;background:#2a2a4a;color:#fff;font-size:0.95rem;">
+        <input type="hidden" id="fi-interes" value="">
+        <button type="submit" style="padding:14px;background:#0EA5E9;color:#fff;border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;">Enviar y recibir info</button>
+      </form>
+    </div>
+    <div id="fi-paso4" class="fi-paso" style="display:none;">
+      <div style="padding:20px;">
+        <div style="text-align:center;margin-bottom:20px;">
+          <div style="width:60px;height:60px;background:linear-gradient(135deg,#0EA5E9,#38BDF8);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;">
+            <svg width="30" height="30" fill="#fff" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h3 style="color:#0EA5E9;margin:0 0 6px;font-size:1.2rem;">Gracias por tu consulta</h3>
+          <p style="color:#999;font-size:0.8rem;margin:0;">Tu solicitud fue registrada correctamente</p>
+        </div>
+        <div id="fi-resumen" style="background:#2a2a4a;border-radius:10px;padding:16px;margin-bottom:18px;border-left:3px solid #0EA5E9;"></div>
+        <div style="background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.3);border-radius:10px;padding:14px;text-align:center;">
+          <p style="margin:0;color:#38BDF8;font-size:0.9rem;font-weight:600;">Nuestro equipo se comunicara contigo</p>
+          <p style="margin:6px 0 0;color:#aaa;font-size:0.82rem;">dentro de las proximas 24 horas habiles</p>
+        </div>
+        <a id="fi-wa-link" href="#" target="_blank" rel="noopener" style="display:block;margin-top:18px;width:100%;padding:14px;background:#25D366;color:#fff;border:none;border-radius:8px;font-weight:700;font-size:0.95rem;cursor:pointer;text-align:center;text-decoration:none;">Confirmar envio por WhatsApp</a>
+        <button onclick="document.getElementById('formulario-inteligente').style.display='none';document.body.style.overflow='auto';fiReset();" style="margin-top:10px;width:100%;padding:12px;background:transparent;color:#888;border:1px solid #444;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.fi-btn{padding:12px 16px;background:transparent;border:1.5px solid #0EA5E9;color:#0EA5E9;border-radius:8px;font-size:0.9rem;cursor:pointer;transition:all .2s;text-align:left;}
+.fi-btn:hover{background:#0EA5E9;color:#fff;}
+</style>
+<script>
+let fiEleccion = '';
+function fiReset() {
+  document.querySelectorAll('.fi-paso').forEach(p => p.style.display = 'none');
+  document.getElementById('fi-paso1').style.display = 'block';
+  document.getElementById('fi-form').reset();
+}
+function fiPaso(paso, tipo) {
+  document.querySelectorAll('.fi-paso').forEach(p => p.style.display = 'none');
+  if (paso === 2) {
+    fiEleccion = tipo;
+    const msg = document.getElementById('fi-msg2');
+    const opts = document.getElementById('fi-opciones2');
+    opts.innerHTML = '';
+    if (tipo === 'info') {
+      msg.innerHTML = 'Nuestros servicios profesionales:<br><br>&#8226; Instalacion de gas<br>&#8226; Electricidad<br>&#8226; Plomeria<br>&#8226; Jardineria<br>&#8226; Aire acondicionado<br>&#8226; Reformas y pintura<br><br>Queres solicitar un servicio?';
+      opts.innerHTML = '<button class="fi-btn" onclick="fiPaso(2,\'turno\')">Solicitar servicio</button><button class="fi-btn" onclick="fiPaso(3,\'info servicios\')">Quiero que me contacten</button>';
+    } else if (tipo === 'turno') {
+      msg.innerHTML = 'Para coordinar el servicio, necesitamos algunos datos. Te contactaremos para confirmar dia, horario y presupuesto.';
+      opts.innerHTML = '<button class="fi-btn" onclick="fiPaso(3,\'solicitud servicio\')">Dejar mis datos</button>';
+    } else if (tipo === 'planes') {
+      msg.innerHTML = 'Excelente! Moviltec Digital ofrece 3 planes para que tu negocio venda mas:<br><br><strong>1. Presencia Digital</strong> - Landing page + WhatsApp<br><strong>2. Ventas Automaticas</strong> - Bot + catalogo + pagos<br><strong>3. Negocio Digital Pro</strong> - Todo incluido + app<br><br>Cual te interesa?';
+      opts.innerHTML = '<button class="fi-btn" onclick="fiPaso(3,\'Plan Presencia Digital\')">Presencia Digital</button><button class="fi-btn" onclick="fiPaso(3,\'Plan Ventas Automaticas\')">Ventas Automaticas</button><button class="fi-btn" onclick="fiPaso(3,\'Plan Negocio Digital Pro\')">Negocio Digital Pro</button>';
+    } else {
+      msg.innerHTML = 'Contanos en que podemos ayudarte. Dejanos tus datos y te contactamos!';
+      opts.innerHTML = '<button class="fi-btn" onclick="fiPaso(3,\'consulta general\')">Dejar mis datos</button>';
+    }
+    document.getElementById('fi-paso2').style.display = 'block';
+  } else if (paso === 3) {
+    document.getElementById('fi-interes').value = tipo;
+    document.getElementById('fi-paso3').style.display = 'block';
+  }
+}
+document.getElementById('fi-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nombre = document.getElementById('fi-nombre').value;
+  const tel = document.getElementById('fi-tel').value;
+  const negocio = document.getElementById('fi-negocio').value;
+  const interes = document.getElementById('fi-interes').value;
+  let resumenHTML = '<p style="margin:0 0 8px;font-size:0.82rem;color:#888;text-transform:uppercase;letter-spacing:1px;">Datos enviados</p>';
+  resumenHTML += '<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#0EA5E9;">Nombre:</strong> ' + nombre + '</p>';
+  resumenHTML += '<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#0EA5E9;">WhatsApp:</strong> ' + tel + '</p>';
+  if (negocio) resumenHTML += '<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#0EA5E9;">Negocio:</strong> ' + negocio + '</p>';
+  resumenHTML += '<p style="margin:0;color:#eee;font-size:0.9rem;"><strong style="color:#0EA5E9;">Consulta:</strong> ' + interes + '</p>';
+  document.getElementById('fi-resumen').innerHTML = resumenHTML;
+  document.querySelectorAll('.fi-paso').forEach(p => p.style.display = 'none');
+  document.getElementById('fi-paso4').style.display = 'block';
+  const lineas = ['*Nuevo contacto - Demo TecnoHogar*','','*Nombre:* ' + nombre,'*WhatsApp:* ' + tel];
+  if (negocio) lineas.push('*Negocio:* ' + negocio);
+  lineas.push('*Interes:* ' + interes);
+  lineas.push('');
+  lineas.push('_Enviado desde moviltecdigital.com.ar_');
+  document.getElementById('fi-wa-link').href = 'https://wa.me/5492645304372?text=' + encodeURIComponent(lineas.join('\n'));
+});
+</script>
+</body>
+</html>
