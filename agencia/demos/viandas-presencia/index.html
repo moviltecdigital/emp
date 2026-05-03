@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sabores de Casa | Viandas Caseras - San Juan</title>
+<meta name="description" content="Viandas caseras con entrega al mediodía. Comida como la de mamá, todos los días.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#F97316;--primary2:#FB923C;--dark:#0f0f0f;--card:#1a1a1a;--card2:#242424;--text:#fff;--gray:#999;--green:#25D366;--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--primary2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-badge{font-size:.65rem;background:var(--primary);color:#000;padding:3px 8px;border-radius:20px;font-weight:700}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-30%;width:600px;height:600px;background:radial-gradient(circle,rgba(249,115,22,.12),transparent 70%);border-radius:50%;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(251,146,60,.08),transparent 70%);border-radius:50%;pointer-events:none}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,8vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:20px;max-width:700px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--primary),var(--primary2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.1rem;color:var(--gray);max-width:480px;line-height:1.7;margin-bottom:36px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#000;padding:16px 32px;border-radius:50px;font-weight:700;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 8px 30px rgba(249,115,22,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(249,115,22,.4)}
+.btn-outline{border:1.5px solid rgba(255,255,255,.2);color:#fff;padding:16px 28px;border-radius:50px;font-weight:600;font-size:.95rem;transition:all .2s}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+.hero-tag{margin-top:40px;display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--gray)}
+.hero-tag span{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* SECCIONES */
+.sec{padding:80px 24px}
+.ctr{max-width:1100px;margin:0 auto}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;text-align:center;margin-bottom:12px;letter-spacing:-1px}
+.ssub{text-align:center;color:var(--gray);font-size:1rem;margin-bottom:48px;max-width:550px;margin-left:auto;margin-right:auto;line-height:1.6}
+
+/* MENU DEL DIA */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.menu-card{background:var(--card);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s;border:1px solid rgba(255,255,255,.05)}
+.menu-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(249,115,22,.1)}
+.menu-img{height:160px;background:linear-gradient(135deg,var(--card2),#2a2015);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.menu-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6));pointer-events:none}
+.menu-icon{font-size:3rem;opacity:.6;position:relative;z-index:1}
+.menu-body{padding:18px}
+.menu-name{font-weight:700;font-size:1.05rem;margin-bottom:6px}
+.menu-desc{font-size:.82rem;color:var(--gray);line-height:1.5;margin-bottom:12px}
+.menu-price{font-size:1.3rem;font-weight:800;color:var(--primary)}
+.menu-price span{font-size:.75rem;font-weight:500;color:var(--gray);margin-left:4px}
+
+/* NOSOTROS */
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.about-card{background:var(--card);border-radius:var(--radius);padding:28px;border:1px solid rgba(255,255,255,.05)}
+.about-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--primary),var(--primary2));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.about-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.about-card p{font-size:.88rem;color:var(--gray);line-height:1.6}
+
+/* ZONAS */
+.zonas-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.zona-item{background:var(--card);border-radius:10px;padding:14px 20px;font-size:.9rem;font-weight:500;border-left:3px solid var(--primary);transition:background .2s}
+.zona-item:hover{background:var(--card2)}
+
+/* FOOTER */
+footer{background:var(--card);border-top:1px solid rgba(255,255,255,.05);padding:40px 24px;text-align:center}
+footer p{color:var(--gray);font-size:.82rem;margin-top:8px}
+footer .f-brand{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--primary)}
+
+/* BOTON FLOTANTE WA */
+.wa-float{position:fixed;bottom:28px;right:22px;z-index:9998;width:56px;height:56px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s;animation:bounce 3s infinite}
+.wa-float:hover{transform:scale(1.1)}
+@keyframes bounce{0%,100%{transform:translateY(0)}15%{transform:translateY(-6px)}30%{transform:translateY(0)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:2.2rem;letter-spacing:-1px}
+  .menu-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+}
+
+/* PLAN BADGE */
+.plan-badge{position:fixed;top:70px;right:16px;z-index:999;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#000;font-size:.7rem;font-weight:800;padding:6px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Sabores de Casa</div>
+  <div class="nav-badge">Viandas del día</div>
+</nav>
+
+<div class="plan-badge">Plan Presencia Digital</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Comida casera <em>todos los días</em> en tu mesa</h1>
+  <p>Viandas preparadas con ingredientes frescos y el sabor de siempre. Pedí hoy, recibí al mediodía.</p>
+  <div class="hero-btns">
+    <a href="#menu" class="btn-primary" onclick="event.preventDefault();document.getElementById('menu').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+      Ver menú del día
+    </a>
+    <a href="#" class="btn-outline" onclick="event.preventDefault();document.getElementById('formulario-inteligente').style.display='block';document.body.style.overflow='hidden';">Hacer pedido</a>
+  </div>
+  <div class="hero-tag"><span></span> Pedidos abiertos hasta las 11:00hs</div>
+</section>
+
+<!-- MENU DEL DIA -->
+<section class="sec" id="menu">
+  <div class="ctr">
+    <h2 class="stitle">Menú del Día</h2>
+    <p class="ssub">Elegí tus viandas favoritas. Entrega hoy al mediodía en tu domicilio.</p>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🍗</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Pollo al horno con papas</div>
+          <div class="menu-desc">Pollo dorado con papas rústicas y especias</div>
+          <div class="menu-price">$3.500<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🥩</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Milanesa napolitana</div>
+          <div class="menu-desc">Con jamón, queso y salsa, acompañada de puré</div>
+          <div class="menu-price">$4.200<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🍝</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Fideos con tuco casero</div>
+          <div class="menu-desc">Tallarines al huevo con salsa de tomate y carne</div>
+          <div class="menu-price">$3.200<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🫕</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Guiso de lentejas</div>
+          <div class="menu-desc">Con chorizo colorado, verduras y arroz</div>
+          <div class="menu-price">$3.000<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🥘</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Estofado de carne</div>
+          <div class="menu-desc">Carne tierna con papas, zanahorias y arvejas</div>
+          <div class="menu-price">$3.800<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🌮</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Empanadas x 3</div>
+          <div class="menu-desc">Carne cortada a cuchillo, jugosas y crocantes</div>
+          <div class="menu-price">$2.800<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🍖</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Bondiola al verdeo</div>
+          <div class="menu-desc">Con salsa de cebolla de verdeo y arroz blanco</div>
+          <div class="menu-price">$4.500<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🥗</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Tarta de verduras</div>
+          <div class="menu-desc">Espinaca, calabaza, cebolla y queso. Con ensalada</div>
+          <div class="menu-price">$3.100<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🍲</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Canelones de verdura</div>
+          <div class="menu-desc">Rellenos de ricota y espinaca con salsa blanca</div>
+          <div class="menu-price">$3.600<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🐟</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Merluza al limón</div>
+          <div class="menu-desc">Filete grillado con ensalada fresca y arroz</div>
+          <div class="menu-price">$4.000<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🍛</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Arroz con pollo</div>
+          <div class="menu-desc">Arroz cremoso con pollo desmenuzado y vegetales</div>
+          <div class="menu-price">$3.400<span>c/u</span></div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-img"><span class="menu-icon">🫔</span></div>
+        <div class="menu-body">
+          <div class="menu-name">Pastel de papa</div>
+          <div class="menu-desc">Carne picada especiada con puré gratinado</div>
+          <div class="menu-price">$3.300<span>c/u</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="sec" style="background:var(--card)">
+  <div class="ctr">
+    <h2 class="stitle">¿Por qué elegirnos?</h2>
+    <p class="ssub">Cocinamos con amor, como en casa. Todos los días, para vos.</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-icon"><svg width="24" height="24" fill="#000" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+        <h3>Ingredientes frescos</h3>
+        <p>Compramos todos los días en el mercado. Nada de congelados ni conservantes.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon"><svg width="24" height="24" fill="#000" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+        <h3>Entrega al mediodía</h3>
+        <p>Tu vianda llega calentita entre las 12:00 y 13:30hs directamente a tu domicilio.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon"><svg width="24" height="24" fill="#000" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+        <h3>Cocina habilitada</h3>
+        <p>Cumplimos con todas las normas de bromatología. Tu salud es prioridad.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-icon"><svg width="24" height="24" fill="#000" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+        <h3>Mejor precio</h3>
+        <p>Viandas completas desde $3.000. Abonos semanales con descuento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONAS DE ENTREGA -->
+<section class="sec">
+  <div class="ctr">
+    <h2 class="stitle">Zonas de entrega</h2>
+    <p class="ssub">Llegamos a estos barrios de San Juan capital y alrededores.</p>
+    <div class="zonas-list">
+      <div class="zona-item">Capital Centro</div>
+      <div class="zona-item">Desamparados</div>
+      <div class="zona-item">Trinidad</div>
+      <div class="zona-item">Santa Lucía</div>
+      <div class="zona-item">Rivadavia</div>
+      <div class="zona-item">Chimbas</div>
+      <div class="zona-item">Rawson</div>
+      <div class="zona-item">Pocito</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGO -->
+<section class="sec" style="background:var(--card)">
+  <div class="ctr" style="text-align:center">
+    <h2 class="stitle">Pagá fácil y rápido</h2>
+    <p class="ssub">Aceptamos efectivo en la entrega o pagá online con MercadoPago.</p>
+    <a href="https://www.mercadopago.com.ar" target="_blank" class="btn-primary" style="font-size:1rem;padding:18px 36px">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+      Pagar con MercadoPago
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">Sabores de Casa</div>
+  <p>San Juan, Argentina · Viandas caseras con entrega al mediodía</p>
+  <p style="margin-top:16px;font-size:.72rem;color:#555">Demo creado por <a href="https://moviltecdigital.com.ar" target="_blank" style="color:var(--primary)">Moviltec Digital</a> · Plan Presencia Digital</p>
+</footer>
+
+<!-- BOTON FLOTANTE WA -->
+<button onclick="document.getElementById('formulario-inteligente').style.display='block';document.body.style.overflow='hidden';" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.072-1.108l-.292-.175-3.028.794.808-2.953-.192-.304A8 8 0 1112 20z"/></svg>
+</button>
+
+<!-- FORMULARIO INTELIGENTE -->
+<div id="formulario-inteligente" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;background:rgba(0,0,0,0.7);overflow-y:auto;">
+  <div style="max-width:500px;margin:30px auto;background:#1a1a2e;border-radius:16px;padding:30px 25px;position:relative;color:#fff;font-family:'DM Sans',sans-serif;">
+    <button onclick="document.getElementById('formulario-inteligente').style.display='none';document.body.style.overflow='auto';" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;">&times;</button>
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="width:50px;height:50px;background:#F97316;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px;">
+        <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      </div>
+      <h2 style="margin:0;font-size:1.3rem;color:#F97316;">Asistente Virtual</h2>
+      <p style="margin:5px 0 0;font-size:0.85rem;color:#aaa;">Sabores de Casa - Viandas Caseras</p>
+    </div>
+    <div id="fi-paso1" class="fi-paso">
+      <p style="background:#2a2a4a;padding:14px;border-radius:10px;font-size:0.95rem;line-height:1.5;">Hola! Bienvenido/a a <strong>Sabores de Casa</strong>. Selecciona que necesitas:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:15px;">
+        <button class="fi-btn" onclick="fiPaso(2,'info')">Quiero ver el menu del dia</button>
+        <button class="fi-btn" onclick="fiPaso(2,'pedido')">Quiero hacer un pedido</button>
+        <button class="fi-btn" onclick="fiPaso(2,'planes')">Me interesa tener esto para mi negocio</button>
+        <button class="fi-btn" onclick="fiPaso(2,'otro')">Otra consulta</button>
+      </div>
+    </div>
+    <div id="fi-paso2" class="fi-paso" style="display:none;">
+      <p id="fi-msg2" style="background:#2a2a4a;padding:14px;border-radius:10px;font-size:0.95rem;line-height:1.5;"></p>
+      <div id="fi-opciones2" style="display:flex;flex-direction:column;gap:10px;margin-top:15px;"></div>
+    </div>
+    <div id="fi-paso3" class="fi-paso" style="display:none;">
+      <p style="background:#2a2a4a;padding:14px;border-radius:10px;font-size:0.95rem;line-height:1.5;">Perfecto! Dejanos tus datos y te contactamos:</p>
+      <form id="fi-form" style="margin-top:15px;display:flex;flex-direction:column;gap:12px;">
+        <input type="text" id="fi-nombre" placeholder="Tu nombre" required style="padding:12px;border-radius:8px;border:1px solid #444;background:#2a2a4a;color:#fff;font-size:0.95rem;">
+        <input type="tel" id="fi-tel" placeholder="Tu WhatsApp (ej: 2645551234)" required style="padding:12px;border-radius:8px;border:1px solid #444;background:#2a2a4a;color:#fff;font-size:0.95rem;">
+        <input type="text" id="fi-dir" placeholder="Tu direccion de entrega" required style="padding:12px;border-radius:8px;border:1px solid #444;background:#2a2a4a;color:#fff;font-size:0.95rem;">
+        <input type="hidden" id="fi-interes" value="">
+        <button type="submit" style="padding:14px;background:#F97316;color:#fff;border:none;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;">Enviar pedido</button>
+      </form>
+    </div>
+    <div id="fi-paso4" class="fi-paso" style="display:none;">
+      <div style="padding:20px;">
+        <div style="text-align:center;margin-bottom:20px;">
+          <div style="width:60px;height:60px;background:linear-gradient(135deg,#F97316,#FB923C);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;">
+            <svg width="30" height="30" fill="#fff" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h3 style="color:#F97316;margin:0 0 6px;font-size:1.2rem;">Gracias por tu pedido</h3>
+          <p style="color:#999;font-size:0.8rem;margin:0;">Tu solicitud fue registrada</p>
+        </div>
+        <div id="fi-resumen" style="background:#2a2a4a;border-radius:10px;padding:16px;margin-bottom:18px;border-left:3px solid #F97316;"></div>
+        <div style="background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);border-radius:10px;padding:14px;text-align:center;">
+          <p style="margin:0;color:#FB923C;font-size:0.9rem;font-weight:600;">Te contactaremos para confirmar</p>
+          <p style="margin:6px 0 0;color:#aaa;font-size:0.82rem;">Entrega hoy al mediodia en tu domicilio</p>
+        </div>
+        <a id="fi-wa-link" href="#" target="_blank" rel="noopener" style="display:block;margin-top:18px;width:100%;padding:14px;background:#25D366;color:#fff;border:none;border-radius:8px;font-weight:700;font-size:0.95rem;cursor:pointer;text-align:center;text-decoration:none;">Confirmar envio por WhatsApp</a>
+        <button onclick="document.getElementById('formulario-inteligente').style.display='none';document.body.style.overflow='auto';fiReset();" style="margin-top:10px;width:100%;padding:12px;background:transparent;color:#888;border:1px solid #444;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.fi-btn{padding:12px 16px;background:transparent;border:1.5px solid #F97316;color:#F97316;border-radius:8px;font-size:0.9rem;cursor:pointer;transition:all .2s;text-align:left;font-family:inherit}
+.fi-btn:hover{background:#F97316;color:#fff;}
+</style>
+<script>
+function fiReset(){document.querySelectorAll('.fi-paso').forEach(p=>p.style.display='none');document.getElementById('fi-paso1').style.display='block';document.getElementById('fi-form').reset()}
+function fiPaso(paso,tipo){
+  document.querySelectorAll('.fi-paso').forEach(p=>p.style.display='none');
+  if(paso===2){
+    const msg=document.getElementById('fi-msg2'),opts=document.getElementById('fi-opciones2');
+    opts.innerHTML='';
+    if(tipo==='info'){
+      msg.innerHTML='Nuestro menu de hoy:<br><br>&#8226; Pollo al horno - $3.500<br>&#8226; Milanesa napo - $4.200<br>&#8226; Fideos con tuco - $3.200<br>&#8226; Guiso de lentejas - $3.000<br>&#8226; Estofado - $3.800<br>&#8226; Empanadas x3 - $2.800<br>&#8226; Bondiola - $4.500<br>&#8226; Tarta verduras - $3.100<br>&#8226; Canelones - $3.600<br>&#8226; Merluza - $4.000<br>&#8226; Arroz con pollo - $3.400<br>&#8226; Pastel de papa - $3.300<br><br>Queres hacer un pedido?';
+      opts.innerHTML='<button class="fi-btn" onclick="fiPaso(2,\'pedido\')">Si, quiero pedir</button><button class="fi-btn" onclick="fiPaso(3,\'consulta menu\')">Tengo una consulta</button>';
+    }else if(tipo==='pedido'){
+      msg.innerHTML='Para hacer tu pedido, dejanos tus datos y decinos que viandas queres. Te confirmamos enseguida por WhatsApp.';
+      opts.innerHTML='<button class="fi-btn" onclick="fiPaso(3,\'pedido viandas\')">Dejar mis datos</button>';
+    }else if(tipo==='planes'){
+      msg.innerHTML='Excelente! Moviltec Digital ofrece 3 planes para que tu negocio venda mas:<br><br><strong>1. Presencia Digital</strong> - Landing + WhatsApp<br><strong>2. Ventas Automaticas</strong> - Bot + catalogo + pagos<br><strong>3. Negocio Digital Pro</strong> - Todo incluido<br><br>Cual te interesa?';
+      opts.innerHTML='<button class="fi-btn" onclick="fiPaso(3,\'Plan Presencia Digital\')">Presencia Digital</button><button class="fi-btn" onclick="fiPaso(3,\'Plan Ventas Automaticas\')">Ventas Automaticas</button><button class="fi-btn" onclick="fiPaso(3,\'Plan Negocio Digital Pro\')">Negocio Digital Pro</button>';
+    }else{
+      msg.innerHTML='Contanos en que podemos ayudarte!';
+      opts.innerHTML='<button class="fi-btn" onclick="fiPaso(3,\'consulta general\')">Dejar mis datos</button>';
+    }
+    document.getElementById('fi-paso2').style.display='block';
+  }else if(paso===3){
+    document.getElementById('fi-interes').value=tipo;
+    document.getElementById('fi-paso3').style.display='block';
+  }
+}
+document.getElementById('fi-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  const nombre=document.getElementById('fi-nombre').value;
+  const tel=document.getElementById('fi-tel').value;
+  const dir=document.getElementById('fi-dir').value;
+  const interes=document.getElementById('fi-interes').value;
+  let r='<p style="margin:0 0 8px;font-size:0.82rem;color:#888;text-transform:uppercase;letter-spacing:1px;">Datos enviados</p>';
+  r+='<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#F97316;">Nombre:</strong> '+nombre+'</p>';
+  r+='<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#F97316;">WhatsApp:</strong> '+tel+'</p>';
+  r+='<p style="margin:0 0 6px;color:#eee;font-size:0.9rem;"><strong style="color:#F97316;">Direccion:</strong> '+dir+'</p>';
+  r+='<p style="margin:0;color:#eee;font-size:0.9rem;"><strong style="color:#F97316;">Pedido:</strong> '+interes+'</p>';
+  document.getElementById('fi-resumen').innerHTML=r;
+  document.querySelectorAll('.fi-paso').forEach(p=>p.style.display='none');
+  document.getElementById('fi-paso4').style.display='block';
+  const lineas=['*Nuevo pedido - Sabores de Casa*','','*Nombre:* '+nombre,'*WhatsApp:* '+tel,'*Direccion:* '+dir,'*Pedido:* '+interes,'','_Enviado desde moviltecdigital.com.ar_'];
+  document.getElementById('fi-wa-link').href='https://wa.me/5492645304372?text='+encodeURIComponent(lineas.join('\n'));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sabores de Casa | Plan Negocio Digital Pro</title>
+<meta name="description" content="Pedí tus viandas caseras online. Stock en vivo. Entrega hoy al mediodía en San Juan.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================
+   VARIABLES & RESET
+   =========================== */
+:root{
+  --primary:#F97316;
+  --primary2:#FB923C;
+  --gold:#D4AF37;
+  --gold2:#F0D060;
+  --gold3:#B8960C;
+  --green:#10B981;
+  --green-wa:#25D366;
+  --dark:#0f0f0f;
+  --card:#1a1a1a;
+  --card2:#202020;
+  --card3:#2a2a2a;
+  --card4:#252525;
+  --text:#fff;
+  --gray:#999;
+  --gray2:#666;
+  --radius:16px;
+  --radius-sm:11px;
+  --trans:.22s ease;
+  --gold-grad:linear-gradient(135deg,var(--gold),var(--gold2),var(--gold3));
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:'DM Sans',sans-serif;cursor:pointer}
+img{display:block}
+
+/* ===========================
+   PARTICLES CANVAS
+   =========================== */
+#particles-canvas{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;opacity:.35;
+}
+
+/* ===========================
+   NAV
+   =========================== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(15,15,15,.96);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(212,175,55,.12);
+  padding:13px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;
+}
+.nav-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:900;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  white-space:nowrap;
+}
+.nav-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.nav-pro-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.62rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+  background:var(--gold-grad);
+  color:#000;padding:4px 11px;border-radius:20px;white-space:nowrap;
+  box-shadow:0 2px 10px rgba(212,175,55,.3);
+}
+.nav-pro-badge svg{width:10px;height:10px;fill:#000;flex-shrink:0}
+.nav-cta{
+  font-size:.82rem;font-weight:700;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:#000;padding:8px 18px;border-radius:50px;border:none;
+  transition:transform var(--trans),box-shadow var(--trans);
+  box-shadow:0 4px 18px rgba(249,115,22,.25);
+  white-space:nowrap;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(249,115,22,.38)}
+
+/* ===========================
+   PLAN BADGE FIXED
+   =========================== */
+.plan-badge-fixed{
+  position:fixed;top:68px;right:14px;z-index:999;
+  background:var(--gold-grad);
+  color:#000;font-size:.58rem;font-weight:900;letter-spacing:.9px;
+  text-transform:uppercase;padding:5px 12px;border-radius:20px;
+  box-shadow:0 4px 16px rgba(212,175,55,.45);
+  display:flex;align-items:center;gap:4px;
+}
+.plan-badge-fixed svg{width:9px;height:9px;fill:#000}
+
+/* ===========================
+   HERO
+   =========================== */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  padding:130px 24px 90px;position:relative;overflow:hidden;
+  z-index:1;
+}
+.hero::before{
+  content:'';position:absolute;top:-40%;right:-20%;
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(249,115,22,.11),transparent 68%);
+  border-radius:50%;pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-20%;left:-10%;
+  width:520px;height:520px;
+  background:radial-gradient(circle,rgba(212,175,55,.07),transparent 68%);
+  border-radius:50%;pointer-events:none;
+}
+.hero-premium-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,rgba(212,175,55,.15),rgba(240,208,96,.08));
+  border:1px solid rgba(212,175,55,.35);
+  border-radius:50px;padding:6px 16px;
+  font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--gold2);margin-bottom:14px;position:relative;z-index:1;
+}
+.hero-premium-pill svg{width:12px;height:12px;fill:var(--gold2)}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);
+  border-radius:50px;padding:7px 16px;font-size:.8rem;font-weight:600;
+  color:var(--green);margin-bottom:26px;position:relative;z-index:1;
+}
+.hero-tag .dot{
+  width:8px;height:8px;background:var(--green);border-radius:50%;
+  animation:pulse 1.8s infinite;flex-shrink:0;
+  box-shadow:0 0 6px var(--green);
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,7.5vw,4.6rem);
+  font-weight:900;line-height:1.04;letter-spacing:-2px;
+  margin-bottom:22px;max-width:740px;
+  position:relative;z-index:1;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero h1 .gold-txt{
+  background:var(--gold-grad);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero p{
+  font-size:1.08rem;color:var(--gray);max-width:520px;line-height:1.75;
+  margin-bottom:16px;position:relative;z-index:1;
+}
+.hero-stock-indicator{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.18);
+  border-radius:8px;padding:7px 14px;font-size:.78rem;color:var(--green);
+  font-weight:600;margin-bottom:32px;position:relative;z-index:1;
+}
+.hero-stock-indicator svg{width:14px;height:14px;fill:var(--green)}
+.hero-btns{
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  position:relative;z-index:1;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:#000;padding:16px 34px;border-radius:50px;font-weight:700;font-size:.95rem;
+  display:inline-flex;align-items:center;gap:8px;transition:all var(--trans);
+  box-shadow:0 8px 30px rgba(249,115,22,.32);border:none;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 42px rgba(249,115,22,.45)}
+.btn-gold{
+  background:var(--gold-grad);
+  color:#000;padding:16px 30px;border-radius:50px;font-weight:700;font-size:.95rem;
+  display:inline-flex;align-items:center;gap:8px;transition:all var(--trans);
+  box-shadow:0 8px 30px rgba(212,175,55,.28);border:none;
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 42px rgba(212,175,55,.42)}
+.btn-outline{
+  border:1.5px solid rgba(255,255,255,.15);color:#fff;
+  padding:16px 28px;border-radius:50px;font-weight:600;font-size:.95rem;
+  transition:all var(--trans);background:transparent;
+}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold2)}
+
+/* ===========================
+   SECTIONS
+   =========================== */
+.sec{padding:80px 24px;position:relative;z-index:1}
+.ctr{max-width:1160px;margin:0 auto}
+.stitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;
+  text-align:center;margin-bottom:10px;letter-spacing:-1px;
+}
+.ssub{
+  text-align:center;color:var(--gray);font-size:.98rem;
+  margin-bottom:48px;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.65;
+}
+.gold-line{
+  width:60px;height:2px;background:var(--gold-grad);
+  border-radius:2px;margin:0 auto 14px;
+}
+
+/* ===========================
+   MINI DASHBOARD
+   =========================== */
+.dashboard-sec{
+  padding:0 24px 70px;position:relative;z-index:1;
+}
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  max-width:1160px;margin:0 auto;
+}
+.dash-card{
+  background:var(--card);border-radius:var(--radius);
+  padding:22px 22px 18px;
+  border:1px solid rgba(255,255,255,.05);
+  position:relative;overflow:hidden;
+  transition:transform var(--trans),box-shadow var(--trans);
+}
+.dash-card::before{
+  content:'';position:absolute;inset:0;border-radius:var(--radius);
+  padding:1px;
+  background:linear-gradient(135deg,rgba(212,175,55,.3),rgba(249,115,22,.15),rgba(212,175,55,.3));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;
+}
+.dash-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.35)}
+.dash-label{font-size:.72rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--gray);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.dash-label svg{width:13px;height:13px}
+.dash-value{font-size:1.55rem;font-weight:900;line-height:1.1;margin-bottom:4px}
+.dash-sub{font-size:.75rem;color:var(--gray2)}
+.dash-bar{
+  height:3px;background:rgba(255,255,255,.07);border-radius:2px;
+  margin-top:14px;overflow:hidden;
+}
+.dash-bar-fill{height:100%;border-radius:2px;transition:width 1.4s ease}
+.dash-card.orange .dash-value{color:var(--primary)}
+.dash-card.orange .dash-label svg{fill:var(--primary)}
+.dash-card.orange .dash-bar-fill{background:linear-gradient(90deg,var(--primary),var(--primary2))}
+.dash-card.gold .dash-value{background:var(--gold-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.dash-card.gold .dash-label svg{fill:var(--gold)}
+.dash-card.gold .dash-bar-fill{background:var(--gold-grad)}
+.dash-card.green .dash-value{color:var(--green)}
+.dash-card.green .dash-label svg{fill:var(--green)}
+.dash-card.green .dash-bar-fill{background:linear-gradient(90deg,var(--green),#34d399)}
+.dash-card.blue .dash-value{color:#60a5fa}
+.dash-card.blue .dash-label svg{fill:#60a5fa}
+.dash-card.blue .dash-bar-fill{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+
+/* ===========================
+   CATALOG GRID
+   =========================== */
+.catalog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(265px,1fr));
+  gap:18px;
+}
+.catalog-card{
+  background:var(--card);border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,.05);
+  transition:transform var(--trans),box-shadow var(--trans),border-color var(--trans);
+  overflow:hidden;position:relative;
+}
+.catalog-card:hover:not(.agotado){
+  transform:translateY(-5px);
+  box-shadow:0 16px 48px rgba(249,115,22,.13);
+  border-color:rgba(249,115,22,.2);
+}
+.catalog-card.has-items{border-color:rgba(249,115,22,.45);box-shadow:0 0 0 1px rgba(249,115,22,.15)}
+.catalog-card.agotado{opacity:.55;filter:grayscale(.5)}
+.card-icon-wrap{
+  height:138px;
+  background:linear-gradient(135deg,var(--card2),#1f1508);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.card-icon-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 38%,rgba(0,0,0,.6));
+  pointer-events:none;
+}
+.card-emoji{font-size:3.1rem;line-height:1;position:relative;z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
+.qty-badge{
+  position:absolute;top:10px;right:10px;z-index:2;
+  background:var(--primary);color:#000;
+  font-size:.68rem;font-weight:900;
+  width:23px;height:23px;border-radius:50%;
+  display:none;align-items:center;justify-content:center;
+}
+.qty-badge.show{display:flex}
+/* stock badge */
+.stock-badge{
+  position:absolute;bottom:10px;left:10px;z-index:2;
+  font-size:.65rem;font-weight:800;
+  padding:3px 9px;border-radius:20px;
+  display:flex;align-items:center;gap:4px;
+  backdrop-filter:blur(6px);
+  transition:all .25s ease;
+}
+.stock-badge.ok{background:rgba(16,185,129,.18);border:1px solid rgba(16,185,129,.35);color:var(--green)}
+.stock-badge.low{background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.35);color:#f87171}
+.stock-badge.out{background:rgba(100,100,100,.2);border:1px solid rgba(130,130,130,.3);color:#888}
+.stock-badge-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.stock-badge.ok .stock-badge-dot{background:var(--green);box-shadow:0 0 5px var(--green)}
+.stock-badge.low .stock-badge-dot{background:#f87171;box-shadow:0 0 5px #ef4444;animation:pulse 1.2s infinite}
+/* agotado overlay */
+.agotado-label{
+  position:absolute;inset:0;z-index:3;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.55);
+  font-size:.85rem;font-weight:900;letter-spacing:2px;color:#888;
+  text-transform:uppercase;display:none;
+}
+.catalog-card.agotado .agotado-label{display:flex}
+.card-body{padding:16px 16px 18px}
+.card-name{font-weight:700;font-size:1rem;margin-bottom:5px;line-height:1.25}
+.card-desc{font-size:.8rem;color:var(--gray);line-height:1.5;margin-bottom:12px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-price{font-size:1.25rem;font-weight:800;color:var(--primary)}
+.card-price span{font-size:.72rem;font-weight:500;color:var(--gray2);margin-left:3px}
+.qty-controls{display:flex;align-items:center;gap:0}
+.qty-btn{
+  width:33px;height:33px;border-radius:50%;border:1.5px solid rgba(249,115,22,.4);
+  background:transparent;color:var(--primary);font-size:1.18rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  transition:all var(--trans);flex-shrink:0;line-height:1;
+}
+.qty-btn:hover:not(:disabled){background:var(--primary);color:#000;border-color:var(--primary)}
+.qty-btn:disabled{opacity:.3;cursor:not-allowed}
+.qty-num{
+  min-width:30px;text-align:center;font-weight:700;font-size:.95rem;
+  color:var(--text);
+}
+
+/* ===========================
+   STICKY CART BAR
+   =========================== */
+#cart-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:800;
+  background:linear-gradient(135deg,#1c1108,#1a1a1a);
+  border-top:1px solid rgba(212,175,55,.2);
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 -6px 32px rgba(0,0,0,.55);
+}
+#cart-bar.visible{transform:translateY(0)}
+.cart-bar-info{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.cart-bar-icon{
+  width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--primary2));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  position:relative;
+}
+.cart-bar-icon svg{width:20px;height:20px;fill:#000}
+.cart-bar-count{
+  position:absolute;top:-4px;right:-4px;
+  background:#fff;color:#000;font-size:.58rem;font-weight:800;
+  width:17px;height:17px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.cart-bar-text{min-width:0}
+.cart-bar-items{font-size:.78rem;color:var(--gray);font-weight:500}
+.cart-bar-total{font-size:1.1rem;font-weight:800;color:var(--text);white-space:nowrap}
+.cart-bar-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.cart-live-badge{
+  font-size:.6rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+  background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);
+  color:var(--green);padding:3px 8px;border-radius:20px;
+  display:flex;align-items:center;gap:4px;
+}
+.cart-live-badge .mini-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 1.8s infinite;box-shadow:0 0 4px var(--green)}
+.cart-bar-btn{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:#000;padding:11px 22px;border-radius:50px;font-weight:700;font-size:.88rem;
+  border:none;white-space:nowrap;flex-shrink:0;
+  box-shadow:0 4px 18px rgba(249,115,22,.38);
+  transition:transform var(--trans),box-shadow var(--trans);
+}
+.cart-bar-btn:hover{transform:scale(1.04);box-shadow:0 6px 26px rgba(249,115,22,.5)}
+
+/* ===========================
+   CART MODAL
+   =========================== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:9000;
+  background:rgba(0,0,0,.8);
+  display:flex;align-items:flex-end;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .28s ease;
+}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-drawer{
+  width:100%;max-width:580px;
+  background:var(--card);
+  border-radius:22px 22px 0 0;
+  border-top:1px solid rgba(212,175,55,.12);
+  padding:0 0 env(safe-area-inset-bottom,16px);
+  max-height:92vh;overflow-y:auto;
+  transform:translateY(40px);
+  transition:transform .32s cubic-bezier(.34,1.2,.64,1);
+  position:relative;
+}
+.modal-overlay.open .modal-drawer{transform:translateY(0)}
+.drawer-handle{
+  width:42px;height:4px;background:rgba(255,255,255,.12);
+  border-radius:2px;margin:14px auto 0;
+}
+.drawer-header{
+  padding:18px 22px 16px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.drawer-title{font-family:'Playfair Display',serif;font-size:1.28rem;font-weight:900}
+.drawer-title-sub{font-size:.72rem;color:var(--green);font-weight:600;display:flex;align-items:center;gap:5px;margin-top:2px}
+.drawer-title-sub .mini-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 1.8s infinite}
+.drawer-close{
+  width:34px;height:34px;border-radius:50%;background:var(--card2);border:none;
+  color:var(--gray);font-size:1.3rem;display:flex;align-items:center;justify-content:center;
+  line-height:1;transition:background var(--trans),color var(--trans);
+}
+.drawer-close:hover{background:var(--card3);color:#fff}
+.drawer-body{padding:18px 22px}
+
+/* Cart items */
+.cart-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05);
+}
+.cart-item:last-child{border-bottom:none}
+.ci-emoji{font-size:1.6rem;flex-shrink:0;width:36px;text-align:center}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-weight:600;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-qty{font-size:.78rem;color:var(--gray);margin-top:2px}
+.ci-sub{font-weight:700;color:var(--primary);font-size:.95rem;flex-shrink:0}
+.ci-remove{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,60,60,.1);border:none;
+  color:#ff6060;font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:background var(--trans);flex-shrink:0;
+}
+.ci-remove:hover{background:rgba(255,60,60,.28)}
+
+.cart-empty{text-align:center;padding:44px 0;color:var(--gray)}
+.cart-empty-icon{font-size:3.2rem;margin-bottom:10px}
+.cart-empty p{font-size:.9rem}
+
+/* Total row */
+.cart-total-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 0 6px;border-top:1px solid rgba(255,255,255,.07);
+  margin-top:6px;
+}
+.cart-total-label{font-weight:700;font-size:1rem}
+.cart-total-value{
+  font-weight:900;font-size:1.45rem;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* Order form */
+.order-form{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.form-label{font-size:.78rem;font-weight:700;color:var(--gray);margin-bottom:4px;display:block;text-transform:uppercase;letter-spacing:.6px}
+.form-input{
+  width:100%;padding:13px 16px;
+  background:var(--card2);border:1.5px solid rgba(255,255,255,.07);
+  border-radius:var(--radius-sm);color:#fff;font-size:.95rem;font-family:'DM Sans',sans-serif;
+  transition:border-color var(--trans),box-shadow var(--trans);outline:none;
+}
+.form-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.1)}
+.form-input::placeholder{color:var(--gray2)}
+.form-group{display:flex;flex-direction:column}
+
+.confirm-btn{
+  width:100%;padding:16px;margin-top:8px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:#000;border:none;border-radius:50px;
+  font-weight:800;font-size:1rem;
+  box-shadow:0 8px 30px rgba(249,115,22,.34);
+  transition:transform var(--trans),box-shadow var(--trans);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.confirm-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 38px rgba(249,115,22,.46)}
+.confirm-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* ===========================
+   CONFIRMATION SCREEN
+   =========================== */
+#confirm-screen{display:none}
+.confirm-success-icon{
+  width:72px;height:72px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  box-shadow:0 8px 30px rgba(249,115,22,.42);
+  animation:popIn .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+.confirm-success-icon svg{width:36px;height:36px;fill:#000}
+.order-num-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--gold-grad);color:#000;
+  font-size:.7rem;font-weight:900;letter-spacing:.8px;
+  padding:4px 12px;border-radius:20px;margin-bottom:10px;
+  box-shadow:0 3px 12px rgba(212,175,55,.35);
+}
+.confirm-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:900;text-align:center;margin-bottom:4px}
+.confirm-sub{text-align:center;color:var(--gray);font-size:.88rem;margin-bottom:18px;line-height:1.6}
+/* Pro checkmarks */
+.pro-checks{
+  display:flex;flex-direction:column;gap:7px;
+  background:var(--card2);border-radius:var(--radius-sm);
+  padding:14px 16px;margin-bottom:14px;
+  border-left:3px solid var(--gold);
+}
+.pro-check-item{
+  display:flex;align-items:center;gap:9px;font-size:.85rem;
+}
+.pro-check-item .check-icon{
+  width:18px;height:18px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.pro-check-item .check-icon.green-c{background:rgba(16,185,129,.15);color:var(--green)}
+.pro-check-item .check-icon.gold-c{background:rgba(212,175,55,.12);color:var(--gold2)}
+.pro-check-item .check-icon.orange-c{background:rgba(249,115,22,.12);color:var(--primary)}
+/* confirm summary */
+.confirm-summary{
+  background:var(--card2);border-radius:var(--radius-sm);
+  padding:14px 16px;margin-bottom:14px;
+  border-left:3px solid var(--primary);
+}
+.cs-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:.87rem}
+.cs-row:last-child{margin-bottom:0}
+.cs-label{color:var(--gray);flex-shrink:0}
+.cs-val{font-weight:600;text-align:right;word-break:break-word}
+/* Tracking timeline */
+.tracking-section{
+  background:var(--card2);border-radius:var(--radius-sm);
+  padding:14px 16px;margin-bottom:16px;
+  border:1px solid rgba(255,255,255,.05);
+}
+.tracking-title{font-size:.72rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--gray);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.tracking-title svg{width:12px;height:12px;fill:var(--green)}
+.timeline{display:flex;flex-direction:column;gap:0}
+.timeline-item{display:flex;align-items:flex-start;gap:10px;padding:6px 0;position:relative}
+.timeline-item:not(:last-child)::after{
+  content:'';position:absolute;left:9px;top:20px;bottom:-2px;
+  width:1px;background:rgba(255,255,255,.07);
+}
+.tl-dot{
+  width:19px;height:19px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;flex-shrink:0;margin-top:1px;
+}
+.tl-dot.done{background:rgba(16,185,129,.18);color:var(--green)}
+.tl-dot.active{background:rgba(249,115,22,.18);color:var(--primary);animation:pulseBorder 1.5s infinite}
+.tl-dot.pending{background:rgba(255,255,255,.05);color:var(--gray2)}
+.tl-text{font-size:.83rem}
+.tl-text .tl-label{font-weight:600;color:var(--text)}
+.tl-dot.pending~.tl-text .tl-label{color:var(--gray2)}
+.tl-text .tl-time{font-size:.72rem;color:var(--gray2);margin-top:1px}
+/* confirm actions */
+.confirm-actions{display:flex;flex-direction:column;gap:10px}
+.btn-wa{
+  width:100%;padding:15px;background:#25D366;color:#fff;border:none;
+  border-radius:50px;font-weight:700;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 6px 22px rgba(37,211,102,.32);
+  transition:transform var(--trans),box-shadow var(--trans);
+}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.45)}
+.btn-mp{
+  width:100%;padding:15px;
+  background:linear-gradient(135deg,#009ee3,#0070c0);
+  color:#fff;border:none;border-radius:50px;font-weight:700;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 6px 22px rgba(0,158,227,.28);
+  transition:transform var(--trans),box-shadow var(--trans);
+}
+.btn-mp:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,158,227,.44)}
+.btn-close-confirm{
+  width:100%;padding:12px;background:transparent;
+  color:var(--gray);border:1.5px solid rgba(255,255,255,.1);
+  border-radius:50px;font-weight:600;font-size:.88rem;
+  transition:border-color var(--trans),color var(--trans);
+}
+.btn-close-confirm:hover{border-color:rgba(255,255,255,.3);color:#fff}
+.sheets-note{
+  text-align:center;font-size:.7rem;color:var(--gray2);
+  margin-top:8px;padding:8px;
+  background:rgba(255,255,255,.03);border-radius:8px;line-height:1.5;
+}
+
+/* ===========================
+   LOADING SPINNER
+   =========================== */
+.spinner{
+  width:18px;height:18px;border:2.5px solid rgba(0,0,0,.2);
+  border-top-color:#000;border-radius:50%;animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ===========================
+   NOTIFICATIONS SECTION
+   =========================== */
+.notif-section{background:var(--card);border-radius:var(--radius);padding:28px;border:1px solid rgba(255,255,255,.05);max-width:560px;margin:0 auto}
+.notif-timeline{display:flex;flex-direction:column;gap:0;margin-top:10px}
+.notif-item{
+  display:flex;align-items:flex-start;gap:14px;padding:14px 0;
+  position:relative;
+}
+.notif-item:not(:last-child)::after{
+  content:'';position:absolute;left:16px;top:42px;bottom:0;
+  width:1px;background:rgba(255,255,255,.06);
+}
+.ni-icon{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:.9rem;
+}
+.ni-icon.done{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.25)}
+.ni-icon.active{background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.3);animation:pulseBorder 2s infinite}
+.ni-icon.future{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.ni-body{flex:1}
+.ni-label{font-size:.92rem;font-weight:700;margin-bottom:3px}
+.ni-time{font-size:.75rem;color:var(--gray2)}
+.ni-label.done-text{color:var(--green)}
+.ni-label.active-text{color:var(--primary)}
+.ni-label.future-text{color:var(--gray2)}
+
+/* ===========================
+   FEATURES STRIP
+   =========================== */
+.features-strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;
+  margin-top:64px;
+}
+.feat-card{
+  background:var(--card);border-radius:var(--radius);padding:22px;
+  border:1px solid rgba(255,255,255,.04);
+  display:flex;align-items:flex-start;gap:14px;
+  transition:transform var(--trans),border-color var(--trans);
+  position:relative;overflow:hidden;
+}
+.feat-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,175,55,.2),transparent);
+}
+.feat-card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.15)}
+.feat-icon{
+  width:46px;height:46px;
+  border-radius:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.feat-icon.orange{background:linear-gradient(135deg,var(--primary),var(--primary2))}
+.feat-icon.gold{background:var(--gold-grad)}
+.feat-icon.green{background:linear-gradient(135deg,#059669,var(--green))}
+.feat-icon svg{width:22px;height:22px;fill:#000}
+.feat-text h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.feat-text p{font-size:.8rem;color:var(--gray);line-height:1.5}
+
+/* ===========================
+   FOOTER
+   =========================== */
+footer{
+  background:var(--card);
+  border-top:1px solid rgba(212,175,55,.08);
+  padding:48px 24px;text-align:center;
+  position:relative;z-index:1;
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:900;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:6px;
+}
+.footer-premium-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--gold-grad);color:#000;
+  font-size:.65rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
+  padding:5px 13px;border-radius:20px;margin-bottom:14px;
+  box-shadow:0 3px 12px rgba(212,175,55,.3);
+}
+.footer-premium-badge svg{width:11px;height:11px;fill:#000}
+footer p{color:var(--gray);font-size:.83rem;margin-top:6px;line-height:1.65}
+footer .footer-credit{margin-top:18px;font-size:.72rem;color:#555}
+footer .footer-credit a{color:var(--primary);transition:opacity var(--trans)}
+footer .footer-credit a:hover{opacity:.75}
+
+/* ===========================
+   WA FLOAT
+   =========================== */
+.wa-float{
+  position:fixed;bottom:28px;right:22px;z-index:799;
+  width:58px;height:58px;background:var(--green-wa);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:none;box-shadow:0 4px 24px rgba(37,211,102,.52);
+  transition:transform var(--trans),bottom .35s ease;
+  animation:bounce 4.5s infinite;
+}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes bounce{0%,100%{transform:translateY(0)}10%{transform:translateY(-8px)}20%{transform:translateY(0)}}
+@keyframes fadeSlideIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@keyframes pulseBorder{0%,100%{box-shadow:0 0 0 0 rgba(249,115,22,.4)}50%{box-shadow:0 0 0 5px rgba(249,115,22,0)}}
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+@keyframes gradAnim{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.fade-in{animation:fadeSlideIn .4s ease both}
+
+/* gold shimmer on hero */
+.hero-shimmer{
+  background:linear-gradient(90deg,transparent 30%,rgba(212,175,55,.07) 50%,transparent 70%);
+  background-size:800px 100%;
+  animation:shimmer 3.5s infinite;
+  position:absolute;inset:0;pointer-events:none;
+}
+
+/* Animated gradient border on section titles */
+.gold-animated-line{
+  height:2px;width:70px;border-radius:2px;margin:0 auto 14px;
+  background:linear-gradient(90deg,var(--gold3),var(--gold2),var(--gold),var(--gold2),var(--gold3));
+  background-size:200% 100%;
+  animation:gradAnim 3s ease infinite;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media(max-width:640px){
+  .hero h1{font-size:2.1rem;letter-spacing:-1px}
+  .catalog-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card-icon-wrap{height:105px}
+  .card-emoji{font-size:2.3rem}
+  .card-body{padding:12px 12px 14px}
+  .card-price{font-size:1.05rem}
+  .qty-btn{width:28px;height:28px;font-size:1rem}
+  .hero-btns{flex-direction:column;align-items:center}
+  nav{padding:12px 16px}
+  .nav-pro-badge{display:none}
+  .dashboard-grid{grid-template-columns:repeat(2,1fr)}
+  .cart-live-badge{display:none}
+  .features-strip{grid-template-columns:1fr}
+}
+@media(max-width:400px){
+  .catalog-grid{grid-template-columns:1fr}
+  .dashboard-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Particle canvas -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- ============================
+     NAV
+     ============================ -->
+<nav>
+  <div class="nav-brand">Sabores de Casa</div>
+  <div class="nav-right">
+    <div class="nav-pro-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      Pro
+    </div>
+    <button class="nav-cta" onclick="openCart()">Armar mi pedido</button>
+  </div>
+</nav>
+
+<div class="plan-badge-fixed">
+  <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+  Plan Negocio Digital Pro
+</div>
+
+<!-- ============================
+     HERO
+     ============================ -->
+<section class="hero">
+  <div class="hero-shimmer"></div>
+  <div class="hero-premium-pill">
+    <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+    Premium · Negocio Digital Pro
+  </div>
+  <div class="hero-tag">
+    <span class="dot"></span>
+    Pedidos abiertos · Entrega HOY al mediodía
+  </div>
+  <h1>Comida casera <em>todos los días</em> en tu <span class="gold-txt">mesa</span></h1>
+  <p>Elegí tus viandas, sumalas al carrito y pagá online. Stock actualizado en tiempo real. Entrega hoy en San Juan.</p>
+  <div class="hero-stock-indicator">
+    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.47-2.34 6.71-5 7.93C9.34 17.71 7 14.47 7 11V7.18L12 5z"/></svg>
+    Stock en vivo · Datos sincronizados
+  </div>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0019.99 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42c-.14 0-.25-.11-.25-.25z"/></svg>
+      Ver menú del día
+    </button>
+    <button class="btn-gold" onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      Ver estadísticas
+    </button>
+  </div>
+</section>
+
+<!-- ============================
+     MINI DASHBOARD
+     ============================ -->
+<section class="dashboard-sec" id="dashboard">
+  <div class="ctr">
+    <div style="text-align:center;margin-bottom:32px">
+      <div class="gold-animated-line"></div>
+      <h2 class="stitle" style="margin-bottom:6px">Panel de control</h2>
+      <p style="color:var(--gray);font-size:.9rem">Estadísticas del día en tiempo real · Actualización automática</p>
+    </div>
+    <div class="dashboard-grid">
+      <div class="dash-card orange">
+        <div class="dash-label">
+          <svg viewBox="0 0 24 24"><path d="M19 3H4.99L3 1 1.41 2.59 3.58 4.76A2 2 0 003 6v12c0 1.1.9 2 2 2h14a2 2 0 002-2V6c0-.47-.17-.9-.44-1.24L22.59 3 21 1.41 19 3zM5 18V8h14l.01 10H5z"/></svg>
+          Pedidos hoy
+        </div>
+        <div class="dash-value">23</div>
+        <div class="dash-sub">+4 vs. ayer</div>
+        <div class="dash-bar"><div class="dash-bar-fill" style="width:76%"></div></div>
+      </div>
+      <div class="dash-card gold">
+        <div class="dash-label">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+          Facturado
+        </div>
+        <div class="dash-value">$187.000</div>
+        <div class="dash-sub">Meta diaria: 85%</div>
+        <div class="dash-bar"><div class="dash-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="dash-card blue">
+        <div class="dash-label">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+          Más pedido
+        </div>
+        <div class="dash-value" style="font-size:1.05rem;padding-top:4px">Milanesa napo</div>
+        <div class="dash-sub">7 pedidos · $29.400</div>
+        <div class="dash-bar"><div class="dash-bar-fill" style="width:63%"></div></div>
+      </div>
+      <div class="dash-card green">
+        <div class="dash-label">
+          <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.54 16.43 1 14.5 1c-1.74 0-2.99 1.12-3.84 2.63L10 5.5l-.66-1.87C8.55 2.12 7.3 1 5.5 1 3.57 1 2 2.54 2 4.66c0 .46.11.9.18 1.34H0v2h1v13a1 1 0 001 1h20a1 1 0 001-1V8h1V6h-3zm-5.5-3c.83 0 1.5.67 1.5 1.66 0 .34-.09.66-.2.98L14.5 7h-2.37c.5-1.28 1.28-4 2.37-4zM5.5 3c1.09 0 1.87 2.72 2.37 4H5.2A3.5 3.5 0 015 5.66C5 4.67 5.67 3 5.5 3zm14.5 17H4V8h16v12zm-8-9a2 2 0 100 4 2 2 0 000-4z"/></svg>
+          Stock restante
+        </div>
+        <div class="dash-value" id="dash-stock-pct">67%</div>
+        <div class="dash-sub" id="dash-stock-sub">Calculando...</div>
+        <div class="dash-bar"><div class="dash-bar-fill" id="dash-stock-bar" style="width:67%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     CATALOG
+     ============================ -->
+<section class="sec" id="catalogo">
+  <div class="ctr">
+    <div class="gold-animated-line"></div>
+    <h2 class="stitle">Menú del día</h2>
+    <p class="ssub">Stock en tiempo real. Cuando se acaba, ¡se acaba! Entrega <strong style="color:var(--primary)">HOY al mediodía</strong> en San Juan.</p>
+
+    <div class="catalog-grid" id="catalog-grid">
+      <!-- Cards rendered by JS -->
+    </div>
+
+    <div class="features-strip">
+      <div class="feat-card">
+        <div class="feat-icon orange">
+          <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 002 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        </div>
+        <div class="feat-text">
+          <h4>Entrega hoy 12:00–13:30hs</h4>
+          <p>Tu vianda llega calentita a tu domicilio en San Juan.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon gold">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.47-2.34 6.71-5 7.93C9.34 17.71 7 14.47 7 11V7.18L12 5z"/></svg>
+        </div>
+        <div class="feat-text">
+          <h4>Stock verificado</h4>
+          <p>No vendemos lo que no tenemos. Actualización automática.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon green">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+        </div>
+        <div class="feat-text">
+          <h4>Pagá con MercadoPago</h4>
+          <p>Tarjeta, débito o dinero en cuenta. Rápido y seguro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     NOTIFICATIONS SECTION
+     ============================ -->
+<section class="sec" style="padding-top:20px" id="notificaciones">
+  <div class="ctr">
+    <div style="text-align:center;margin-bottom:36px">
+      <div class="gold-animated-line"></div>
+      <h2 class="stitle">Seguimiento del pedido</h2>
+      <p class="ssub">Notificaciones automáticas en cada etapa. Sabés siempre dónde está tu comida.</p>
+    </div>
+    <div class="notif-section">
+      <div class="notif-timeline">
+        <div class="notif-item">
+          <div class="ni-icon done">✓</div>
+          <div class="ni-body">
+            <div class="ni-label done-text">Pedido recibido</div>
+            <div class="ni-time">Hoy · 09:42hs · Registrado en sistema</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="ni-icon active">🔥</div>
+          <div class="ni-body">
+            <div class="ni-label active-text">En preparación...</div>
+            <div class="ni-time">Hoy · 10:15hs · Cocina iniciada</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="ni-icon future">📦</div>
+          <div class="ni-body">
+            <div class="ni-label future-text">Listo para entrega</div>
+            <div class="ni-time">Estimado: 11:45hs</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="ni-icon future">🚗</div>
+          <div class="ni-body">
+            <div class="ni-label future-text">En camino</div>
+            <div class="ni-time">Estimado: 12:00–13:30hs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+     STICKY CART BAR
+     ============================ -->
+<div id="cart-bar">
+  <div class="cart-bar-info">
+    <div class="cart-bar-icon">
+      <svg viewBox="0 0 24 24"><path d="M17 18c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.9 18 9 18h12v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.45 5H5.21l-.94-2H1zm8 16c-1.1 0-1.99.9-1.99 2S7.9 22 9 22s2-.9 2-2-.9-2-2-2z"/></svg>
+      <span class="cart-bar-count" id="cart-bar-count">0</span>
+    </div>
+    <div class="cart-bar-text">
+      <div class="cart-bar-items" id="cart-bar-items">0 productos</div>
+      <div class="cart-bar-total" id="cart-bar-total">$0</div>
+    </div>
+  </div>
+  <div class="cart-bar-right">
+    <div class="cart-live-badge">
+      <span class="mini-dot"></span>
+      Stock en vivo
+    </div>
+    <button class="cart-bar-btn" onclick="openCart()">Ver pedido →</button>
+  </div>
+</div>
+
+<!-- ============================
+     CART MODAL / DRAWER
+     ============================ -->
+<div class="modal-overlay" id="cart-modal" onclick="handleOverlayClick(event)">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-header">
+      <div>
+        <div class="drawer-title">Tu pedido</div>
+        <div class="drawer-title-sub"><span class="mini-dot"></span> Stock verificado en tiempo real</div>
+      </div>
+      <button class="drawer-close" onclick="closeCart()">✕</button>
+    </div>
+    <div class="drawer-body">
+
+      <!-- ORDER STEP -->
+      <div id="order-step">
+        <div id="cart-items-list"></div>
+
+        <div id="cart-total-section" style="display:none">
+          <div class="cart-total-row">
+            <span class="cart-total-label">Total</span>
+            <span class="cart-total-value" id="cart-total-value">$0</span>
+          </div>
+
+          <div class="order-form">
+            <p style="font-size:.82rem;color:var(--gray);margin-bottom:4px;line-height:1.55">
+              Completá tus datos para confirmar. Se agendará automáticamente en el calendario de entregas.
+            </p>
+            <div class="form-group">
+              <label class="form-label" for="inp-nombre">Nombre completo</label>
+              <input class="form-input" id="inp-nombre" type="text" placeholder="Ej: María González" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inp-wa">WhatsApp</label>
+              <input class="form-input" id="inp-wa" type="tel" placeholder="Ej: 2645551234" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="inp-dir">Dirección de entrega</label>
+              <input class="form-input" id="inp-dir" type="text" placeholder="Calle, número, barrio" autocomplete="street-address">
+            </div>
+            <button class="confirm-btn" id="confirm-btn" onclick="confirmOrder()">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Confirmar pedido
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONFIRMATION STEP -->
+      <div id="confirm-screen">
+        <div style="text-align:center;padding:10px 0 8px">
+          <div class="confirm-success-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <div class="order-num-badge" id="order-num-badge">
+            <svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            Pedido #0000
+          </div>
+          <div class="confirm-title">¡Pedido confirmado!</div>
+          <div class="confirm-sub">Tu vianda está registrada. Entrega programada para hoy a las 12:00–13:30hs.</div>
+        </div>
+
+        <!-- Pro checkmarks -->
+        <div class="pro-checks">
+          <div class="pro-check-item">
+            <div class="check-icon green-c">✓</div>
+            <span>Evento creado en Google Calendar ✓</span>
+          </div>
+          <div class="pro-check-item">
+            <div class="check-icon green-c">✓</div>
+            <span>Vendedor notificado ✓</span>
+          </div>
+          <div class="pro-check-item">
+            <div class="check-icon orange-c">✓</div>
+            <span>Stock actualizado ✓</span>
+          </div>
+          <div class="pro-check-item">
+            <div class="check-icon gold-c">✓</div>
+            <span>Pedido guardado en Google Sheets ✓</span>
+          </div>
+        </div>
+
+        <!-- Delivery info -->
+        <div class="confirm-summary" id="confirm-summary"></div>
+
+        <!-- Order tracking -->
+        <div class="tracking-section">
+          <div class="tracking-title">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            Seguimiento en vivo
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="tl-dot done">✓</div>
+              <div class="tl-text">
+                <div class="tl-label">Pedido recibido</div>
+                <div class="tl-time">Ahora mismo</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot active">🔥</div>
+              <div class="tl-text">
+                <div class="tl-label">En preparación</div>
+                <div class="tl-time">Estimado: próxima hora</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot pending">📦</div>
+              <div class="tl-text">
+                <div class="tl-label">Listo para entrega</div>
+                <div class="tl-time">Aprox. 11:45hs</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-dot pending">🚗</div>
+              <div class="tl-text">
+                <div class="tl-label">En camino</div>
+                <div class="tl-time">Hoy 12:00–13:30hs</div>
+              </div>
+            </div>
+          </div>
+          <p style="font-size:.75rem;color:var(--gray2);margin-top:10px;text-align:center">Te avisaremos por WhatsApp cuando salga tu pedido</p>
+        </div>
+
+        <div class="confirm-actions">
+          <a id="btn-wa" href="#" target="_blank" rel="noopener" class="btn-wa">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.072-1.108l-.292-.175-3.028.794.808-2.953-.192-.304A8 8 0 1112 20z"/></svg>
+            Confirmar por WhatsApp
+          </a>
+          <a id="btn-mp" href="https://www.mercadopago.com.ar" target="_blank" rel="noopener" class="btn-mp">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+            Pagar con MercadoPago
+          </a>
+          <button class="btn-close-confirm" onclick="closeCartAndReset()">Cerrar</button>
+        </div>
+
+        <div class="sheets-note" id="sheets-note"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     FOOTER
+     ============================ -->
+<footer>
+  <div class="footer-brand">Sabores de Casa</div>
+  <div style="margin:10px 0">
+    <div class="footer-premium-badge">
+      <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+      Soporte Premium 24/7
+    </div>
+  </div>
+  <p>San Juan, Argentina · Viandas caseras con entrega al mediodía</p>
+  <p>Stock en tiempo real · Calendario integrado · Notificaciones automáticas</p>
+  <p class="footer-credit">
+    Demo creado por <a href="https://moviltecdigital.com.ar" target="_blank">Moviltec Digital</a> · Plan Negocio Digital Pro
+  </p>
+</footer>
+
+<!-- ============================
+     WA FLOAT BUTTON
+     ============================ -->
+<button class="wa-float" id="wa-float" onclick="openCart()" aria-label="Armar pedido">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.072-1.108l-.292-.175-3.028.794.808-2.953-.192-.304A8 8 0 1112 20z"/></svg>
+</button>
+
+<!-- ============================
+     JAVASCRIPT
+     ============================ -->
+<script>
+/* =====================================================
+   PARTICLE SYSTEM (ambient background effect)
+   ===================================================== */
+(function(){
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+  const N = 38;
+
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const COLORS = ['rgba(212,175,55,', 'rgba(249,115,22,', 'rgba(16,185,129,'];
+
+  function mkParticle(){
+    const c = COLORS[Math.floor(Math.random()*COLORS.length)];
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.8 + .4,
+      dx: (Math.random() - .5) * .35,
+      dy: (Math.random() - .5) * .35,
+      a: Math.random() * .7 + .15,
+      da: (Math.random() - .5) * .003,
+      color: c
+    };
+  }
+  for(let i=0;i<N;i++) particles.push(mkParticle());
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p => {
+      p.x += p.dx; p.y += p.dy;
+      p.a += p.da;
+      if(p.a > .85 || p.a < .1) p.da *= -1;
+      if(p.x < 0) p.x = W;
+      if(p.x > W) p.x = 0;
+      if(p.y < 0) p.y = H;
+      if(p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.color + p.a + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* =====================================================
+   CATALOG DATA + STOCK
+   ===================================================== */
+const MENU = [
+  { id:0,  emoji:'🍗', name:'Pollo al horno',       desc:'Pollo dorado con papas rústicas y especias',            price:3500, stock:8  },
+  { id:1,  emoji:'🥩', name:'Milanesa napolitana',   desc:'Con jamón, queso y salsa. Acompañada de puré',          price:4200, stock:3  },
+  { id:2,  emoji:'🍝', name:'Fideos con tuco',        desc:'Tallarines al huevo con salsa de tomate y carne',       price:3200, stock:12 },
+  { id:3,  emoji:'🫕', name:'Guiso de lentejas',      desc:'Con chorizo colorado, verduras y arroz',                price:3000, stock:6  },
+  { id:4,  emoji:'🥘', name:'Estofado de carne',      desc:'Carne tierna con papas, zanahorias y arvejas',          price:3800, stock:0  },
+  { id:5,  emoji:'🌮', name:'Empanadas x3',           desc:'Carne cortada a cuchillo, jugosas y crocantes',         price:2800, stock:15 },
+  { id:6,  emoji:'🍖', name:'Bondiola al verdeo',     desc:'Con salsa de cebolla de verdeo y arroz blanco',         price:4500, stock:2  },
+  { id:7,  emoji:'🥗', name:'Tarta de verduras',      desc:'Espinaca, calabaza, cebolla y queso. Con ensalada',     price:3100, stock:9  },
+  { id:8,  emoji:'🍲', name:'Canelones de verdura',   desc:'Rellenos de ricota y espinaca con salsa blanca',        price:3600, stock:5  },
+  { id:9,  emoji:'🐟', name:'Merluza al limón',       desc:'Filete grillado con ensalada fresca y arroz',           price:4000, stock:4  },
+  { id:10, emoji:'🍛', name:'Arroz con pollo',        desc:'Arroz cremoso con pollo desmenuzado y vegetales',       price:3400, stock:10 },
+  { id:11, emoji:'🫔', name:'Pastel de papa',         desc:'Carne picada especiada con puré gratinado',             price:3300, stock:7  },
+];
+
+/* Working stock copy (decrements on confirm) */
+const stock = MENU.map(m => m.stock);
+
+/*
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  GOOGLE SHEETS INTEGRATION                                           │
+  │  Replace SHEETS_WEBHOOK_URL with your real Google Apps Script        │
+  │  Web App URL. Deploy it as: "Execute as Me", "Anyone" access.        │
+  │  The script receives a POST with JSON body and appends a row.        │
+  └──────────────────────────────────────────────────────────────────────┘
+*/
+const SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/DEMO_SHEETS_ID/exec';
+
+/*
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  GOOGLE CALENDAR INTEGRATION (placeholder)                           │
+  │  Replace CALENDAR_API_URL with your real Google Calendar API         │
+  │  endpoint or Apps Script that calls Calendar.Events.insert().        │
+  │  Receives: { title, description, startDateTime, endDateTime }        │
+  └──────────────────────────────────────────────────────────────────────┘
+*/
+const CALENDAR_API_URL = 'https://script.google.com/macros/s/DEMO_CALENDAR_ID/exec';
+
+const WA_NUMBER = '5492645304372';
+
+/* =====================================================
+   CART STATE
+   ===================================================== */
+const cart = new Array(MENU.length).fill(0);
+
+function cartTotal(){ return cart.reduce((s,q,i)=>s+q*MENU[i].price,0); }
+function cartCount(){ return cart.reduce((s,q)=>s+q,0); }
+function cartItems(){ return MENU.filter((_,i)=>cart[i]>0).map(item=>({...item,qty:cart[item.id]})); }
+function fmtPrice(n){ return '$'+n.toLocaleString('es-AR'); }
+
+/* =====================================================
+   STOCK BADGE HELPER
+   ===================================================== */
+function stockBadgeHTML(id){
+  const s = stock[id];
+  if(s === 0) return `<span class="stock-badge out">AGOTADO</span>`;
+  if(s <= 3)  return `<span class="stock-badge low"><span class="stock-badge-dot"></span>¡Últimas ${s}!</span>`;
+  return `<span class="stock-badge ok"><span class="stock-badge-dot"></span>Quedan ${s}</span>`;
+}
+
+/* =====================================================
+   RENDER CATALOG
+   ===================================================== */
+function renderCatalog(){
+  const grid = document.getElementById('catalog-grid');
+  grid.innerHTML = MENU.map(item => {
+    const s = stock[item.id];
+    const isOut = s === 0;
+    return `
+    <div class="catalog-card${isOut?' agotado':''}" id="card-${item.id}">
+      <div class="card-icon-wrap">
+        <span class="card-emoji">${item.emoji}</span>
+        <span class="qty-badge${cart[item.id]>0?' show':''}" id="qbadge-${item.id}">${cart[item.id]}</span>
+        ${stockBadgeHTML(item.id)}
+        <div class="agotado-label">Agotado</div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">${item.name}</div>
+        <div class="card-desc">${item.desc}</div>
+        <div class="card-footer">
+          <div class="card-price">${fmtPrice(item.price)}<span>c/u</span></div>
+          <div class="qty-controls">
+            <button class="qty-btn minus" id="btn-minus-${item.id}"
+              onclick="removeItem(${item.id})" ${cart[item.id]===0?'disabled':''} aria-label="Quitar">−</button>
+            <span class="qty-num" id="qty-num-${item.id}">${cart[item.id]}</span>
+            <button class="qty-btn plus" id="btn-plus-${item.id}"
+              onclick="addItem(${item.id})" ${isOut?'disabled':''} aria-label="Agregar">+</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  updateDashboard();
+}
+
+/* =====================================================
+   ADD / REMOVE ITEM
+   ===================================================== */
+function addItem(id){
+  if(stock[id] === 0) return;
+  const max = stock[id];
+  if(cart[id] < max){
+    cart[id]++;
+    updateCardUI(id);
+    updateCartUI();
+  }
+}
+
+function removeItem(id){
+  if(cart[id]>0){
+    cart[id]--;
+    updateCardUI(id);
+    updateCartUI();
+  }
+}
+
+function updateCardUI(id){
+  const qty = cart[id];
+  const s = stock[id];
+  document.getElementById('qty-num-'+id).textContent = qty;
+  document.getElementById('btn-minus-'+id).disabled = qty === 0;
+  const plusBtn = document.getElementById('btn-plus-'+id);
+  if(plusBtn) plusBtn.disabled = (s===0 || qty>=s);
+  const badge = document.getElementById('qbadge-'+id);
+  badge.textContent = qty;
+  badge.classList.toggle('show', qty > 0);
+  document.getElementById('card-'+id).classList.toggle('has-items', qty > 0);
+}
+
+/* =====================================================
+   DASHBOARD UPDATE
+   ===================================================== */
+function updateDashboard(){
+  const totalStock = MENU.reduce((s,_,i)=>s+stock[i],0);
+  const maxStock = MENU.reduce((s,m)=>s+m.stock,0);
+  const pct = maxStock>0 ? Math.round((totalStock/maxStock)*100) : 0;
+  const el = document.getElementById('dash-stock-pct');
+  const sub = document.getElementById('dash-stock-sub');
+  const bar = document.getElementById('dash-stock-bar');
+  if(el){ el.textContent = pct+'%'; }
+  if(sub){ sub.textContent = totalStock + ' unidades disponibles'; }
+  if(bar){ bar.style.width = pct+'%'; }
+}
+
+/* =====================================================
+   UPDATE CART UI
+   ===================================================== */
+function updateCartUI(){
+  const count = cartCount();
+  const total = cartTotal();
+  const bar = document.getElementById('cart-bar');
+  const waFloat = document.getElementById('wa-float');
+  if(count>0){
+    bar.classList.add('visible');
+    waFloat.style.bottom = '92px';
+    waFloat.style.transition = 'bottom .35s ease, transform .22s ease';
+  } else {
+    bar.classList.remove('visible');
+    waFloat.style.bottom = '';
+  }
+  document.getElementById('cart-bar-count').textContent = count;
+  document.getElementById('cart-bar-items').textContent = count===1?'1 producto':count+' productos';
+  document.getElementById('cart-bar-total').textContent = fmtPrice(total);
+  renderCartList();
+}
+
+function renderCartList(){
+  const list = document.getElementById('cart-items-list');
+  const totalSec = document.getElementById('cart-total-section');
+  const items = cartItems();
+  if(items.length===0){
+    list.innerHTML = `
+      <div class="cart-empty fade-in">
+        <div class="cart-empty-icon">🛒</div>
+        <p>Tu carrito está vacío.<br>Agregá viandas desde el menú.</p>
+      </div>`;
+    totalSec.style.display='none';
+  } else {
+    list.innerHTML = items.map(item=>`
+      <div class="cart-item fade-in">
+        <span class="ci-emoji">${item.emoji}</span>
+        <div class="ci-info">
+          <div class="ci-name">${item.name}</div>
+          <div class="ci-qty">${item.qty} × ${fmtPrice(item.price)}</div>
+        </div>
+        <span class="ci-sub">${fmtPrice(item.qty*item.price)}</span>
+        <button class="ci-remove" onclick="clearItem(${item.id})" aria-label="Eliminar">✕</button>
+      </div>`).join('');
+    document.getElementById('cart-total-value').textContent = fmtPrice(cartTotal());
+    totalSec.style.display='block';
+  }
+}
+
+function clearItem(id){
+  cart[id]=0;
+  updateCardUI(id);
+  updateCartUI();
+}
+
+/* =====================================================
+   OPEN / CLOSE CART
+   ===================================================== */
+function openCart(){
+  renderCartList();
+  document.getElementById('order-step').style.display='block';
+  document.getElementById('confirm-screen').style.display='none';
+  document.getElementById('cart-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCart(){
+  document.getElementById('cart-modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeCartAndReset(){
+  closeCart();
+  setTimeout(()=>{
+    document.getElementById('order-step').style.display='block';
+    document.getElementById('confirm-screen').style.display='none';
+  },300);
+}
+function handleOverlayClick(e){
+  if(e.target===document.getElementById('cart-modal')) closeCart();
+}
+
+/* =====================================================
+   CONFIRM ORDER
+   - Validates form + stock
+   - Sends to Google Sheets (no-cors POST)
+   - Simulates Google Calendar event creation
+   - Decrements stock visually
+   - Shows enhanced confirmation screen
+   ===================================================== */
+function confirmOrder(){
+  const nombre = document.getElementById('inp-nombre').value.trim();
+  const wa     = document.getElementById('inp-wa').value.trim();
+  const dir    = document.getElementById('inp-dir').value.trim();
+
+  if(!nombre||!wa||!dir){ shakeInputs(); return; }
+  if(cartCount()===0){ alert('Tu carrito está vacío. Agregá al menos una vianda.'); return; }
+
+  /* Validate stock still available */
+  const items = cartItems();
+  for(const item of items){
+    if(stock[item.id] < item.qty){
+      alert(`¡Lo sentimos! Solo quedan ${stock[item.id]} unidades de "${item.name}". Ajustá la cantidad.`);
+      return;
+    }
+  }
+
+  const btn = document.getElementById('confirm-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div> Procesando...';
+
+  const total = cartTotal();
+  const orderNum = String(Math.floor(1000+Math.random()*9000));
+  const timestamp = new Date().toLocaleString('es-AR',{timeZone:'America/Argentina/San_Juan'});
+
+  /* Build payload */
+  const payload = {
+    timestamp, nombre,
+    whatsapp: wa,
+    direccion: dir,
+    pedido_num: orderNum,
+    items: items.map(i=>`${i.name} x${i.qty}`).join(' | '),
+    total,
+    entrega: 'Hoy 12:00-13:30hs',
+    notas: 'Plan Negocio Digital Pro'
+  };
+
+  /* 1) POST to Google Sheets */
+  fetch(SHEETS_WEBHOOK_URL,{
+    method:'POST',mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).catch(()=>{});
+
+  /* 2) Simulate Google Calendar event creation
+     In production: POST to CALENDAR_API_URL with event data.
+     Response would include eventId confirming creation. */
+  const calendarPayload = {
+    title: `Entrega vianda #${orderNum} — ${nombre}`,
+    description: `Pedido: ${items.map(i=>`${i.name} x${i.qty}`).join(', ')} | Total: ${fmtPrice(total)}`,
+    startDateTime: new Date().toISOString().split('T')[0] + 'T12:00:00-03:00',
+    endDateTime:   new Date().toISOString().split('T')[0] + 'T13:30:00-03:00',
+    location: dir
+  };
+  fetch(CALENDAR_API_URL,{
+    method:'POST',mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(calendarPayload)
+  }).catch(()=>{});
+
+  /* 3) Decrement stock */
+  items.forEach(item=>{
+    stock[item.id] -= item.qty;
+    if(stock[item.id]<0) stock[item.id]=0;
+  });
+
+  /* Small delay to show spinner */
+  setTimeout(()=>{
+    /* Reset cart quantities but keep stock decremented */
+    items.forEach(item=>{
+      cart[item.id]=0;
+      updateCardUI(item.id);
+    });
+    /* Re-render stock badges without full catalog re-render */
+    updateStockBadges();
+    updateDashboard();
+    updateCartUI();
+
+    showConfirmation({nombre, wa, dir, items, total, timestamp, orderNum});
+
+    btn.disabled=false;
+    btn.innerHTML='<svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Confirmar pedido';
+  }, 1400);
+}
+
+/* Update only stock badges in existing cards (no full re-render) */
+function updateStockBadges(){
+  MENU.forEach(item=>{
+    const wrap = document.getElementById('card-'+item.id);
+    if(!wrap) return;
+    /* Remove old stock badge */
+    const oldBadge = wrap.querySelector('.stock-badge');
+    if(oldBadge) oldBadge.remove();
+    /* Insert new one before agotado-label */
+    const agotadoLabel = wrap.querySelector('.agotado-label');
+    const tmp = document.createElement('div');
+    tmp.innerHTML = stockBadgeHTML(item.id);
+    const newBadge = tmp.firstElementChild;
+    wrap.querySelector('.card-icon-wrap').insertBefore(newBadge, agotadoLabel);
+    /* Agotado state */
+    if(stock[item.id]===0){
+      wrap.classList.add('agotado');
+      agotadoLabel.style.display='flex';
+      const plusBtn = document.getElementById('btn-plus-'+item.id);
+      if(plusBtn) plusBtn.disabled=true;
+    }
+  });
+}
+
+function shakeInputs(){
+  ['inp-nombre','inp-wa','inp-dir'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el.value.trim()){
+      el.style.borderColor='#ff4444';
+      setTimeout(()=>{ el.style.borderColor=''; },2000);
+    }
+  });
+}
+
+/* =====================================================
+   SHOW CONFIRMATION
+   ===================================================== */
+function showConfirmation({nombre, wa, dir, items, total, timestamp, orderNum}){
+  /* Order number badge */
+  document.getElementById('order-num-badge').innerHTML =
+    `<svg width="10" height="10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg> Pedido #${orderNum}`;
+
+  /* Summary */
+  const itemLines = items.map(i=>
+    `<div class="cs-row">
+       <span class="cs-label">${i.emoji} ${i.name} ×${i.qty}</span>
+       <span class="cs-val">${fmtPrice(i.qty*i.price)}</span>
+     </div>`
+  ).join('');
+
+  document.getElementById('confirm-summary').innerHTML = `
+    ${itemLines}
+    <div class="cs-row" style="border-top:1px solid rgba(255,255,255,.07);padding-top:10px;margin-top:8px">
+      <span class="cs-label" style="font-weight:700;color:#fff">Total</span>
+      <span class="cs-val" style="color:var(--primary);font-size:1.05rem">${fmtPrice(total)}</span>
+    </div>
+    <div class="cs-row" style="margin-top:10px">
+      <span class="cs-label">Cliente</span>
+      <span class="cs-val">${nombre}</span>
+    </div>
+    <div class="cs-row">
+      <span class="cs-label">Dirección</span>
+      <span class="cs-val">${dir}</span>
+    </div>
+    <div class="cs-row">
+      <span class="cs-label">Entrega</span>
+      <span class="cs-val" style="color:var(--green)">Hoy 12:00–13:30hs ✓</span>
+    </div>
+    <div class="cs-row">
+      <span class="cs-label">Calendario</span>
+      <span class="cs-val" style="color:var(--gold2)">Evento creado ✓</span>
+    </div>`;
+
+  /* WhatsApp message */
+  const waLines = [
+    `*🍽 Pedido #${orderNum} — Sabores de Casa*`,
+    `*Plan Negocio Digital Pro ★*`,
+    '',
+    `*Cliente:* ${nombre}`,
+    `*WhatsApp:* ${wa}`,
+    `*Dirección:* ${dir}`,
+    '',
+    '*Detalle del pedido:*',
+    ...items.map(i=>`• ${i.emoji} ${i.name} ×${i.qty} — ${fmtPrice(i.qty*i.price)}`),
+    '',
+    `*Total: ${fmtPrice(total)}*`,
+    '',
+    '🕐 _Entrega hoy 12:00–13:30hs_',
+    '📅 _Evento agendado en Google Calendar_',
+    '📦 _Stock actualizado automáticamente_',
+    '_Pedido realizado desde moviltecdigital.com.ar_'
+  ];
+  document.getElementById('btn-wa').href =
+    'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(waLines.join('\n'));
+
+  document.getElementById('btn-mp').href = 'https://www.mercadopago.com.ar';
+
+  document.getElementById('sheets-note').innerHTML =
+    `✓ Registrado en Google Sheets · ${timestamp}<br>📅 Evento creado en Google Calendar · Hoy 12:00–13:30hs`;
+
+  /* Switch screens */
+  document.getElementById('order-step').style.display='none';
+  document.getElementById('confirm-screen').style.display='block';
+  document.getElementById('confirm-screen').classList.add('fade-in');
+
+  /* Reset form */
+  ['inp-nombre','inp-wa','inp-dir'].forEach(id=>{
+    document.getElementById(id).value='';
+  });
+}
+
+/* =====================================================
+   ANIMATE DASHBOARD BARS ON SCROLL
+   ===================================================== */
+(function(){
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.dash-bar-fill').forEach(bar=>{
+          const w = bar.style.width;
+          bar.style.width='0';
+          requestAnimationFrame(()=>{
+            setTimeout(()=>{ bar.style.width=w; }, 80);
+          });
+        });
+        observer.unobserve(e.target);
+      }
+    });
+  },{threshold:.3});
+  document.querySelectorAll('.dash-card').forEach(c=>observer.observe(c));
+})();
+
+/* =====================================================
+   INIT
+   ===================================================== */
+renderCatalog();
+updateCartUI();
+</script>
+
+</body>
+</html>
