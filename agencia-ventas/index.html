@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moviltec Digital | Convierte tu Instagram en una máquina de ventas</title>
+<meta name="description" content="Sistema de ventas automáticas por WhatsApp para negocios que venden por Instagram. Más ventas, menos tiempo, mejor imagen.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050505;--card:#0d0d0d;--card2:#141414;--border:rgba(255,255,255,.06);
+  --text:#f5f5f5;--gray:#8a8a8a;--muted:#666;
+  --accent:#FF6B2C;--accent2:#FF8F5C;--accent-glow:rgba(255,107,44,.15);
+  --green:#22C55E;--blue:#3B82F6;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* UTILIDADES */
+.ctr{max-width:1100px;margin:0 auto;padding:0 24px}
+.sec{padding:100px 0}
+@media(max-width:768px){.sec{padding:70px 0}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 24px;background:rgba(5,5,5,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-weight:900;font-size:1.1rem;letter-spacing:-.5px}
+.nav-brand span{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#000;padding:10px 22px;border-radius:50px;font-weight:700;font-size:.82rem;transition:all .2s}
+.nav-cta:hover{transform:scale(1.05);box-shadow:0 0 30px var(--accent-glow)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 100px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:10%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(ellipse,rgba(255,107,44,.07),transparent 60%);pointer-events:none}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,44,.08);border:1px solid rgba(255,107,44,.2);padding:8px 18px;border-radius:50px;font-size:.8rem;font-weight:600;color:var(--accent);margin-bottom:32px}
+.hero-pill span{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(2.8rem,7vw,5.2rem);font-weight:400;line-height:1.05;letter-spacing:-2px;max-width:900px;margin:0 auto 28px}
+.hero h1 strong{color:var(--accent);font-weight:400}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--gray);max-width:600px;margin:0 auto 44px;line-height:1.7;font-weight:400}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-main{background:var(--accent);color:#000;padding:18px 36px;border-radius:60px;font-weight:800;font-size:1rem;display:inline-flex;align-items:center;gap:10px;transition:all .25s;box-shadow:0 8px 40px rgba(255,107,44,.25)}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 16px 60px rgba(255,107,44,.35)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.15);color:#fff;padding:18px 32px;border-radius:60px;font-weight:700;font-size:1rem;transition:all .25s}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-proof{margin-top:60px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+.hero-proof-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.hero-proof-item svg{width:18px;height:18px;fill:var(--accent)}
+
+/* SECTION TITLES */
+.stitle{font-family:'Instrument Serif',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:400;letter-spacing:-1px;line-height:1.1;margin-bottom:16px}
+.stitle strong{color:var(--accent)}
+.ssub{color:var(--gray);font-size:1.05rem;line-height:1.7;max-width:600px}
+.sec-header{margin-bottom:56px}
+
+/* PROBLEMA */
+.problema-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.prob-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden;transition:border-color .3s}
+.prob-card:hover{border-color:rgba(255,107,44,.2)}
+.prob-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .3s}
+.prob-card:hover::before{opacity:1}
+.prob-num{font-size:3rem;font-weight:900;color:rgba(255,107,44,.08);position:absolute;top:16px;right:20px;line-height:1}
+.prob-card h3{font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.prob-card p{color:var(--gray);font-size:.9rem;line-height:1.7}
+
+/* SOLUCION */
+.sol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.sol-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px;text-align:center;transition:transform .3s,border-color .3s}
+.sol-card:hover{transform:translateY(-4px);border-color:rgba(255,107,44,.2)}
+.sol-icon{width:64px;height:64px;background:var(--accent-glow);border:1px solid rgba(255,107,44,.2);border-radius:16px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px}
+.sol-icon svg{width:28px;height:28px;fill:var(--accent)}
+.sol-card h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.sol-card p{color:var(--gray);font-size:.88rem;line-height:1.6}
+
+/* DEMO */
+.demo-sec{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.demo-box{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:48px;text-align:center;position:relative;overflow:hidden}
+.demo-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,107,44,.03),transparent 70%);pointer-events:none}
+.demo-box h3{font-family:'Instrument Serif',serif;font-size:1.8rem;margin-bottom:12px}
+.demo-box p{color:var(--gray);margin-bottom:28px;font-size:.95rem}
+.demo-placeholder{background:var(--card2);border:1px dashed rgba(255,255,255,.1);border-radius:12px;height:300px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem}
+
+/* BENEFICIOS */
+.benef-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:768px){.benef-grid{grid-template-columns:1fr}}
+.benef-item{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:border-color .3s}
+.benef-item:hover{border-color:rgba(255,107,44,.2)}
+.benef-check{width:36px;height:36px;min-width:36px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.benef-check svg{width:18px;height:18px;fill:var(--green)}
+.benef-item h4{font-size:.95rem;font-weight:700;margin-bottom:4px}
+.benef-item p{color:var(--gray);font-size:.82rem;line-height:1.5}
+
+/* PLANES */
+.planes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start}
+.plan-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px 28px;position:relative;transition:transform .3s,border-color .3s}
+.plan-card:hover{transform:translateY(-4px)}
+.plan-card.featured{border-color:var(--accent);box-shadow:0 0 60px rgba(255,107,44,.08)}
+.plan-card.featured::before{content:'MÁS ELEGIDO';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-size:.68rem;font-weight:800;padding:5px 14px;border-radius:20px;letter-spacing:.5px}
+.plan-name{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:12px}
+.plan-title{font-size:1.4rem;font-weight:800;margin-bottom:8px}
+.plan-desc{color:var(--gray);font-size:.85rem;line-height:1.6;margin-bottom:24px}
+.plan-features{list-style:none;margin-bottom:28px}
+.plan-features li{padding:8px 0;font-size:.88rem;color:var(--gray);display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
+.plan-features li:last-child{border:none}
+.plan-features li::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0}
+.plan-btn{display:block;width:100%;padding:16px;border-radius:12px;text-align:center;font-weight:700;font-size:.92rem;transition:all .2s}
+.plan-btn-outline{border:1.5px solid rgba(255,255,255,.15);color:#fff}
+.plan-btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.plan-btn-fill{background:var(--accent);color:#000;border:none}
+.plan-btn-fill:hover{transform:scale(1.02);box-shadow:0 8px 30px rgba(255,107,44,.3)}
+
+/* RUBROS */
+.rubros-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.rubro-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;align-items:center;gap:14px;transition:border-color .3s,transform .2s}
+.rubro-card:hover{border-color:rgba(255,107,44,.2);transform:translateY(-2px)}
+.rubro-icon{width:44px;height:44px;min-width:44px;background:var(--accent-glow);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.rubro-info h4{font-size:.9rem;font-weight:700;margin-bottom:3px}
+.rubro-info p{font-size:.75rem;color:var(--muted);line-height:1.4}
+
+/* CIERRE */
+.cierre{text-align:center;position:relative;overflow:hidden}
+.cierre::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1000px;height:600px;background:radial-gradient(ellipse,rgba(255,107,44,.06),transparent 60%);pointer-events:none}
+.cierre .stitle{max-width:700px;margin:0 auto 20px}
+.cierre p{color:var(--gray);font-size:1.1rem;max-width:500px;margin:0 auto 40px;line-height:1.7}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center}
+footer p{color:var(--muted);font-size:.8rem}
+footer a{color:var(--accent)}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:22px;z-index:9998;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(37,211,102,.4);transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* ANIMACIONES */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">Moviltec<span>Digital</span></div>
+    <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20info%20sobre%20el%20sistema%20de%20ventas" target="_blank" class="nav-cta">Quiero mi sistema</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-pill"><span></span> Sistema probado en Argentina</div>
+    <h1>Convierte tu Instagram en una <strong>máquina de ventas</strong></h1>
+    <p class="hero-sub">Automatiza respuestas, muestra tus productos y cerrá ventas sin estar pendiente del celular. Tu negocio vende solo, vos descansás.</p>
+    <div class="hero-btns">
+      <a href="../demos/viandas-ventas/" class="btn-main">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Probar el bot ahora
+      </a>
+      <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20una%20demo%20del%20sistema%20de%20ventas" target="_blank" class="btn-ghost">Solicitar demo</a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Sin inversión inicial
+      </div>
+      <div class="hero-proof-item">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Resultados en 48hs
+      </div>
+      <div class="hero-proof-item">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Funciona con cualquier rubro
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="sec">
+  <div class="ctr">
+    <div class="sec-header fade-up">
+      <p class="stitle">Publicar <strong>no es vender</strong></p>
+      <p class="ssub">Si solo subís fotos y esperás que te escriban... estás perdiendo plata todos los días.</p>
+    </div>
+    <div class="problema-grid">
+      <div class="prob-card fade-up">
+        <div class="prob-num">01</div>
+        <h3>Respondés tarde (o nunca)</h3>
+        <p>El cliente preguntó "precio?" hace 4 horas. Ya le compró a otro. El 70% no insiste si no respondés rápido.</p>
+      </div>
+      <div class="prob-card fade-up">
+        <div class="prob-num">02</div>
+        <h3>No tenés sistema de venta</h3>
+        <p>Tu "proceso de venta" es: responder DMs cuando podés, mandar fotos sueltas y esperar que el cliente se decida solo.</p>
+      </div>
+      <div class="prob-card fade-up">
+        <div class="prob-num">03</div>
+        <h3>Perdés ventas que ya tenías</h3>
+        <p>Te escribieron interesados. Preguntaron precio. Pidieron talle. Y nunca concretaron. ¿Cuántas ventas perdiste esta semana?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCION -->
+<section class="sec" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="ctr">
+    <div class="sec-header fade-up" style="text-align:center">
+      <p class="stitle">Un <strong>vendedor automático</strong> que trabaja por vos</p>
+      <p class="ssub" style="margin:0 auto">Disponible 24 horas. Responde al instante. Guía al cliente hasta el pago. Sin errores. Sin descanso.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card fade-up">
+        <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg></div>
+        <h3>Respuesta inmediata</h3>
+        <p>El cliente escribe, el bot responde en 2 segundos. Saluda, pregunta qué busca y lo guía al producto.</p>
+      </div>
+      <div class="sol-card fade-up">
+        <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0l3 3 3-3H4V6zm20 2H8c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12l4 4V10c0-1.1-.9-2-2-2z"/></svg></div>
+        <h3>Catálogo automático</h3>
+        <p>El cliente elige productos, talles, colores. Ve fotos y precios. Todo sin que vos hagas nada.</p>
+      </div>
+      <div class="sol-card fade-up">
+        <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div>
+        <h3>Cierre de venta</h3>
+        <p>Arma el pedido, calcula el total y genera el link de pago de MercadoPago. Vos solo ves la notificación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="sec demo-sec">
+  <div class="ctr">
+    <div class="demo-box fade-up">
+      <h3>Así respondería tu negocio automáticamente</h3>
+      <p>Probá el bot como si fueras un cliente. Elegí productos, armá tu pedido y viví la experiencia completa.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:28px">
+        <a href="../demos/viandas-ventas/" class="btn-main" style="font-size:.9rem;padding:14px 28px">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+          Demo Viandas
+        </a>
+        <a href="../demos/ropa/" class="btn-main" style="font-size:.9rem;padding:14px 28px;background:rgba(255,107,44,.15);color:var(--accent);box-shadow:none">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.5 3H16l-3.5 4-3.5-4H6.5L2 7.5 6 11V21h12V11l4-3.5L18.5 3z"/></svg>
+          Demo Ropa
+        </a>
+        <a href="../demos/peluqueria/" class="btn-main" style="font-size:.9rem;padding:14px 28px;background:rgba(255,107,44,.15);color:var(--accent);box-shadow:none">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6 2v6l2 2-2 2v6l3-3 2 3V2L8 5 6 2zm12 0l-3 3-2-3v16l2-3 3 3v-6l-2-2 2-2V2z"/></svg>
+          Demo Peluquería
+        </a>
+      </div>
+      <div class="demo-placeholder">Espacio para video demostrativo del bot en acción</div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="sec">
+  <div class="ctr">
+    <div class="sec-header fade-up">
+      <p class="stitle">Lo que cambia cuando <strong>automatizás</strong></p>
+      <p class="ssub">No es magia. Es tener un sistema que trabaja mientras vos hacés otra cosa.</p>
+    </div>
+    <div class="benef-grid">
+      <div class="benef-item fade-up">
+        <div class="benef-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div>
+          <h4>Más ventas concretas</h4>
+          <p>El cliente no se va. El bot lo guía hasta el pago sin darle tiempo a dudar.</p>
+        </div>
+      </div>
+      <div class="benef-item fade-up">
+        <div class="benef-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div>
+          <h4>Respuestas al instante, 24/7</h4>
+          <p>A las 3AM, un domingo, un feriado. Tu negocio siempre responde.</p>
+        </div>
+      </div>
+      <div class="benef-item fade-up">
+        <div class="benef-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div>
+          <h4>Menos trabajo manual</h4>
+          <p>Dejá de copiar y pegar precios. Dejá de mandar fotos una por una. El sistema lo hace.</p>
+        </div>
+      </div>
+      <div class="benef-item fade-up">
+        <div class="benef-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div>
+          <h4>Imagen profesional</h4>
+          <p>Tu cliente ve un negocio serio, organizado y moderno. Confianza desde el primer mensaje.</p>
+        </div>
+      </div>
+      <div class="benef-item fade-up">
+        <div class="benef-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div>
+          <h4>Todo registrado</h4>
+          <p>Cada pedido queda en una planilla. Sabés cuánto vendiste, qué se pidió y quién te compró.</p>
+        </div>
+      </div>
+      <div class="benef-item fade-up">
+        <div class="benef-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div>
+          <h4>Cobrás sin complicarte</h4>
+          <p>Link de MercadoPago automático. El cliente paga, vos recibís la plata. Así de simple.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section class="sec" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="ctr">
+    <div class="sec-header fade-up" style="text-align:center">
+      <p class="stitle">Elegí tu <strong>plan</strong></p>
+      <p class="ssub" style="margin:0 auto">Empezá donde quieras. Escalá cuando necesites.</p>
+    </div>
+    <div class="planes-grid">
+      <!-- PLAN 1 -->
+      <div class="plan-card fade-up">
+        <div class="plan-name">Presencia Digital</div>
+        <div class="plan-title">Empezá a existir online</div>
+        <p class="plan-desc">Tu negocio visible en internet con página propia y contacto directo por WhatsApp.</p>
+        <ul class="plan-features">
+          <li>Página web profesional</li>
+          <li>Botón de WhatsApp directo</li>
+          <li>Link de pago MercadoPago</li>
+          <li>Formulario de contacto</li>
+          <li>Diseño mobile-first</li>
+        </ul>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Me%20interesa%20el%20Plan%20Presencia%20Digital" target="_blank" class="plan-btn plan-btn-outline">Consultar</a>
+      </div>
+      <!-- PLAN 2 -->
+      <div class="plan-card featured fade-up">
+        <div class="plan-name">Ventas Automáticas</div>
+        <div class="plan-title">Vendé sin estar pendiente</div>
+        <p class="plan-desc">Bot de ventas que responde, muestra productos y cierra ventas automáticamente.</p>
+        <ul class="plan-features">
+          <li>Todo de Presencia Digital</li>
+          <li>Bot de ventas interactivo</li>
+          <li>Catálogo con 50+ productos</li>
+          <li>Carrito de compras</li>
+          <li>Respuestas automáticas 24/7</li>
+          <li>Link de pago automático</li>
+          <li>Panel de pedidos en Google Sheets</li>
+        </ul>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20el%20Plan%20Ventas%20Automáticas" target="_blank" class="plan-btn plan-btn-fill">Lo quiero</a>
+      </div>
+      <!-- PLAN 3 -->
+      <div class="plan-card fade-up">
+        <div class="plan-name">Negocio Digital Pro</div>
+        <div class="plan-title">Control total de tu negocio</div>
+        <p class="plan-desc">Sistema completo con stock en vivo, agenda automática y reportes de ventas.</p>
+        <ul class="plan-features">
+          <li>Todo de Ventas Automáticas</li>
+          <li>Stock en tiempo real</li>
+          <li>Integración Google Calendar</li>
+          <li>Notificaciones automáticas</li>
+          <li>Reportes semanales de ventas</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="https://wa.me/5492645304372?text=Hola!%20Me%20interesa%20el%20Plan%20Negocio%20Digital%20Pro" target="_blank" class="plan-btn plan-btn-outline">Consultar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RUBROS -->
+<section class="sec">
+  <div class="ctr">
+    <div class="sec-header fade-up" style="text-align:center">
+      <p class="stitle">Pensado para <strong>tu rubro</strong></p>
+      <p class="ssub" style="margin:0 auto">No importa qué vendas. El sistema se adapta a tu negocio.</p>
+    </div>
+    <div class="rubros-grid">
+      <a href="../demos/viandas-ventas/" class="rubro-card fade-up">
+        <div class="rubro-icon">🍲</div>
+        <div class="rubro-info"><h4>Gastronomía / Viandas</h4><p>Menú semanal, carrito de pedidos</p></div>
+      </a>
+      <a href="../demos/peluqueria/" class="rubro-card fade-up">
+        <div class="rubro-icon">💇‍♀️</div>
+        <div class="rubro-info"><h4>Peluquería</h4><p>Galería, servicios, reserva de turnos</p></div>
+      </a>
+      <a href="../demos/servicios-hogar/" class="rubro-card fade-up">
+        <div class="rubro-icon">🔧</div>
+        <div class="rubro-info"><h4>Servicios del Hogar</h4><p>Presupuesto online, urgencias 24hs</p></div>
+      </a>
+      <a href="../demos/ropa/" class="rubro-card fade-up">
+        <div class="rubro-icon">👕</div>
+        <div class="rubro-info"><h4>Tienda de Ropa</h4><p>Catálogo, talles, carrito</p></div>
+      </a>
+      <a href="../demos/inmobiliaria/" class="rubro-card fade-up">
+        <div class="rubro-icon">🏠</div>
+        <div class="rubro-info"><h4>Inmobiliaria</h4><p>Propiedades, filtros, tasación</p></div>
+      </a>
+      <a href="../demos/gimnasio/" class="rubro-card fade-up">
+        <div class="rubro-icon">💪</div>
+        <div class="rubro-info"><h4>Gimnasio</h4><p>Planes, horarios, actividades</p></div>
+      </a>
+      <a href="../demos/veterinaria/" class="rubro-card fade-up">
+        <div class="rubro-icon">🐾</div>
+        <div class="rubro-info"><h4>Veterinaria</h4><p>Servicios, urgencias 24hs, turnos</p></div>
+      </a>
+      <a href="../demos/taller/" class="rubro-card fade-up">
+        <div class="rubro-icon">🚗</div>
+        <div class="rubro-info"><h4>Taller Mecánico</h4><p>Presupuestos, servicios, garantía</p></div>
+      </a>
+      <a href="../demos/estetica/" class="rubro-card fade-up">
+        <div class="rubro-icon">💅</div>
+        <div class="rubro-info"><h4>Estética / Nails</h4><p>Uñas, cejas, pestañas, promos</p></div>
+      </a>
+      <a href="../demos/odontologia/" class="rubro-card fade-up">
+        <div class="rubro-icon">🦷</div>
+        <div class="rubro-info"><h4>Odontología</h4><p>Especialidades, obras sociales, turnos</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="sec cierre">
+  <div class="ctr fade-up">
+    <p class="stitle">Si ya vendés por Instagram,<br>estás a un paso de <strong>vender mejor</strong></p>
+    <p>No te faltan clientes. Estás perdiendo los que ya te escriben. Es hora de que tu negocio responda, venda y cobre solo.</p>
+    <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20mi%20sistema%20de%20ventas%20automáticas" target="_blank" class="btn-main" style="font-size:1.1rem;padding:20px 44px">
+      Quiero mi sistema
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Moviltec Digital · San Juan, Argentina</p>
+  <p style="margin-top:8px"><a href="https://moviltecdigital.com.ar" target="_blank">moviltecdigital.com.ar</a></p>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/5492645304372?text=Hola!%20Vi%20la%20página%20y%20quiero%20info%20sobre%20el%20sistema%20de%20ventas" target="_blank" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.072-1.108l-.292-.175-3.028.794.808-2.953-.192-.304A8 8 0 1112 20z"/></svg>
+</a>
+
+<!-- SCROLL ANIMATIONS -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
