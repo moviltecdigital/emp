@@ -32,22 +32,33 @@
     .nav-cta:hover{opacity:.9;transform:translateY(-1px)}
     @media(max-width:720px){.nav-links{display:none}}
 
-    /* HERO */
-    .hero{padding:96px 24px 100px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 60% 0%,rgba(59,130,246,0.12) 0%,transparent 55%),radial-gradient(ellipse at 30% 80%,rgba(124,58,237,0.1) 0%,transparent 55%),var(--bg)}
-    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);color:var(--blue2);font-size:0.78rem;font-weight:600;padding:7px 18px;border-radius:50px;margin-bottom:26px;text-transform:uppercase;letter-spacing:.5px}
-    .bdot{width:7px;height:7px;background:var(--blue2);border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-    .hero h1{font-size:clamp(2.4rem,7vw,4.2rem);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:22px;max-width:760px;margin-left:auto;margin-right:auto}
+    /* HERO CRO OPTIMIZADO */
+    .hero{padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 60% 0%,rgba(59,130,246,0.12) 0%,transparent 55%),radial-gradient(ellipse at 30% 80%,rgba(124,58,237,0.1) 0%,transparent 55%),var(--bg)}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.25);color:#4ade80;font-size:.72rem;font-weight:700;padding:6px 16px;border-radius:50px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.8px}
+    .hero-badge::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.9)}}
+    .hero h1{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:900;line-height:1.08;letter-spacing:-1.5px;margin-bottom:16px;max-width:800px;margin-left:auto;margin-right:auto}
     .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-sub{font-size:clamp(1rem,2.5vw,1.15rem);color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 38px;line-height:1.8}
-    .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
-    .hero-cta{display:inline-flex;align-items:center;gap:9px;background:var(--grad);color:#fff;text-decoration:none;padding:17px 36px;border-radius:50px;font-size:1.05rem;font-weight:700;box-shadow:0 8px 32px rgba(59,130,246,.35);transition:all .2s}
-    .hero-cta:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(59,130,246,.45)}
-    .hero-cta2{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.07);color:#fff;text-decoration:none;padding:17px 36px;border-radius:50px;font-size:1.05rem;font-weight:700;border:1px solid rgba(255,255,255,.18);transition:all .2s}
-    .hero-cta2:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
-    .hero-trust{display:flex;justify-content:center;gap:44px;flex-wrap:wrap}
-    .tr-num{font-size:1.85rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;letter-spacing:-1px}
-    .tr-lbl{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:3px;font-weight:500;text-align:center}
+    .hero-sub{font-size:clamp(.95rem,2.2vw,1.1rem);color:var(--gray);max-width:520px;margin:0 auto 28px;line-height:1.7}
+    .hero-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:20px}
+    .hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--grad);color:#fff;text-decoration:none;padding:18px 40px;border-radius:50px;font-size:1.08rem;font-weight:800;box-shadow:0 10px 40px rgba(59,130,246,.4);transition:all .25s;position:relative;overflow:hidden}
+    .hero-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.2),transparent);opacity:0;transition:opacity .3s}
+    .hero-cta:hover{transform:translateY(-3px);box-shadow:0 16px 50px rgba(59,130,246,.5)}
+    .hero-cta:hover::before{opacity:1}
+    .hero-cta small{display:block;font-size:.7rem;font-weight:500;opacity:.9;margin-top:2px}
+    .hero-trust-line{color:var(--gray2);font-size:.82rem;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+    .hero-trust-line span{display:flex;align-items:center;gap:6px}
+    .hero-trust-line svg{width:16px;height:16px;fill:#4ade80}
+    .hero-social-proof{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 28px;display:inline-flex;align-items:center;gap:20px;margin-bottom:50px}
+    .hsp-avatars{display:flex;margin-left:-8px}
+    .hsp-avatar{width:36px;height:36px;border-radius:50%;background:var(--grad);border:2px solid var(--card);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;margin-left:-8px}
+    .hsp-text{text-align:left}
+    .hsp-text strong{color:#fff;font-size:.9rem;display:block}
+    .hsp-text span{color:var(--gray);font-size:.75rem}
+    .hero-trust{display:flex;justify-content:center;gap:50px;flex-wrap:wrap}
+    .tr-item{text-align:center}
+    .tr-num{font-size:2rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-1px}
+    .tr-lbl{font-size:.72rem;color:var(--gray);margin-top:4px;font-weight:500}
 
     /* SECTIONS BASE */
     .sec{padding:80px 24px}
@@ -161,25 +172,43 @@
   <a href="https://wa.me/5492645304372?text=Hola!%20Vi%20la%20p%C3%A1gina%20y%20quiero%20info%20sobre%20el%20sistema%20de%20ventas" class="nav-cta" target="_blank">Quiero mi sistema</a>
 </nav>
 
-<!-- HERO -->
+<!-- HERO CRO OPTIMIZADO -->
 <section class="hero">
-  <div class="hero-eyebrow"><div class="bdot"></div>Sistema probado en Argentina</div>
-  <h1>Convierte tu Instagram en una<br><span class="grad">m&aacute;quina de ventas</span></h1>
-  <p class="hero-sub">Automatiz&aacute; respuestas, mostr&aacute; tus productos y cerr&aacute; ventas sin estar pendiente del celular.</p>
-  <div class="hero-btns">
-    <a href="./demos/bot-ropa/index.html" class="hero-cta" target="_blank">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
-      Probar el bot ahora
-    </a>
-    <a href="https://wa.me/5492645304372?text=Hola!%20Vi%20la%20p%C3%A1gina%20y%20quiero%20solicitar%20una%20demo" class="hero-cta2" target="_blank">
-      Solicitar demo &rarr;
+  <div class="hero-badge">Sistema activo en Argentina</div>
+  <h1>Vendé mientras dormís.<br><span class="grad">Automatizá tu negocio.</span></h1>
+  <p class="hero-sub">Tu propio vendedor virtual que atiende clientes, muestra productos y cierra ventas por WhatsApp las 24hs. Sin pagar sueldos.</p>
+  
+  <div class="hero-cta-wrap">
+    <a href="https://wa.me/5492645304372?text=Hola!%20Quiero%20automatizar%20mis%20ventas" class="hero-cta" target="_blank">
+      <span>Quiero vender automático</span>
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <small>Respondemos en minutos · Sin compromiso</small>
     </a>
   </div>
+  
+  <div class="hero-trust-line">
+    <span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Setup en 48hs</span>
+    <span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Sin costo inicial</span>
+    <span><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Garantía 30 días</span>
+  </div>
+  
+  <div class="hero-social-proof">
+    <div class="hsp-avatars">
+      <div class="hsp-avatar">P</div>
+      <div class="hsp-avatar">M</div>
+      <div class="hsp-avatar">L</div>
+      <div class="hsp-avatar">+</div>
+    </div>
+    <div class="hsp-text">
+      <strong>+50 negocios activos</strong>
+      <span>En San Juan y todo el país</span>
+    </div>
+  </div>
+  
   <div class="hero-trust">
-    <div><div class="tr-num">48hs</div><div class="tr-lbl">Listo</div></div>
-    <div><div class="tr-num">$0</div><div class="tr-lbl">Inversi&oacute;n inicial</div></div>
-    <div><div class="tr-num">10 rubros</div><div class="tr-lbl">Disponibles</div></div>
-    <div><div class="tr-num">24/7</div><div class="tr-lbl">Activo</div></div>
+    <div class="tr-item"><div class="tr-num">3x</div><div class="tr-lbl">Más ventas concretadas</div></div>
+    <div class="tr-item"><div class="tr-num">70%</div><div class="tr-lbl">Tiempo ahorrado</div></div>
+    <div class="tr-item"><div class="tr-num">24/7</div><div class="tr-lbl">Atención automática</div></div>
   </div>
 </section>
 
