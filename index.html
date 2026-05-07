@@ -1,11 +1,351 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8"/>
-<meta http-equiv="refresh" content="0; url=agencia/index.html"/>
-<title>Moviltec Digital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Luis Martínez | Soluciones Digitales & Automatización</title>
+  <meta name="description" content="Desarrollador de soluciones digitales con 30+ años de experiencia. Especialista en automatización, Google Apps Script y sistemas de gestión para instituciones y negocios.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0f;
+      --surface:#111118;
+      --card:#18181f;
+      --border:#26262e;
+      --blue:#3b82f6;
+      --violet:#7c3aed;
+      --grad:linear-gradient(135deg,#3b82f6,#7c3aed);
+      --gold:#d4af37;
+      --text:#f5f5f5;
+      --gray:#94a3b8;
+      --muted:#64748b;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .ctr{max-width:1000px;margin:0 auto;padding:0 24px}
+    
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 0}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;letter-spacing:-.5px}
+    .nav-logo span{color:var(--gold);font-weight:400}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{color:var(--gray);font-size:.85rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+    @media(max-width:640px){.nav-links{display:none}}
+    
+    /* HERO */
+    .hero{padding:100px 24px 80px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.08),transparent 60%),var(--bg)}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);color:var(--gold);font-size:.7rem;font-weight:600;padding:6px 14px;border-radius:50px;margin-bottom:24px;text-transform:uppercase;letter-spacing:1px}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:600;line-height:1.15;letter-spacing:-1px;margin-bottom:20px}
+    .hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-sub{font-size:clamp(1rem,2vw,1.15rem);color:var(--gray);max-width:600px;margin:0 auto 32px;line-height:1.7}
+    .hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--grad);color:#fff;padding:16px 32px;border-radius:50px;font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+    .hero-cta:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(59,130,246,.3)}
+    .hero-trust{margin-top:48px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+    .ht-item{text-align:center}
+    .ht-num{font-size:1.8rem;font-weight:700;color:var(--gold);letter-spacing:-1px}
+    .ht-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+    
+    /* TRAYECTORIA */
+    .trayectoria{padding:80px 24px;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .sec-header{text-align:center;margin-bottom:48px}
+    .sec-tag{color:var(--gold);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+    .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.2rem);font-weight:500;margin-bottom:12px}
+    .sec-sub{color:var(--gray);font-size:.95rem;max-width:500px;margin:0 auto}
+    
+    .traj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .traj-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color .2s}
+    .traj-card:hover{border-color:rgba(212,175,55,.3)}
+    .traj-year{font-size:.65rem;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .traj-title{font-size:1.05rem;font-weight:600;margin-bottom:8px}
+    .traj-desc{font-size:.85rem;color:var(--gray);line-height:1.6}
+    .traj-list{margin-top:12px;padding-left:16px;font-size:.8rem;color:var(--muted)}
+    .traj-list li{margin-bottom:4px}
+    
+    /* SERVICIOS */
+    .servicios{padding:80px 24px}
+    .serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .serv-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .2s,border-color .2s}
+    .serv-card:hover{transform:translateY(-4px);border-color:rgba(59,130,246,.4)}
+    .serv-header{padding:24px 24px 16px}
+    .serv-icon{width:48px;height:48px;background:var(--grad);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.5rem}
+    .serv-title{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+    .serv-desc{font-size:.85rem;color:var(--gray);line-height:1.6}
+    .serv-body{padding:0 24px 24px}
+    .serv-features{list-style:none;margin-bottom:20px}
+    .serv-features li{font-size:.8rem;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+    .serv-features li:before{content:'→';color:var(--blue);font-weight:600}
+    .serv-btn{display:block;width:100%;padding:12px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--blue);text-align:center;border-radius:10px;font-weight:600;font-size:.85rem;transition:all .2s}
+    .serv-btn:hover{background:var(--grad);color:#fff;border-color:transparent}
+    
+    /* CTA FINAL */
+    .cta-final{padding:100px 24px;text-align:center;background:radial-gradient(ellipse at 50% 100%,rgba(124,58,237,.1),transparent 60%),var(--surface);border-top:1px solid var(--border)}
+    .cta-final h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2rem);font-weight:500;margin-bottom:16px}
+    .cta-final p{color:var(--gray);max-width:450px;margin:0 auto 28px;font-size:.95rem}
+    .cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--grad);color:#fff;padding:18px 36px;border-radius:50px;font-weight:600;transition:transform .2s}
+    .cta-btn:hover{transform:translateY(-2px)}
+    
+    /* FOOTER */
+    footer{padding:40px 24px;text-align:center;border-top:1px solid var(--border)}
+    footer p{color:var(--muted);font-size:.8rem}
+    .social-links{display:flex;justify-content:center;gap:16px;margin-top:16px}
+    .social-links a{width:40px;height:40px;background:var(--card);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
+    .social-links a:hover{border-color:var(--blue)}
+    
+    /* WA FLOAT */
+    .wa-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s;z-index:99}
+    .wa-float:hover{transform:scale(1.1)}
+    .wa-float svg{width:28px;height:28px;fill:#fff}
+  </style>
 </head>
 <body>
-<script>window.location.href='agencia/index.html';</script>
+
+<nav>
+  <div class="ctr nav-inner">
+    <div class="nav-logo">Juan Luis <span>Martínez</span></div>
+    <ul class="nav-links">
+      <li><a href="#trayectoria">Trayectoria</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ctr">
+    <div class="hero-badge">30+ años de experiencia</div>
+    <h1>Desarrollo <em>soluciones digitales prácticas</em> que automatizan procesos y mejoran resultados</h1>
+    <p class="hero-sub">Especialista en Google Apps Script, automatización de workflows y sistemas de gestión para instituciones educativas y pequeños negocios. Sin humo, solo resultados medibles.</p>
+    <a href="#servicios" class="hero-cta">Ver soluciones disponibles →</a>
+    
+    <div class="hero-trust">
+      <div class="ht-item">
+        <div class="ht-num">30+</div>
+        <div class="ht-lbl">Años de experiencia</div>
+      </div>
+      <div class="ht-item">
+        <div class="ht-num">10+</div>
+        <div class="ht-lbl">Instituciones</div>
+      </div>
+      <div class="ht-item">
+        <div class="ht-num">100%</div>
+        <div class="ht-lbl">Soluciones reales</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAYECTORIA -->
+<section id="trayectoria" class="trayectoria">
+  <div class="ctr">
+    <div class="sec-header">
+      <div class="sec-tag">Trayectoria</div>
+      <h2 class="sec-title">De la educación a la tecnología</h2>
+      <p class="sec-sub">Un recorrido construido paso a paso, combinando pedagogía, técnica y visión de negocio.</p>
+    </div>
+    
+    <div class="traj-grid">
+      <div class="traj-card">
+        <div class="traj-year">2010 — Actualidad</div>
+        <div class="traj-title">Desarrollador de soluciones digitales</div>
+        <div class="traj-desc">Especialización en automatización con Google Apps Script, integración de IA y plataformas no-code.</div>
+        <ul class="traj-list">
+          <li>Sistema de calificaciones online usado por padres y docentes</li>
+          <li>Automatizaciones que reducen tareas manuales en 70%</li>
+          <li>Implementaciones en entornos reales, no teoría</li>
+        </ul>
+      </div>
+      
+      <div class="traj-card">
+        <div class="traj-year">1993 — 2025</div>
+        <div class="traj-title">Coordinador Pedagógico Informático</div>
+        <div class="traj-desc">Responsable técnico en múltiples instituciones educativas de San Juan.</div>
+        <ul class="traj-list">
+          <li>Colegio Medalla Milagrosa, Santa Bárbara, El Tránsito</li>
+          <li>Colegio Santa Rosa, Houssay, La Inmaculada</li>
+          <li>Colegio Pérez Hernández, Escuela Mercedes Gallardo</li>
+        </ul>
+      </div>
+      
+      <div class="traj-card">
+        <div class="traj-year">1993 — 2005</div>
+        <div class="traj-title">Instructor de informática</div>
+        <div class="traj-desc">Capacitación a empresas, estudios jurídicos, profesionales e instituciones.</div>
+        <ul class="traj-list">
+          <li>TECMA, TARANTO, AFJP CONSOLIDAR</li>
+          <li>Hospital Rawson, Consejo de Ciencias Económicas</li>
+          <li>Universidad Nacional de San Juan</li>
+        </ul>
+      </div>
+      
+      <div class="traj-card">
+        <div class="traj-year">2017 — 2022</div>
+        <div class="traj-title">Presidente — Federación Sanjuanina de Natación</div>
+        <div class="traj-desc">Gestión administrativa, coordinación institucional e implementación de mejoras digitales en procesos organizativos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="servicios">
+  <div class="ctr">
+    <div class="sec-header">
+      <div class="sec-tag">Servicios</div>
+      <h2 class="sec-title">Soluciones que funcionan</h2>
+      <p class="sec-sub">Cada proyecto está pensado para resolver un problema real, no para lucir bien en una presentación.</p>
+    </div>
+    
+    <div class="serv-grid">
+      <!-- AGENCIA DE VENTAS -->
+      <div class="serv-card">
+        <div class="serv-header">
+          <div class="serv-icon">🚀</div>
+          <div class="serv-title">Agencia de Ventas Automáticas</div>
+          <div class="serv-desc">Bot de ventas por WhatsApp que atiende clientes, muestra productos y cierra ventas las 24hs.</div>
+        </div>
+        <div class="serv-body">
+          <ul class="serv-features">
+            <li>Catálogo digital interactivo</li>
+            <li>Carrito de compras integrado</li>
+            <li>Pagos con MercadoPago automáticos</li>
+            <li>Registro de pedidos en Google Sheets</li>
+          </ul>
+          <a href="./agencia-ventas/index.html" class="serv-btn">Ver proyecto →</a>
+        </div>
+      </div>
+      
+      <!-- PORTERO DIGITAL -->
+      <div class="serv-card">
+        <div class="serv-header">
+          <div class="serv-icon">🏢</div>
+          <div class="serv-title">Portero Digital</div>
+          <div class="serv-desc">Sistema de ingreso/egreso de personal con registro automático, notificaciones y reportes.</div>
+        </div>
+        <div class="serv-body">
+          <ul class="serv-features">
+            <li>Registro por QR o número de documento</li>
+            <li>Notificaciones automáticas al responsable</li>
+            <li>Historial completo exportable</li>
+            <li>Control de accesos en tiempo real</li>
+          </ul>
+          <a href="#contacto" class="serv-btn">Consultar disponibilidad →</a>
+        </div>
+      </div>
+      
+      <!-- CONTROL DE INGRESOS -->
+      <div class="serv-card">
+        <div class="serv-header">
+          <div class="serv-icon">📊</div>
+          <div class="serv-title">Control de Ingresos del Personal</div>
+          <div class="serv-desc">Gestión de asistencia, horarios y reportes de personal con acceso desde cualquier dispositivo.</div>
+        </div>
+        <div class="serv-body">
+          <ul class="serv-features">
+            <li>Fichado digital con geolocalización</li>
+            <li>Cálculo automático de horas trabajadas</li>
+            <li>Reportes semanales/mensuales</li>
+            <li>Integración con planillas de cálculo</li>
+          </ul>
+          <a href="#contacto" class="serv-btn">Consultar disponibilidad →</a>
+        </div>
+      </div>
+      
+      <!-- AUTOMATIZACIÓN DE DRIVE -->
+      <div class="serv-card">
+        <div class="serv-header">
+          <div class="serv-icon">☁️</div>
+          <div class="serv-title">Automatización de Google Drive</div>
+          <div class="serv-desc">Organización automática de archivos, permisos inteligentes y flujos de trabajo documentales.</div>
+        </div>
+        <div class="serv-body">
+          <ul class="serv-features">
+            <li>Clasificación automática de archivos</li>
+            <li>Carpetas dinámicas por proyecto/fecha</li>
+            <li>Respaldos programados</li>
+            <li>Integración con otros sistemas</li>
+          </ul>
+          <a href="#contacto" class="serv-btn">Consultar disponibilidad →</a>
+        </div>
+      </div>
+      
+      <!-- GESTIÓN DE ALUMNOS -->
+      <div class="serv-card">
+        <div class="serv-header">
+          <div class="serv-icon">🎓</div>
+          <div class="serv-title">Gestión de Alumnos</div>
+          <div class="serv-desc">Sistema completo de calificaciones, asistencia y comunicación con padres vía web.</div>
+        </div>
+        <div class="serv-body">
+          <ul class="serv-features">
+            <li>Calificaciones online por materia</li>
+            <li>Acceso diferenciado: padres, docentes, directivos</li>
+            <li>Historial académico completo</li>
+            <li>Notificaciones automáticas de novedades</li>
+          </ul>
+          <a href="#contacto" class="serv-btn">Ver caso de uso →</a>
+        </div>
+      </div>
+      
+      <!-- SOLUCIONES A MEDIDA -->
+      <div class="serv-card">
+        <div class="serv-header">
+          <div class="serv-icon">⚙️</div>
+          <div class="serv-title">Soluciones a Medida</div>
+          <div class="serv-desc">¿Tenés un proceso específico que querés automatizar? Lo analizamos y desarrollamos.</div>
+        </div>
+        <div class="serv-body">
+          <ul class="serv-features">
+            <li>Diagnóstico gratuito del proceso</li>
+            <li>Propuesta con alcance y tiempos reales</li>
+            <li>Desarrollo iterativo con feedback</li>
+            <li>Capacitación y documentación incluida</li>
+          </ul>
+          <a href="#contacto" class="serv-btn">Contame tu proyecto →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contacto" class="cta-final">
+  <div class="ctr">
+    <h2>¿Tenés un proceso que te consume tiempo?</h2>
+    <p>Hablemos. En 15 minutos te digo si se puede automatizar y cómo. Sin costo, sin compromiso.</p>
+    <a href="https://wa.me/5492645304372?text=Hola%20Juan%20Luis,%20vi%20tu%20perfil%20y%20quiero%20consultarte%20sobre%20una%20automatización" class="cta-btn" target="_blank">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.072-1.108l-.292-.175-3.028.794.808-2.953-.192-.304A8 8 0 1112 20z"/></svg>
+      Escribime por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ctr">
+    <p><strong>Juan Luis Martínez</strong> · San Juan, Argentina</p>
+    <p style="margin-top:8px;font-size:.75rem;color:var(--muted)">Soluciones digitales con resultados medibles · Desde 2010</p>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/tu-perfil" target="_blank" title="LinkedIn">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </a>
+      <a href="mailto:moviltecdigital@gmail.com" title="Email">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/5492645304372?text=Hola%20Juan%20Luis,%20vi%20tu%20perfil%20y%20quiero%20consultarte" class="wa-float" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.072-1.108l-.292-.175-3.028.794.808-2.953-.192-.304A8 8 0 1112 20z"/></svg>
+</a>
+
 </body>
 </html>
